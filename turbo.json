@@ -6,6 +6,15 @@
       "inputs": ["$TURBO_DEFAULT", ".env*"],
       "outputs": [".svelte-kit/**"]
     },
+    "lint": {
+      "cache": false
+    },
+    "fix": {
+      "cache": false
+    },
+    "check": {
+      "cache": false
+    },
     "dev": {
       "cache": false,
       "persistent": true
