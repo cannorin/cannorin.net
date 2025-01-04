@@ -1,0 +1,36 @@
+node_modules
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Output
+.output
+.vercel
+.svelte-kit
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+.dev.vars
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# turbo
+.turbo
+
+# Wrangler
+.wrangler/
+wrangler.toml
