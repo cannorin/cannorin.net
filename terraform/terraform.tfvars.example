@@ -1,0 +1,4 @@
+BASE_DOMAIN        = "preview.0b4k3.com"
+REPOSITORY_NAME    = "website-staging"
+REPOSITORY_OWNER   = "0b4k3-website"
+ZONE_ID            = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"

@@ -1,0 +1,5 @@
+bucket     = "tfstate"
+key        = "website_staging.tfstate"
+access_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+secret_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+endpoints  = { s3 = "https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.r2.cloudflarestorage.com" }
