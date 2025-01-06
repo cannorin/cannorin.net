@@ -1,3 +1,48 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    --foreground: 55 65 81 /* #374151 */;
+    --background: 250 250 250 /* #fafafa */;
+
+    --muted: 174 174 174 /* #aeaeae */;
+    --muted-foreground: 31 31 31 /* #1f1f1f */;
+
+    --popover: 245 248 255;
+    --popover-foreground: 12 0 0;
+
+    --card: 245 248 255;
+    --card-foreground: 12 0 0;
+
+    --border: 55 65 81 /* #374151 */;
+    --input: 55 65 81 /* #374151 */;
+    --ring: 55 65 81 /* #374151 */;
+
+    --primary: 219 96 114 /* DB6072 */;
+    --primary-foreground: 31 31 31 /* #1f1f1f */;
+
+    --secondary: 120 153 212 /* 7899D4 */;
+    --secondary-foreground: 31 31 31 /* #1f1f1f */;
+
+    --accent: 120 153 212 /* 7899D4 */;
+    --accent-foreground: 31 31 31 /* #1f1f1f */;
+
+    --destructive: 219 96 114 /* DB6072 */;
+    --destructive-foreground: 31 31 31 /* #1f1f1f */;
+
+    color-scheme: only light;
+    scrollbar-gutter: stable;
+    padding-left: calc(100vw - 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground min-h-screen flex flex-col justify-normal;
+  }
+}

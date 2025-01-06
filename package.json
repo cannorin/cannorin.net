@@ -6,7 +6,8 @@
     "dev": "turbo run dev",
     "check": "turbo run check",
     "lint": "turbo run lint",
-    "fix": "turbo run fix"
+    "fix": "turbo run fix",
+    "gen:env": "bash scripts/generate_env_for_apps.sh"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",

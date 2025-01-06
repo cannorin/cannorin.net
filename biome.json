@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [".env", ".env.*", ".yarn/**/*"]
+    "ignore": [".env", ".env.*", ".yarn/**/*", "*.*css"]
   },
   "formatter": {
     "enabled": true,
