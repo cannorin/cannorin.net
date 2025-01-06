@@ -20,13 +20,13 @@ import SiZenn from "@icons-pack/svelte-simple-icons/icons/SiZenn";
 
 <!-- Sections -->
 <main class={cn(limitWidth, "flex grow flex-col items-center gap-12 lg:gap-16 py-8")}>
-  <h1 class="font-display text-4xl md:text-5xl lg:text-6xl animate-fade-in">cannorin.net</h1>
+  <h1 class="font-display text-4xl md:text-5xl lg:text-6xl">cannorin.net</h1>
 
   <section class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8">
     <h2 class="sr-only">自己紹介</h2>
 
     <section class="card">
-      <enhanced:img src="../assets/images/static/icon/jakeko.webp?w=1080,800,600,400,300" sizes="min(100vw, 400px)" alt="" />
+      <enhanced:img src="../assets/images/static/icon/jakeko.webp?w=1080,800,600,400,300" sizes="min(100vw, 400px)" alt="" class="animate-fade-in" />
       <div class="body">
         <h3>DJ / Composer</h3>
         <p>ワイヤードでは VRChat を拠点に、リアルワールドでは大阪を拠点にして、DJ や作曲などの音楽活動を行っています。</p>
@@ -59,7 +59,7 @@ import SiZenn from "@icons-pack/svelte-simple-icons/icons/SiZenn";
     </section>
 
     <section class="card">
-      <enhanced:img src="../assets/images/static/icon/tapl.webp?w=1080,800,640,400,320" sizes="min(100vw, 400px)" alt="" />
+      <enhanced:img src="../assets/images/static/icon/tapl.webp?w=1080,800,640,400,320" sizes="min(100vw, 400px)" alt="" class="animate-fade-in" />
       <div class="body">
         <h3>Developer</h3>
         <p>フルスタックエンジニアとして働いており、いくつかの OSS に関わっています。また、趣味で Web サービスを運用しています。</p>
@@ -92,7 +92,7 @@ import SiZenn from "@icons-pack/svelte-simple-icons/icons/SiZenn";
     </section>
 
     <section class="card">
-      <enhanced:img src="../assets/images/static/icon/logic-chang.webp?w=1080,800,600,400,300" sizes="min(100vw, 400px)" alt="" />
+      <enhanced:img src="../assets/images/static/icon/logic-chang.webp?w=1080,800,600,400,300" sizes="min(100vw, 400px)" alt="" class="animate-fade-in" />
       <div class="body">
         <h3>Graduate Student</h3>
         <p>大学院において数理論理学を研究しており、非古典論理、特に様相論理を専門としています。2025年度より博士課程に進学します。</p>
@@ -161,7 +161,7 @@ import SiZenn from "@icons-pack/svelte-simple-icons/icons/SiZenn";
 
 <style lang="postcss">
   .card {
-    @apply relative max-w-[400px] rounded-2xl flex flex-col items-center shadow animate-fade-in overflow-clip;
+    @apply relative max-w-[400px] rounded-2xl flex flex-col items-center shadow overflow-clip;
 
     &::before {
       @apply absolute top-0 left-0 right-0 bottom-0 rounded-2xl border border-transparent;
@@ -206,7 +206,7 @@ import SiZenn from "@icons-pack/svelte-simple-icons/icons/SiZenn";
   }
 
   .followme {
-    @apply flex flex-row flex-wrap items-center justify-center gap-4 px-10 py-4 animate-fade-in rounded-full;
+    @apply flex flex-row flex-wrap items-center justify-center gap-4 px-10 py-4 rounded-full;
     background: linear-gradient(45deg, rgb(var(--primary) / 50%), rgb(var(--secondary) / 50%));
   }
 
