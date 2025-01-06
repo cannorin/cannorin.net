@@ -26,7 +26,7 @@ import SiZenn from "@icons-pack/svelte-simple-icons/icons/SiZenn";
     <h2 class="sr-only">自己紹介</h2>
 
     <section class="card">
-      <enhanced:img src="../assets/images/static/icon/jakeko.webp?w=1080,800,600,400,300" sizes="min(100vw, 400px)" alt="" class="animate-fade-in" />
+      <enhanced:img src="../assets/images/static/icon/jakeko.webp?w=1080;800;600;400;300" sizes="min(400px, 100vw)" alt="" class="animate-fade-in" />
       <div class="body">
         <h3>DJ / Composer</h3>
         <p>ワイヤードでは VRChat を拠点に、リアルワールドでは大阪を拠点にして、DJ や作曲などの音楽活動を行っています。</p>
@@ -59,7 +59,7 @@ import SiZenn from "@icons-pack/svelte-simple-icons/icons/SiZenn";
     </section>
 
     <section class="card">
-      <enhanced:img src="../assets/images/static/icon/tapl.webp?w=1080,800,640,400,320" sizes="min(100vw, 400px)" alt="" class="animate-fade-in" />
+      <enhanced:img src="../assets/images/static/icon/tapl.webp?w=1080;800;600;400;300" sizes="min(400px, 100vw)" alt="" class="animate-fade-in" />
       <div class="body">
         <h3>Developer</h3>
         <p>フルスタックエンジニアとして働いており、いくつかの OSS に関わっています。また、趣味で Web サービスを運用しています。</p>
@@ -92,7 +92,7 @@ import SiZenn from "@icons-pack/svelte-simple-icons/icons/SiZenn";
     </section>
 
     <section class="card">
-      <enhanced:img src="../assets/images/static/icon/logic-chang.webp?w=1080,800,600,400,300" sizes="min(100vw, 400px)" alt="" class="animate-fade-in" />
+      <enhanced:img src="../assets/images/static/icon/logic-chang.webp?w=1080;800;600;400;300" sizes="min(400px, 100vw)" alt="" class="animate-fade-in" />
       <div class="body">
         <h3>Graduate Student</h3>
         <p>大学院において数理論理学を研究しており、非古典論理、特に様相論理を専門としています。2025年度より博士課程に進学します。</p>
