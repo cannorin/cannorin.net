@@ -4,6 +4,7 @@ import { RateLimiter } from "sveltekit-rate-limiter/server";
 import { dev } from "$app/environment";
 import { MISSKEY_API_KEY } from "$env/static/private";
 import type { InviteListResponse } from "misskey-js/entities.js";
+import { sample } from "$lib";
 
 const limiter = new RateLimiter({
   IP: [10, "d"], // IP address limiter
@@ -30,8 +31,7 @@ export async function GET(event: RequestEvent) {
     },
   );
   const json = await res.json();
-  console.log(json);
-  const invite = (json as InviteListResponse).find(
+  const invite = sample(json as InviteListResponse).find(
     (x) => !x.createdBy && !x.usedAt,
   );
   if (invite) return text(invite.code);
