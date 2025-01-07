@@ -3,9 +3,8 @@ import "../app.css";
 import "./webfont.css";
 
 import { page } from "$app/state";
+import Seo, { defaultSeo, mergeSeo } from "$components/seo";
 import { PUBLIC_WEB_DOMAIN } from "$env/static/public";
-import { defaultSeo, mergeSeo } from "$lib/common/seo";
-import SvelteSeo from "svelte-seo";
 
 let { children } = $props();
 let seo = $derived.by(() =>
@@ -18,6 +17,6 @@ let seo = $derived.by(() =>
 );
 </script>
 
-<SvelteSeo {...seo} />
+<Seo {...seo} />
 
 {@render children()}

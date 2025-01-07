@@ -10,3 +10,8 @@ output "WEB_TURNSTILE_SECRET_KEY" {
   value     = cloudflare_turnstile_widget.web.secret
   sensitive = true
 }
+
+output "MISSKEY_API_KEY" {
+  value     = var.MISSKEY_API_KEY
+  sensitive = true
+}

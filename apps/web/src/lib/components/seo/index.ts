@@ -1,11 +1,8 @@
-import type { ComponentProps } from "svelte";
-import type SvelteSeo from "svelte-seo";
+import type { SeoProps } from "./types";
 
 import deepmerge from "deepmerge";
 
-export type Seo = ComponentProps<SvelteSeo>;
-
-export const defaultSeo: Seo = {
+export const defaultSeo: SeoProps = {
   title: "cannorin.net",
   description: "cannorin's website",
   themeColor: "#fafafa",
@@ -26,13 +23,17 @@ export const defaultSeo: Seo = {
 };
 
 export const mergeSeo = (
-  target: Seo,
-  ...sources: (Seo | undefined | false)[]
+  target: SeoProps,
+  ...sources: (SeoProps | undefined | false)[]
 ) =>
-  sources.reduce<Seo>(
+  sources.reduce<SeoProps>(
     (acc, current) =>
       deepmerge(acc, current || {}, {
         arrayMerge: (_target, source) => source,
       }),
     target,
   );
+
+import Component from "./index.svelte";
+
+export default Component;

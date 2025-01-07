@@ -1,0 +1,21 @@
+* {
+  --foreground: 152 13 26;
+  --background: 254 248 249;
+  --background-darken: 252 235 238;
+
+  --muted-foreground: 219 96 114;
+
+  --border: 152 13 26;
+  --input: 152 13 26;
+  --ring: 152 13 26;
+
+  --primary: 219 96 114;
+  --primary-darken: 210 54 77;
+  --primary-lighten: 228 138 151;
+  --primary-foreground: 254 248 249;
+
+  --secondary: 219 119 96;
+  --secondary-foreground: 254 248 249;
+
+  color-scheme: only light;
+}

@@ -3,7 +3,7 @@ import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
-  content: ["./src/**/*.{html,js,svelte,ts}"],
+  content: ["./src/**/*.{html,js,svelte,ts,md}"],
 
   theme: {
     container: {
@@ -72,6 +72,28 @@ export default {
           },
         },
       },
+      typography: () => ({
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": "rgb(var(--foreground))",
+            "--tw-prose-headings": "rgb(var(--foreground))",
+            "--tw-prose-lead": "rgb(var(--accent))",
+            "--tw-prose-links": "rgb(var(--primary))",
+            "--tw-prose-bold": "rgb(var(--foreground))",
+            "--tw-prose-counters": "rgb(var(--primary))",
+            "--tw-prose-bullets": "rgb(var(--primary))",
+            "--tw-prose-hr": "rgb(var(--muted-foreground))",
+            "--tw-prose-quotes": "rgb(var(--muted-foreground))",
+            "--tw-prose-quote-borders": "rgb(var(--muted-foreground))",
+            "--tw-prose-captions": "rgb(var(--muted))",
+            "--tw-prose-code": "rgb(var(--foreground))",
+            "--tw-prose-pre-code": "rgb(var(--muted))",
+            "--tw-prose-pre-bg": "rgb(var(--muted))",
+            "--tw-prose-th-borders": "transparent",
+            "--tw-prose-td-borders": "rgb(var(--primary))",
+          },
+        },
+      }),
     },
   },
 

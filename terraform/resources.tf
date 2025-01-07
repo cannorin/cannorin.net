@@ -29,6 +29,7 @@ resource "cloudflare_pages_project" "web" {
       }
       secrets = {
         WEB_TURNSTILE_SECRET_KEY = cloudflare_turnstile_widget.web.secret
+        MISSKEY_API_KEY          = var.MISSKEY_API_KEY
       }
       compatibility_date  = "2024-09-18"
       compatibility_flags = ["nodejs_compat"]
@@ -41,6 +42,7 @@ resource "cloudflare_pages_project" "web" {
       }
       secrets = {
         WEB_TURNSTILE_SECRET_KEY = cloudflare_turnstile_widget.web.secret
+        MISSKEY_API_KEY          = var.MISSKEY_API_KEY
       }
       compatibility_date  = "2024-09-18"
       compatibility_flags = ["nodejs_compat"]
