@@ -1,5 +1,7 @@
 import type { SeoProps } from "./types";
 
+export * from "./types";
+
 import deepmerge from "deepmerge";
 
 export const defaultSeo: SeoProps = {
