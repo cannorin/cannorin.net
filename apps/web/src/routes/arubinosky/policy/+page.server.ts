@@ -4,6 +4,7 @@ export async function load() {
   return {
     seo: {
       title: "あるびのすきー",
+      description: "とにかくかわいい Misskey インスタンス",
       openGraph: {
         title: "あるびのすきー",
         description: "とにかくかわいい Misskey インスタンス",
