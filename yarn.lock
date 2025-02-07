@@ -2895,9 +2895,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-check@npm:4.1.1":
-  version: 4.1.1
-  resolution: "svelte-check@npm:4.1.1"
+"svelte-check@npm:4.1.4":
+  version: 4.1.4
+  resolution: "svelte-check@npm:4.1.4"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
     chokidar: "npm:^4.0.1"
@@ -2909,7 +2909,7 @@ __metadata:
     typescript: ">=5.0.0"
   bin:
     svelte-check: bin/svelte-check
-  checksum: 10c0/e94b4fc24a2e8322405ebe975b2d8cce7732d7ff11a15fc357ff97046b2a3039c24e863ee713003643a6019c7479966a4418d997de4c0da7cbc03a06092b480e
+  checksum: 10c0/f0161214078e7b16178167daa5c82a1790759859946b8cd4a9f5ae866345c502f1f27cadc6734b36709ad75c79650fd85cae286f7a21c78e403521e35b5ebb20
   languageName: node
   linkType: hard
 
@@ -3319,7 +3319,7 @@ __metadata:
     misskey-js: "npm:2024.11.1-alpha.0"
     schema-dts: "npm:1.1.2"
     svelte: "npm:5.16.1"
-    svelte-check: "npm:4.1.1"
+    svelte-check: "npm:4.1.4"
     sveltekit-rate-limiter: "npm:0.6.1"
     svgo: "npm:3.3.2"
     tailwind-merge: "npm:2.6.0"
