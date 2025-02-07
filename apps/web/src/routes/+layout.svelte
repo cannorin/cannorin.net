@@ -2,6 +2,7 @@
 import "../app.css";
 import "./webfont.css";
 
+import { onNavigate } from "$app/navigation";
 import { page } from "$app/state";
 import Seo, { defaultSeo, mergeSeo } from "$components/seo";
 import { PUBLIC_WEB_DOMAIN } from "$env/static/public";
@@ -15,6 +16,16 @@ let seo = $derived.by(() =>
     },
   }),
 );
+
+onNavigate((navigation) => {
+  if (!document.startViewTransition) return;
+  return new Promise((resolve) => {
+    document.startViewTransition(async () => {
+      resolve();
+      await navigation.complete;
+    });
+  });
+});
 </script>
 
 <Seo {...seo} />

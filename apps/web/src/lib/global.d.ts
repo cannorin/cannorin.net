@@ -43,3 +43,10 @@ interface ReadonlyArray<T> {
 interface Map<K> {
   has(key: Weaken<K>): key is K;
 }
+
+declare module "*&enhanced" {
+  import type { Picture } from "vite-imagetools";
+
+  const value: Picture;
+  export default value;
+}
