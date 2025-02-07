@@ -1940,12 +1940,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-svelte@npm:0.469.0":
-  version: 0.469.0
-  resolution: "lucide-svelte@npm:0.469.0"
+"lucide-svelte@npm:0.474.0":
+  version: 0.474.0
+  resolution: "lucide-svelte@npm:0.474.0"
   peerDependencies:
     svelte: ^3 || ^4 || ^5.0.0-next.42
-  checksum: 10c0/fec59a410004e59871bb796ef65a2fb97f2b385b9e889ddafe500bf718308f2b32774bfd36e5ba6032b163522015e71f1834f08ce5e04b99852aaf1cc2c6ca5d
+  checksum: 10c0/d9da279a4a9a38fc208c7ecc69b2b6f641b0d04f466e54c9d8d77f9478cbda7426627b98dac9d8431917a871f3dbb1087699eaf08402840f578821d53ba58d14
   languageName: node
   linkType: hard
 
@@ -2895,9 +2895,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-check@npm:4.1.1":
-  version: 4.1.1
-  resolution: "svelte-check@npm:4.1.1"
+"svelte-check@npm:4.1.4":
+  version: 4.1.4
+  resolution: "svelte-check@npm:4.1.4"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
     chokidar: "npm:^4.0.1"
@@ -2909,7 +2909,7 @@ __metadata:
     typescript: ">=5.0.0"
   bin:
     svelte-check: bin/svelte-check
-  checksum: 10c0/e94b4fc24a2e8322405ebe975b2d8cce7732d7ff11a15fc357ff97046b2a3039c24e863ee713003643a6019c7479966a4418d997de4c0da7cbc03a06092b480e
+  checksum: 10c0/f0161214078e7b16178167daa5c82a1790759859946b8cd4a9f5ae866345c502f1f27cadc6734b36709ad75c79650fd85cae286f7a21c78e403521e35b5ebb20
   languageName: node
   linkType: hard
 
@@ -3244,9 +3244,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.4.11":
-  version: 5.4.11
-  resolution: "vite@npm:5.4.11"
+"vite@npm:5.4.12":
+  version: 5.4.12
+  resolution: "vite@npm:5.4.12"
   dependencies:
     esbuild: "npm:^0.21.3"
     fsevents: "npm:~2.3.3"
@@ -3283,7 +3283,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/d536bb7af57dd0eca2a808f95f5ff1d7b7ffb8d86e17c6893087680a0448bd0d15e07475270c8a6de65cb5115592d037130a1dd979dc76bcef8c1dda202a1874
+  checksum: 10c0/a0f130e3e0c781f54c60ee4b7cccf92c266e4117be1f65ab55c02abc27b29fa70dc0ed05eca54a9983f76450063a47f86db06ac49f28ee96392a0dc362b17da8
   languageName: node
   linkType: hard
 
@@ -3314,18 +3314,18 @@ __metadata:
     "@tailwindcss/typography": "npm:0.5.15"
     autoprefixer: "npm:10.4.20"
     deepmerge: "npm:4.3.1"
-    lucide-svelte: "npm:0.469.0"
+    lucide-svelte: "npm:0.474.0"
     mdsvex: "npm:0.12.3"
     misskey-js: "npm:2024.11.1-alpha.0"
     schema-dts: "npm:1.1.2"
     svelte: "npm:5.16.1"
-    svelte-check: "npm:4.1.1"
+    svelte-check: "npm:4.1.4"
     sveltekit-rate-limiter: "npm:0.6.1"
     svgo: "npm:3.3.2"
     tailwind-merge: "npm:2.6.0"
     tailwindcss: "npm:3.4.17"
     typescript: "npm:5.7.2"
-    vite: "npm:5.4.11"
+    vite: "npm:5.4.12"
   languageName: unknown
   linkType: soft
 
