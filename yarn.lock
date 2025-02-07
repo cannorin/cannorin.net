@@ -1940,12 +1940,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-svelte@npm:0.469.0":
-  version: 0.469.0
-  resolution: "lucide-svelte@npm:0.469.0"
+"lucide-svelte@npm:0.474.0":
+  version: 0.474.0
+  resolution: "lucide-svelte@npm:0.474.0"
   peerDependencies:
     svelte: ^3 || ^4 || ^5.0.0-next.42
-  checksum: 10c0/fec59a410004e59871bb796ef65a2fb97f2b385b9e889ddafe500bf718308f2b32774bfd36e5ba6032b163522015e71f1834f08ce5e04b99852aaf1cc2c6ca5d
+  checksum: 10c0/d9da279a4a9a38fc208c7ecc69b2b6f641b0d04f466e54c9d8d77f9478cbda7426627b98dac9d8431917a871f3dbb1087699eaf08402840f578821d53ba58d14
   languageName: node
   linkType: hard
 
@@ -3314,7 +3314,7 @@ __metadata:
     "@tailwindcss/typography": "npm:0.5.15"
     autoprefixer: "npm:10.4.20"
     deepmerge: "npm:4.3.1"
-    lucide-svelte: "npm:0.469.0"
+    lucide-svelte: "npm:0.474.0"
     mdsvex: "npm:0.12.3"
     misskey-js: "npm:2024.11.1-alpha.0"
     schema-dts: "npm:1.1.2"
