@@ -1,5 +1,6 @@
 <script lang="ts">
 import Card, { type CardProps } from "$components/card.svelte";
+import { cn } from "$lib/utils";
 
 import IconJakeko from "$assets/images/static/icon/jakeko.webp?w=1080;800;600;400;300&enhanced";
 
@@ -7,10 +8,10 @@ import SiBandcamp from "@icons-pack/svelte-simple-icons/icons/SiBandcamp";
 import SiMixcloud from "@icons-pack/svelte-simple-icons/icons/SiMixcloud";
 import SiSoundcloud from "@icons-pack/svelte-simple-icons/icons/SiSoundcloud";
 
-let { more }: Pick<CardProps, "more"> = $props();
+let { more, ...rest }: Pick<CardProps, "more" | "class"> = $props();
 </script>
 
-<Card image={IconJakeko} more={more} class="[view-transition-name:card-music]">
+<Card image={IconJakeko} more={more} class={cn("[view-transition-name:card-music]", rest["class"])}>
   {#snippet title()}
     DJ / Composer
   {/snippet}

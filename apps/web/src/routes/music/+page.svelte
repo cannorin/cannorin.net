@@ -14,19 +14,52 @@ import Card from "./card.svelte";
   <section class="flex flex-col items-center md:flex-row md:items-start gap-4 lg:gap-8">
     <h2 class="sr-only">自己紹介</h2>
 
-    <Card more="back" />
+    <Card class="md:!sticky md:top-16" more="back" />
 
     <section class="p-5 prose prose-sm prose-light">
-      <p>ブレイクビーツと高速四つ打ちがメインです。以下のような雰囲気の DJ が得意です。</p>
+      <p>ブレイクビーツと高速四つ打ちを中心に、統一感と説得力のあるマルチジャンルプレイをする DJ です。</p>
+      <p>以下のような雰囲気の DJ が得意です。</p>
 
       <ul>
-        <li><em>Atmospheric:</em> DnB, Jungle, Trance, IDM, ...</li>
-        <li><em>Aggressive:</em> Crossbreed, Breakcore, Speedcore, ...</li>
-        <li><em>Industrial:</em> Frenchcore, Schranz, Doomcore, ...</li>
-        <li><em>Peak-time Hardcore:</em> Hardstyle, J-Core, Uptempo, ...</li>
+        <li>
+          <strong class="text-primary">Atmospheric</strong>
+          <ul>
+            <li>Drum & Bass, Jungle, Trance, Techno, IDM, ...</li>
+            <li>ワイヤードな世界観で緻密にミックスします。</li>
+          </ul>
+        </li>
+        <li>
+          <strong class="text-primary">Aggressive</strong>
+          <ul>
+            <li>Crossbreed, Neurofunk, Breakcore, Speedcore, ...</li>
+            <li>鬱屈とした心から湧き上がる冷たい衝動をぶつけます。</li>
+          </ul>
+        </li>
+        <li>
+          <strong class="text-primary">Peak-time Hardcore</strong>
+          <ul>
+            <li>Frenchcore, Rawstyle, J-Core, Uptempo Hardcore, ...</li>
+            <li>私のハードコアは "予習" 無しで楽しめます。</li>
+          </ul>
+        </li>
       </ul>
 
       <p>作る曲もだいたいこのへんのジャンルです。</p>
+
+      <h3 id="gears">使用機材・ソフトウェア</h3>
+
+      <p>普段の DJ の際は、以下の機材を持ち込んでいます。あまりサイズは取りませんが、ブースに置くスペースがあるとうれしいです。なお、CDJ + USB のオーソドックスなプレイもできます。</p>
+
+      <ul>
+        <li><a href="https://www.allen-heath.com/hardware/xone-series/xonek2/" target="_blank">Allen & Heath Xone:K2</a> (4ch MIDI コントローラ)</li>
+        <li><a href="https://evo.audio/products/audio-interfaces/evo-4/overview/" target="_blank"> Audient EVO 4</a> (AIF, フォンから RCA に変換)</li>
+        <li><a href="https://mixxx.org/" target="_blank">Mixxx</a> (DJ ソフトウェア)</li>
+        <li><a href="https://www.audio-technica.co.jp/product/ATH-M50x" target="_blank">audio-technica ATH-M50x</a></li>
+        <li>オヤイデ d+ classB RCA ケーブル</li>
+        <li>ノートPC</li>
+      </ul>
+
+      <p>作曲には Ableton Live を使用しています。</p>
 
       <h3 id="affiliation">主宰・所属</h3>
 
@@ -67,6 +100,15 @@ import Card from "./card.svelte";
           </ul>
         </li>
       </ul>
+
+      <h3 id="contact">連絡先</h3>
+
+      <p>
+        ブッキングや音楽制作などのご連絡は
+        <a href="https://discord.com/users/497190979216867329" target="_blank">Discord</a>,
+        <a href="https://x.com/cannorin3" target="_blank">Twitter (X)</a>,
+        または contact(atmark)cannorin.net までお願いします。
+      </p>
 
       <a href="/" class="back mt-8 text-foreground no-underline font-normal">
         Back

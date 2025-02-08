@@ -14,7 +14,7 @@ import Card from "./card.svelte";
   <section class="flex flex-col items-center md:flex-row md:items-start gap-4 lg:gap-8">
     <h2 class="sr-only">自己紹介</h2>
 
-    <Card more="back" />
+    <Card class="md:!sticky md:top-16" more="back" />
 
     <section class="p-5 prose prose-sm prose-light">
       <p>
@@ -71,6 +71,18 @@ import Card from "./card.svelte";
             <a href="https://github.com/ocaml/opam/pull/5171" target="_blank">ocaml/opam#5171</a>,
             <a href="https://github.com/rescript-lang/rescript/pull/5364" target="_blank">rescript-lang/rescript#5364</a>, ...)
         </li>
+      </ul>
+
+      <h3 id="contact">連絡先</h3>
+
+      <ul>
+        <li>チューターやバグ修正など、カジュアルな案件は <a href="https://github.com/sponsors/cannorin" target="_blank">GitHub Sponsors</a> をご利用ください。</li>
+        <li>
+          ウェブサイト構築など、大規模な案件についてのご連絡は <a href="https://keybase.io/cannorin" target="_blank">Keybase</a>,
+          <a href="https://discord.com/users/497190979216867329" target="_blank">Discord</a>,
+          または contact(atmark)cannorin.net までお願いします。
+        </li>
+        <li>なお、現在特に転職の予定はありません。</li>
       </ul>
 
       <a href="/" class="back mt-8 text-foreground no-underline font-normal">
