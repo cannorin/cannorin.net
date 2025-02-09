@@ -2,10 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@view-transition {
-  navigation: auto;
-}
-
 @layer base {
   :root {
     --foreground: 55 65 81 /* #374151 */;

@@ -2,10 +2,15 @@
 import "../app.css";
 import "./webfont.css";
 
+import { browser } from "$app/environment";
 import { onNavigate } from "$app/navigation";
 import { page } from "$app/state";
 import Seo, { defaultSeo, mergeSeo } from "$components/seo";
 import { PUBLIC_WEB_DOMAIN } from "$env/static/public";
+import { sineOut } from "svelte/easing";
+import { fade } from "svelte/transition";
+
+let viewTransition = !browser || !!document.startViewTransition;
 
 let { children } = $props();
 let seo = $derived.by(() =>
@@ -30,4 +35,24 @@ onNavigate((navigation) => {
 
 <Seo {...seo} />
 
-{@render children()}
+{#if viewTransition}
+  {@render children()}
+{:else}
+  <div class="grid grid-cols-1">
+    {#key page.url.pathname}
+      <div class="row-start-1 col-start-1" transition:fade={{ duration: 200, easing: sineOut }}>
+        {@render children()}
+      </div>
+    {/key}
+  </div>
+{/if}
+
+<style lang="postcss">
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-group(*) {
+    animation-duration: 0.2s;
+  }
+</style>
