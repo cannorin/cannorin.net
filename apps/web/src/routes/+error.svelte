@@ -33,7 +33,7 @@ const codeNames: Record<number, string> = {
 };
 </script>
 
-<main class={cn("flex grow flex-col items-center justify-center gap-10 py-10 relative overflow-hidden", limitWidth)}>
+<main class={cn("flex grow flex-col items-center justify-center gap-10 py-10 relative min-h-screen overflow-hidden", limitWidth)}>
   <section class="flex min-w-full flex-col items-center gap-6 ">
     <h1 class="text-center text-5xl font-display leading-[1.125]">
       <span>{page.status}</span>
@@ -55,5 +55,7 @@ const codeNames: Record<number, string> = {
         <p>{page.error?.message}</p>
       {/if}
     </div>
+
+    <a href="/">― Go Back ―</a>
   </section>
 </main>

@@ -38,7 +38,7 @@ onNavigate((navigation) => {
 {#if viewTransition}
   {@render children()}
 {:else}
-  <div class="grid grid-cols-1">
+  <div class="grid grid-cols-1 min-h-screen">
     {#key page.url.pathname}
       <div class="row-start-1 col-start-1" transition:fade={{ duration: 200, easing: sineOut }}>
         {@render children()}
