@@ -117,7 +117,7 @@ import Card from "./card.svelte";
   </section>
 </main>
 
-<style>
+<style lang="postcss">
   .back {
     @apply flex md:hidden items-center justify-center rounded-full px-3 py-2;
     background: linear-gradient(45deg, rgb(var(--primary) / 50%), rgb(var(--secondary) / 50%));
