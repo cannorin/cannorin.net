@@ -6,7 +6,9 @@ category: Programming
 tags: ["F#", "SRTP"]
 ---
 
-> この記事は [以前 Qiita に投稿した記事](https://qiita.com/cannorin/items/aaf6abb2a7c1bc7793d4) の転載です．
+この記事は [以前 Qiita に投稿した記事](https://qiita.com/cannorin/items/aaf6abb2a7c1bc7793d4) の転載です．
+
+------
 
 あんまり一般受けするようなネタが思いつかなかったので，SRTP をゴリゴリ書いてる人向けの記事になってしまいました．ごめんなさい……
 

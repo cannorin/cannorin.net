@@ -8,7 +8,7 @@ tags: ["F#", "SRTP"]
 
 この記事は [F# Advent Calendar 2020](https://qiita.com/advent-calendar/2020/fsharp) の12日目の記事です．投稿が遅れたのは [Cyberpunk 2077](https://www.cyberpunk.net/) のせいであって，私のせいではありません．
 
-昔このブログで [F# で型クラスを実現する方法](https://7colou.red/blog/2018/02-14-fsharp-typeclasses/index.html) について書きましたが，FSharpPlus のメンテナになってからより実用的な手法を学んだので，改めて解説をしようというわけです．
+昔このブログで [F# で型クラスを実現する方法](/blog/2018-02-14-typeclass) について書きましたが，FSharpPlus のメンテナになってからより実用的な手法を学んだので，改めて解説をしようというわけです．
 
 この記事では SRTP 自体の解説はしません．
 
@@ -127,7 +127,7 @@ let m3 = M 2     >>= fun x -> M    (x + 1)
 ```
 
 ここで起こっているオーバーロード解決は，ユーザ定義型 or `BindImpl` の2択である．
-[F# で型クラス](https://7colou.red/blog/2018/02-14-fsharp-typeclasses/index.html) でやったことがわかっていれば
+[F# で型クラス](/blog/2018-02-14-typeclass) でやったことがわかっていれば
 特に理解に苦しむところはないと思う．
 
 もしあなたが実装したいモナド（の関数）がこの類ならば，おめでとう．話はここでおしまいである．しかし実際は，これで
