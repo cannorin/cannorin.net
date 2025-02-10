@@ -1,3 +1,4 @@
+import type { SeoProps } from "$lib/components/seo";
 import { type Metadata, data } from "./(articles)/data";
 
 export async function load() {
@@ -12,5 +13,19 @@ export async function load() {
       slug,
     });
   }
-  return { posts };
+  return {
+    posts,
+    seo: {
+      title: "blog - cannorin.net",
+      description: "cannorin's blog",
+      openGraph: {
+        title: "blog - cannorin.net",
+        description: "cannorin's blog",
+      },
+      twitter: {
+        title: "blog - cannorin.net",
+        description: "cannorin's blog",
+      },
+    } as SeoProps,
+  };
 }
