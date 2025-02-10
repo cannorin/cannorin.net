@@ -1,7 +1,7 @@
 <script lang="ts">
 import { limitWidth } from "$lib/constants";
 import { cn } from "$lib/utils";
-import type { Snapshot } from "./$types";
+import type { Snapshot } from "../$types";
 import CardDev from "./dev/card.svelte";
 import CardMath from "./math/card.svelte";
 import CardMusic from "./music/card.svelte";
@@ -30,9 +30,7 @@ export const snapshot: Snapshot<SnapshotData> = {
 </script>
 
 <!-- Sections -->
-<main class={cn(limitWidth, "flex grow flex-col items-center gap-12 lg:gap-16 py-8")}>
-  <h1 class="font-display text-4xl md:text-5xl lg:text-6xl">cannorin.net</h1>
-
+<main class={cn(limitWidth, "flex flex-col items-center gap-12 lg:gap-16")}>
   <section class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8">
     <h2 class="sr-only">自己紹介</h2>
 

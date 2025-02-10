@@ -82,15 +82,21 @@ export default {
             "--tw-prose-bold": "rgb(var(--foreground))",
             "--tw-prose-counters": "rgb(var(--primary))",
             "--tw-prose-bullets": "rgb(var(--primary))",
-            "--tw-prose-hr": "rgb(var(--muted-foreground))",
-            "--tw-prose-quotes": "rgb(var(--muted-foreground))",
-            "--tw-prose-quote-borders": "rgb(var(--muted-foreground))",
+            "--tw-prose-hr": "rgb(var(--muted))",
+            "--tw-prose-quotes": "rgb(var(--foreground) / 0.75)",
+            "--tw-prose-quote-borders": "rgb(var(--foreground) / 0.75)",
             "--tw-prose-captions": "rgb(var(--muted))",
-            "--tw-prose-code": "rgb(var(--foreground))",
-            "--tw-prose-pre-code": "rgb(var(--muted))",
-            "--tw-prose-pre-bg": "rgb(var(--muted))",
             "--tw-prose-th-borders": "transparent",
             "--tw-prose-td-borders": "rgb(var(--primary))",
+            "code::before": {
+              content: '""',
+            },
+            "code::after": {
+              content: '""',
+            },
+            code: {
+              "font-weight": 400,
+            },
           },
         },
         light: {

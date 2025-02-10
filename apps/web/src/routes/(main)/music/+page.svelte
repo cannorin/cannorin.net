@@ -6,11 +6,7 @@ import Card from "./card.svelte";
 </script>
 
 <!-- Sections -->
-<main class={cn(limitWidth, "flex grow flex-col items-center gap-12 lg:gap-16 py-8")}>
-  <h1 class="font-display text-4xl md:text-5xl lg:text-6xl">
-    <a href="/">cannorin.net</a>
-  </h1>
-
+<main class={cn(limitWidth, "flex grow flex-col items-center gap-12 lg:gap-16")}>
   <section class="flex flex-col items-center md:flex-row md:items-start gap-4 lg:gap-8">
     <h2 class="sr-only">自己紹介</h2>
 
