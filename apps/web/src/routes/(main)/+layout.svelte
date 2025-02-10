@@ -3,6 +3,7 @@ import { page } from "$app/state";
 import { limitWidth } from "$lib/constants";
 import { cn } from "$lib/utils";
 import LuCopyleft from "lucide-svelte/icons/copyleft";
+import LuChevronsRight from "lucide-svelte/icons/chevrons-right";
 
 let { children } = $props();
 </script>
@@ -16,6 +17,21 @@ let { children } = $props();
         <a href="/">cannorin.net</a>
       {/if}
     </div>
+    <nav>
+      <ul class="flex gap-4">
+        <li>
+          <a href="/blog" class="flex gap-1 items-end leading-5">
+            <LuChevronsRight
+              class={cn("transition-transform",
+                page.url.pathname === "/blog" && "rotate-90",
+                page.url.pathname.startsWith("/blog/") && "-rotate-90",
+              )}
+              size=16 />
+            blog
+          </a>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   {@render children()}

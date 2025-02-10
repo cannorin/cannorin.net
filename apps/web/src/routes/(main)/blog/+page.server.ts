@@ -14,7 +14,7 @@ export async function load() {
     });
   }
   return {
-    posts,
+    posts: posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
     seo: {
       title: "blog - cannorin.net",
       description: "cannorin's blog",
