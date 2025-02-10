@@ -1,6 +1,7 @@
 import adapter from "@sveltejs/adapter-auto";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { mdsvex } from "mdsvex";
+import rehypeExternalLinks from "rehype-external-links";
 import rehypeKatex from "rehype-katex-svelte";
 import remarkFootnotes from "remark-footnotes";
 import remarkMath from "remark-math";
@@ -15,7 +16,13 @@ const config = {
     mdsvex({
       extensions: [".md"],
       remarkPlugins: [remarkMath, remarkFootnotes],
-      rehypePlugins: [rehypeKatex],
+      rehypePlugins: [
+        rehypeKatex,
+        [
+          rehypeExternalLinks,
+          { rel: ["nofollow", "noopener", "noreferrer"], target: "_blank" },
+        ],
+      ],
     }),
     vitePreprocess(),
   ],

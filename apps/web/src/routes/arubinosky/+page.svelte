@@ -38,7 +38,7 @@ let copied = $state(false);
   <section id="about" class="prose !w-full !min-w-full sect">
     <h2>あるびのすきーとは？</h2>
     <p>
-      あるびのすきーは「シンプル」と「かわいい」をテーマにした <a href="https://misskey-hub.net/ja/" target="_blank">Misskey</a> インスタンスです。
+      あるびのすきーは「シンプル」と「かわいい」をテーマにした <a href="https://misskey-hub.net/ja/" target="_blank" rel="nofollow noopener noreferrer">Misskey</a> インスタンスです。
     </p>
 
     <ul>

@@ -59,23 +59,23 @@ import Card from "./card.svelte";
       <h3 id="works">つくったもの・関わったもの</h3>
 
       <ul>
-        <li><a href="https://github.com/ocsigen/ts2ocaml" target="_blank">ts2ocaml</a>, <a href="https://github.com/CoreTweet/CoreTweet" target="_blank">CoreTweet</a> (作者)</li>
-        <li><a href="https://github.com/fsprojects/FSharpPlus" target="_blank">FSharpPlus</a>, <a href="https://github.com/ionide/Ionide-vim" target="_blank">Ionide-vim</a> (メンテナ)</li>
-        <li><a href="https://xn--pckjp4dudxftf.xn--tckwe/" target="_blank">ゴーストクラブ.コム</a>, <a href="https://www.0b4k3.com" target="_blank">0b4k3.com</a> (インフラ構築・実装)</li>
+        <li><a href="https://github.com/ocsigen/ts2ocaml" target="_blank" rel="nofollow noopener noreferrer">ts2ocaml</a>, <a href="https://github.com/CoreTweet/CoreTweet" target="_blank" rel="nofollow noopener noreferrer">CoreTweet</a> (作者)</li>
+        <li><a href="https://github.com/fsprojects/FSharpPlus" target="_blank" rel="nofollow noopener noreferrer">FSharpPlus</a>, <a href="https://github.com/ionide/Ionide-vim" target="_blank" rel="nofollow noopener noreferrer">Ionide-vim</a> (メンテナ)</li>
+        <li><a href="https://xn--pckjp4dudxftf.xn--tckwe/" target="_blank" rel="nofollow noopener noreferrer">ゴーストクラブ.コム</a>, <a href="https://www.0b4k3.com" target="_blank" rel="nofollow noopener noreferrer">0b4k3.com</a> (インフラ構築・実装)</li>
         <li>
-          他にもコンパイラやパッケージマネージャに対するデカめの PR を通したことがあります (<a href="https://github.com/fable-compiler/Fable/pull/2618" target="_blank">fable-compiler/Fable#2618</a>,
-            <a href="https://github.com/ocaml/opam/pull/5171" target="_blank">ocaml/opam#5171</a>,
-            <a href="https://github.com/rescript-lang/rescript/pull/5364" target="_blank">rescript-lang/rescript#5364</a>, ...)
+          他にもコンパイラやパッケージマネージャに対するデカめの PR を通したことがあります (<a href="https://github.com/fable-compiler/Fable/pull/2618" target="_blank" rel="nofollow noopener noreferrer">fable-compiler/Fable#2618</a>,
+            <a href="https://github.com/ocaml/opam/pull/5171" target="_blank" rel="nofollow noopener noreferrer">ocaml/opam#5171</a>,
+            <a href="https://github.com/rescript-lang/rescript/pull/5364" target="_blank" rel="nofollow noopener noreferrer">rescript-lang/rescript#5364</a>, ...)
         </li>
       </ul>
 
       <h3 id="contact">連絡先</h3>
 
       <ul>
-        <li>チューターやバグ修正など、カジュアルな案件は <a href="https://github.com/sponsors/cannorin" target="_blank">GitHub Sponsors</a> をご利用ください。</li>
+        <li>チューターやバグ修正など、カジュアルな案件は <a href="https://github.com/sponsors/cannorin" target="_blank" rel="nofollow noopener noreferrer">GitHub Sponsors</a> をご利用ください。</li>
         <li>
-          ウェブサイト構築など、大規模な案件についてのご連絡は <a href="https://keybase.io/cannorin" target="_blank">Keybase</a>,
-          <a href="https://discord.com/users/497190979216867329" target="_blank">Discord</a>,
+          ウェブサイト構築など、大規模な案件についてのご連絡は <a href="https://keybase.io/cannorin" target="_blank" rel="nofollow noopener noreferrer">Keybase</a>,
+          <a href="https://discord.com/users/497190979216867329" target="_blank" rel="nofollow noopener noreferrer">Discord</a>,
           または contact(atmark)cannorin.net までお願いします。
         </li>
         <li>なお、現在特に転職の予定はありません。</li>

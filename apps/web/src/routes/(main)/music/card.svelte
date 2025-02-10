@@ -22,17 +22,17 @@ let { more, ...rest }: Pick<CardProps, "more" | "class"> = $props();
 
   {#snippet links()}
     <li>
-      <a href="https://cannorin.bandcamp.com/" target="_blank">
+      <a href="https://cannorin.bandcamp.com/" target="_blank" rel="nofollow noopener noreferrer">
         <SiBandcamp title="Bandcamp" />
       </a>
     </li>
     <li>
-      <a href="https://soundcloud.com/cannorin" target="_blank">
+      <a href="https://soundcloud.com/cannorin" target="_blank" rel="nofollow noopener noreferrer">
         <SiSoundcloud title="Soundcloud" />
       </a>
     </li>
     <li>
-      <a href="https://mixcloud.com/cannorin" target="_blank">
+      <a href="https://mixcloud.com/cannorin" target="_blank" rel="nofollow noopener noreferrer">
         <SiMixcloud title="Mixcloud" />
       </a>
     </li>

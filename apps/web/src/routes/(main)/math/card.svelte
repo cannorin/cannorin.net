@@ -21,12 +21,12 @@ let { more, ...rest }: Pick<CardProps, "more" | "class"> = $props();
 
   {#snippet links()}
     <li>
-      <a href="https://orcid.org/0009-0009-3946-4260" target="_blank">
+      <a href="https://orcid.org/0009-0009-3946-4260" target="_blank" rel="nofollow noopener noreferrer">
         <SiOrcid title="ORCiD" />
       </a>
     </li>
     <li>
-      <a href="https://www.researchgate.net/profile/Yuta-Sato-22" target="_blank">
+      <a href="https://www.researchgate.net/profile/Yuta-Sato-22" target="_blank" rel="nofollow noopener noreferrer">
         <SiResearchgate title="ResearchGate" />
       </a>
     </li>

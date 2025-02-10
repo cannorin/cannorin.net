@@ -41,10 +41,10 @@ let { children } = $props();
       <LuCopyleft aria-label="Copyleft" size=12 /> 2024 cannorin. Some rights reserved.
     </p>
     <p>
-      The text of this website is licensed under <a class="underline" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+      The text of this website is licensed under <a class="underline" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="nofollow noopener noreferrer">CC BY-SA 4.0</a>.
     </p>
     <p>
-      Code examples are licensed under the <a class="underline" href="https://spdx.org/licenses/MIT.html" target="_blank">MIT License</a>.
+      Code examples are licensed under the <a class="underline" href="https://spdx.org/licenses/MIT.html" target="_blank" rel="nofollow noopener noreferrer">MIT License</a>.
     </p>
   </footer>
 </div>
