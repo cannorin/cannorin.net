@@ -47,10 +47,10 @@ import Card from "./card.svelte";
       <p>普段の DJ の際は、以下の機材を持ち込んでいます。あまりサイズは取りませんが、ブースに置くスペースがあるとうれしいです。なお、CDJ + USB のオーソドックスなプレイもできます。</p>
 
       <ul>
-        <li><a href="https://www.allen-heath.com/hardware/xone-series/xonek2/" target="_blank" rel="nofollow noopener noreferrer">Allen & Heath Xone:K2</a> (4ch MIDI コントローラ)</li>
-        <li><a href="https://evo.audio/products/audio-interfaces/evo-4/overview/" target="_blank" rel="nofollow noopener noreferrer"> Audient EVO 4</a> (AIF, フォンから RCA に変換)</li>
-        <li><a href="https://mixxx.org/" target="_blank" rel="nofollow noopener noreferrer">Mixxx</a> (DJ ソフトウェア)</li>
-        <li><a href="https://www.audio-technica.co.jp/product/ATH-M50x" target="_blank" rel="nofollow noopener noreferrer">audio-technica ATH-M50x</a></li>
+        <li><a href="https://www.allen-heath.com/hardware/xone-series/xonek2/" target="_blank" rel="noopener noreferrer">Allen & Heath Xone:K2</a> (4ch MIDI コントローラ)</li>
+        <li><a href="https://evo.audio/products/audio-interfaces/evo-4/overview/" target="_blank" rel="noopener noreferrer"> Audient EVO 4</a> (AIF, フォンから RCA に変換)</li>
+        <li><a href="https://mixxx.org/" target="_blank" rel="noopener noreferrer">Mixxx</a> (DJ ソフトウェア)</li>
+        <li><a href="https://www.audio-technica.co.jp/product/ATH-M50x" target="_blank" rel="noopener noreferrer">audio-technica ATH-M50x</a></li>
         <li>オヤイデ d+ classB RCA ケーブル</li>
         <li>ノートPC</li>
       </ul>
@@ -81,14 +81,14 @@ import Card from "./card.svelte";
           </ul>
         </li>
         <li>
-          <a href="https://oooto.otherman-records.com/4/" target="_blank" rel="nofollow noopener noreferrer">大音4</a> (中野 ヘビーシックゼロ)
+          <a href="https://oooto.otherman-records.com/4/" target="_blank" rel="noopener noreferrer">大音4</a> (中野 ヘビーシックゼロ)
           <ul>
             <li>サブフロアのキュレーションも担当しました。</li>
           </ul>
         </li>
-        <li><a href="https://x.com/cannorin3/status/1800402487771549782" target="_blank" rel="nofollow noopener noreferrer">4KICKS FOR GEEKS #4</a> (心斎橋 夜来香)</li>
-        <li><a href="https://x.com/cannorin3/status/1655598762822365189" target="_blank" rel="nofollow noopener noreferrer">embodiment</a> (心斎橋 夜来香)</li>
-        <li><a href="https://x.com/tohlpeaks/status/1570381932365434880" target="_blank" rel="nofollow noopener noreferrer">miracle☆sugar - sato♡shin &amp; TohLPeaks Release Party</a> (難波 ベアーズ)</li>
+        <li><a href="https://x.com/cannorin3/status/1800402487771549782" target="_blank" rel="noopener noreferrer">4KICKS FOR GEEKS #4</a> (心斎橋 夜来香)</li>
+        <li><a href="https://x.com/cannorin3/status/1655598762822365189" target="_blank" rel="noopener noreferrer">embodiment</a> (心斎橋 夜来香)</li>
+        <li><a href="https://x.com/tohlpeaks/status/1570381932365434880" target="_blank" rel="noopener noreferrer">miracle☆sugar - sato♡shin &amp; TohLPeaks Release Party</a> (難波 ベアーズ)</li>
         <li>
           and more...
           <ul>
@@ -101,9 +101,9 @@ import Card from "./card.svelte";
 
       <p>
         ブッキングや音楽制作などのご連絡は
-        <a href="https://discord.com/users/497190979216867329" target="_blank" rel="nofollow noopener noreferrer">Discord</a>,
-        <a href="https://x.com/cannorin3" target="_blank" rel="nofollow noopener noreferrer">Twitter (X)</a>,
-        または contact(atmark)cannorin.net までお願いします。
+        <a href="https://discord.com/users/497190979216867329" target="_blank" rel="noopener noreferrer">Discord</a>,
+        <a href="https://x.com/cannorin3" target="_blank" rel="noopener noreferrer">Twitter (X)</a>,
+        または <a href="mailto:contact@cannorin.net">contact@cannorin.net</a> までお願いします。
       </p>
 
       <a href="/" class="back mt-8 text-foreground no-underline font-normal">

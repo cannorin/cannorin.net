@@ -1,7 +1,7 @@
 ## 利用規約
 
 <aside class="text-xs text-muted-foreground">
-  この利用規約の内容は、hota さんが運営する Mastodon インスタンスの <a href="https://wiki.maud.io/ja/mastodon/about" target="_blank" rel="nofollow noopener noreferrer">:don: 利用規約</a> を元にしています！
+  この利用規約の内容は、hota さんが運営する Mastodon インスタンスの <a href="https://wiki.maud.io/ja/mastodon/about" target="_blank" rel="noopener noreferrer">:don: 利用規約</a> を元にしています！
 </aside>
 
 ### はじめに
@@ -132,11 +132,11 @@
 
 管理者の連絡先として利用可能な経路の一覧です。信頼できる経路を選択してください。また、可能な限り連絡者とアカウントが同一人物であることを確認できる手段を推奨しています。
 
-- Keybase <a href="https://keybase.io/cannorin" target="_blank" rel="nofollow noopener noreferrer">@cannorin</a>
+- Keybase <a href="https://keybase.io/cannorin" target="_blank" rel="noopener noreferrer">@cannorin</a>
     - おそらく最もセキュア。
 - 当サーバーの <a href="https://misskey.cannorin.net/@admin" target="_blank">@admin</a> または <a href="https://misskey.cannorin.net/@cannorin" target="_blank">@cannorin</a>
     - 公開範囲をダイレクトにしてください。
-- Discord <a href="https://discord.com/users/497190979216867329" target="_blank" rel="nofollow noopener noreferrer">@cannorin</a>
+- Discord <a href="https://discord.com/users/497190979216867329" target="_blank" rel="noopener noreferrer">@cannorin</a>
     - フレンドを送ってからDMを送信してください。
-- X (Twitter) <a href="https://x.com/cannorin3" target="_blank" rel="nofollow noopener noreferrer">@cannorin3</a>
+- X (Twitter) <a href="https://x.com/cannorin3" target="_blank" rel="noopener noreferrer">@cannorin3</a>
     - 通知を見落としがちなのであんまり推奨しないです。

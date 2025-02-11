@@ -8,15 +8,17 @@ let { data } = $props();
 </script>
 
 <main class={cn(limitWidth, "flex flex-col items-center gap-12 lg:gap-16")}>
+  <h1 class="sr-only">Blog</h1>
+
   <div class="flex flex-col gap-6 w-full max-w-[720px]">
     {#each data.posts as post}
       {@const date = new Date(post.date)}
       <article>
-        <h1 class="text-lg">
+        <h2 class="text-lg">
           <a href="/blog/{post.slug}" style="view-transition-name: article-{post.slug}-title">
             {post.title}
           </a>
-        </h1>
+        </h2>
         <div class="text-xs flex flex-wrap-reverse justify-between" style="view-transition-name: article-{post.slug}-meta">
           <ul class="flex gap-3">
             <li class="text-primary font-bold">#{post.category}</li>

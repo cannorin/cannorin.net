@@ -22,17 +22,17 @@ let { more, ...rest }: Pick<CardProps, "more" | "class"> = $props();
 
   {#snippet links()}
     <li>
-      <a href="https://github.com/cannorin" target="_blank" rel="nofollow noopener noreferrer">
+      <a href="https://github.com/cannorin" target="_blank" rel="noopener noreferrer">
         <SiGithub title="GitHub" />
       </a>
     </li>
     <li>
-      <a href="https://qiita.com/cannorin" target="_blank" rel="nofollow noopener noreferrer">
+      <a href="https://qiita.com/cannorin" target="_blank" rel="noopener noreferrer">
         <SiQiita title="Qiita" />
       </a>
     </li>
     <li>
-      <a href="https://zenn.dev/cannorin" target="_blank" rel="nofollow noopener noreferrer">
+      <a href="https://zenn.dev/cannorin" target="_blank" rel="noopener noreferrer">
         <SiZenn title="Zenn" />
       </a>
     </li>

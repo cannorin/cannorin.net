@@ -46,32 +46,32 @@ export const snapshot: Snapshot<SnapshotData> = {
     <nav>
       <ul class="flex flex-row flex-nowrap items-center gap-4 text-sm">
         <li>
-          <a href="https://keybase.io/cannorin" target="_blank" rel="nofollow noopener noreferrer">
+          <a href="https://keybase.io/cannorin" target="_blank" rel="noopener noreferrer">
             <SiKeybase title="Keybase" />
           </a>
         </li>
         <li>
-          <a href="https://x.com/cannorin3" target="_blank" rel="nofollow noopener noreferrer">
+          <a href="https://x.com/cannorin3" target="_blank" rel="noopener noreferrer">
             <SiX title="X (Twitter)" />
           </a>
         </li>
         <li>
-          <a href="https://misskey.cannorin.net/@cannorin" target="_blank" rel="nofollow noopener noreferrer">
+          <a href="https://misskey.cannorin.net/@cannorin" target="_blank" rel="noopener noreferrer">
             <SiMisskey title="Misskey" />
           </a>
         </li>
         <li>
-          <a href="https://www.twitch.tv/cannorin" target="_blank" rel="nofollow noopener noreferrer">
+          <a href="https://www.twitch.tv/cannorin" target="_blank" rel="noopener noreferrer">
             <SiTwitch title="Twitch" />
           </a>
         </li>
         <li>
-          <a href="https://discord.com/users/497190979216867329" target="_blank" rel="nofollow noopener noreferrer">
+          <a href="https://discord.com/users/497190979216867329" target="_blank" rel="noopener noreferrer">
             <SiDiscord title="Discord" />
           </a>
         </li>
         <li>
-          <a href="https://steamcommunity.com/id/cannorin/" target="_blank" rel="nofollow noopener noreferrer">
+          <a href="https://steamcommunity.com/id/cannorin/" target="_blank" rel="noopener noreferrer">
             <SiSteam title="Steam" />
           </a>
         </li>
