@@ -2843,10 +2843,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-footnotes@npm:2.0":
-  version: 2.0.0
-  resolution: "remark-footnotes@npm:2.0.0"
-  checksum: 10c0/45b55b3440b74bfeed11fba5ed6b31f2fd35ab4e9ba169061b76a19f5ff4d16d851c9f3c423c7fa54eb0fa5e6043b89098cb9478e9b5b417cf4bdef5571b0236
+"remark-footnotes@npm:5.0":
+  version: 5.0.0
+  resolution: "remark-footnotes@npm:5.0.0"
+  checksum: 10c0/37d8f35f49c78f64763c2549da865b783dc6d4d495da8eb6b43eec358bffc73b39f70eb2096e193ac761b59c2479498af45d6bc9c2988e8417bda9ddac597c43
   languageName: node
   linkType: hard
 
@@ -3826,7 +3826,7 @@ __metadata:
     rehype-external-links: "npm:3.0.0"
     rehype-katex: "npm:7.0.1"
     rehype-katex-svelte: "npm:1.2.0"
-    remark-footnotes: "npm:2.0"
+    remark-footnotes: "npm:5.0"
     remark-math: "npm:3"
     schema-dts: "npm:1.1.2"
     svelte: "npm:5.16.1"
