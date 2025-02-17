@@ -8,6 +8,8 @@ export type World = (typeof worlds)[number];
 export type Relation = `${World}${World}`;
 export const left = (rel: Relation) => rel[0] as World;
 export const right = (rel: Relation) => rel[1] as World;
+export const reverse = (rel: Relation) =>
+  `${right(rel)}${left(rel)}` as Relation;
 
 export const relation: Relation[] = worlds.flatMap((w) =>
   worlds.map((x) => `${w}${x}` as const),
@@ -148,15 +150,15 @@ export function generateAllFrames() {
     }
   }
 
-  const mapping: Uint16Array = new Uint16Array(total);
+  const isomorphic: Uint16Array = new Uint16Array(total);
   for (let id = 0; id < total; id++) {
     const value = map.get(id);
     if (value === undefined) throw Error(`impossible (${id})`);
-    mapping[id] = value;
+    isomorphic[id] = value;
   }
 
-  return { canonicals, mapping };
+  return { canonicals, isomorphic };
 }
 
-const { canonicals, mapping } = generateAllFrames();
-export { canonicals, mapping };
+const { canonicals, isomorphic } = generateAllFrames();
+export { canonicals, isomorphic };
