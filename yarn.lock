@@ -113,6 +113,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cannorin/kripke@workspace:packages/kripke":
+  version: 0.0.0-use.local
+  resolution: "@cannorin/kripke@workspace:packages/kripke"
+  dependencies:
+    typescript: "npm:5.7.2"
+    typescript-parsec: "npm:0.3.4"
+  languageName: unknown
+  linkType: soft
+
 "@emnapi/runtime@npm:^1.2.0":
   version: 1.3.1
   resolution: "@emnapi/runtime@npm:1.3.1"
@@ -887,6 +896,13 @@ __metadata:
   version: 0.2.0
   resolution: "@trysound/sax@npm:0.2.0"
   checksum: 10c0/44907308549ce775a41c38a815f747009ac45929a45d642b836aa6b0a536e4978d30b8d7d680bbd116e9dd73b7dbe2ef0d1369dcfc2d09e83ba381e485ecbe12
+  languageName: node
+  linkType: hard
+
+"@tsconfig/strictest@npm:2.0.5":
+  version: 2.0.5
+  resolution: "@tsconfig/strictest@npm:2.0.5"
+  checksum: 10c0/cfc86da2d57f7b4b0827701b132c37a4974284e5c40649656c0e474866dfd8a69f57c6718230d8a8139967e2a95438586b8224c13ab0ff9d3a43eda771c50cc4
   languageName: node
   linkType: hard
 
@@ -2401,6 +2417,7 @@ __metadata:
   resolution: "monorepo@workspace:."
   dependencies:
     "@biomejs/biome": "npm:1.9.4"
+    "@tsconfig/strictest": "npm:2.0.5"
     turbo: "npm:2.3.3"
   languageName: unknown
   linkType: soft
@@ -3505,6 +3522,13 @@ __metadata:
   bin:
     turbo: bin/turbo
   checksum: 10c0/9aab52fb868a2b6246f41fe2343dec56c70252a9cb7729a3ea183458cfa728c1445d1b98882dd43542f0ffd46524e8ba7776fe0925e31a86904b113222778fa5
+  languageName: node
+  linkType: hard
+
+"typescript-parsec@npm:0.3.4":
+  version: 0.3.4
+  resolution: "typescript-parsec@npm:0.3.4"
+  checksum: 10c0/fc467ad846c804af9e347a6801b2afeb85ace88e3add53b8e4ccff8290c9984d1bf35c350d72074e8c10792433ee5acc51570e2483b83520d99a50452039ff44
   languageName: node
   linkType: hard
 

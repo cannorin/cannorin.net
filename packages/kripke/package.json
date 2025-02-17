@@ -1,0 +1,22 @@
+{
+  "name": "@cannorin/kripke",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    ".": "./index.ts",
+    "./syntax": "./syntax.ts",
+    "./semantics": "./semantics.ts",
+    "./parser": "./parser.ts"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "biome check",
+    "fix": "biome check --fix"
+  },
+  "devDependencies": {
+    "typescript": "5.7.2"
+  },
+  "dependencies": {
+    "typescript-parsec": "0.3.4"
+  }
+}
