@@ -79,11 +79,11 @@ export const unicodeSymbols: Symbols = {
 };
 
 export const latexSymbols: Symbols = {
-  top: "\\top",
-  bot: "\\bot",
-  box: "\\Box",
-  diamond: "\\Diamond",
-  not: "\\neg",
+  top: "\\top ",
+  bot: "\\bot ",
+  box: "\\Box ",
+  diamond: "\\Diamond ",
+  not: "\\neg ",
   and: "\\land",
   or: "\\lor",
   to: "\\to",

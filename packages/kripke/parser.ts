@@ -146,3 +146,11 @@ EXP.setPattern(
 export function parse(expr: string): Formula {
   return expectSingleResult(expectEOF(EXP.parse(lexer.parse(expr))));
 }
+
+export function tryParse(expr: string): Formula | undefined {
+  try {
+    return parse(expr);
+  } catch {
+    return undefined;
+  }
+}
