@@ -113,7 +113,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cannorin/kripke@workspace:packages/kripke":
+"@cannorin/kripke@workspace:*, @cannorin/kripke@workspace:packages/kripke":
   version: 0.0.0-use.local
   resolution: "@cannorin/kripke@workspace:packages/kripke"
   dependencies:
@@ -3806,6 +3806,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:apps/web"
   dependencies:
+    "@cannorin/kripke": "workspace:*"
     "@fontsource/poiret-one": "npm:5.1.1"
     "@fontsource/zen-kaku-gothic-new": "npm:5.1.1"
     "@icons-pack/svelte-simple-icons": "npm:4.0.1"
