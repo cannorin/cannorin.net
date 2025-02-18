@@ -3,7 +3,6 @@ import {
   type Frame,
   type Relation,
   type World,
-  getFrame,
   left,
   reverse,
   right,
@@ -12,9 +11,11 @@ import {
 import { type Vector, add, degree, rotate, sub, theta } from "./vector";
 
 let {
-  frame = $bindable<Frame>(getFrame(0)),
+  frame = $bindable<Frame>({ relations: new Set() }),
+  disabled = false,
 }: {
   frame?: Frame | undefined;
+  disabled?: boolean | undefined;
 } = $props();
 
 let selected: World | null = $state(null);
@@ -114,7 +115,6 @@ function getPath(rel: Relation) {
     fill: rgb(var(--background));
     stroke: rgb(var(--foreground));
     stroke-width: 1;
-    cursor: pointer;
   }
   .node.selected {
     stroke: rgb(var(--primary));
@@ -124,7 +124,6 @@ function getPath(rel: Relation) {
     stroke: rgb(var(--foreground));
     stroke-width: 1;
     fill: none;
-    cursor: pointer;
     marker-end: url(#arrowhead);
   }
 </style>
@@ -151,8 +150,8 @@ function getPath(rel: Relation) {
     {#key rel}
       <path
         d={getPath(rel)}
-        class="edge"
-        onclick={(e) => handleEdgeClick(rel, e)}
+        class={["edge", !disabled && "cursor-pointer"]}
+        onclick={(e) => !disabled && handleEdgeClick(rel, e)}
       />
     {/key}
   {/each}
@@ -164,8 +163,8 @@ function getPath(rel: Relation) {
       cx={x}
       cy={y}
       r={radius.x}
-      class="node {selected === w ? 'selected' : ''}"
-      onclick={(e) => handleNodeClick(w, e)}
+      class={["node", selected === w && "selected", !disabled && "cursor-pointer"]}
+      onclick={(e) => !disabled && handleNodeClick(w, e)}
     />
   {/each}
 </svg>
