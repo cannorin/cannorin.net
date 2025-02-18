@@ -122,8 +122,8 @@ function getPath(rel: Relation) {
     cursor: pointer;
   }
   .node.selected {
-    fill: rgb(var(--primary));
-    stroke: rgb(var(--foreground));
+    stroke: rgb(var(--primary));
+    stroke-width: 3;
   }
   .edge {
     stroke: rgb(var(--foreground));

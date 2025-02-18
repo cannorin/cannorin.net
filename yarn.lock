@@ -3292,6 +3292,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"svelte-persisted-store@npm:0.12.0":
+  version: 0.12.0
+  resolution: "svelte-persisted-store@npm:0.12.0"
+  peerDependencies:
+    svelte: ^3.48.0 || ^4 || ^5
+  checksum: 10c0/32dcc9ab2458689c9f8abab95544bbc24ab587384e10d785b2cf44b584644e07f577087a90f2e447de715fc3c3bde9a2c22689689e56b6fa2308d87a8ad9e2a7
+  languageName: node
+  linkType: hard
+
 "svelte@npm:5.16.1":
   version: 5.16.1
   resolution: "svelte@npm:5.16.1"
@@ -3832,6 +3841,7 @@ __metadata:
     schema-dts: "npm:1.1.2"
     svelte: "npm:5.16.1"
     svelte-check: "npm:4.1.4"
+    svelte-persisted-store: "npm:0.12.0"
     sveltekit-rate-limiter: "npm:0.6.1"
     svgo: "npm:3.3.2"
     tailwind-merge: "npm:2.6.0"
