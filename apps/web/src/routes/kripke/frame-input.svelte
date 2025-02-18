@@ -3,6 +3,7 @@ import {
   type Frame,
   type Relation,
   type World,
+  getFrame,
   left,
   reverse,
   right,
@@ -11,27 +12,21 @@ import {
 import { type Vector, add, degree, rotate, sub, theta } from "./vector";
 
 let {
-  frame = $bindable<Frame>({ relations: new Set() }),
+  frame = $bindable<Frame>(getFrame(0)),
 }: {
   frame?: Frame | undefined;
 } = $props();
 
-let relations = $state(new Set<Relation>());
-
-$effect(() => {
-  frame = { relations };
-});
-
 let selected: World | null = $state(null);
 
 function toggle(rel: Relation) {
-  if (relations.has(rel)) {
-    relations.delete(rel);
+  if (frame.relations.has(rel)) {
+    frame.relations.delete(rel);
   } else {
-    relations.add(rel);
+    frame.relations.add(rel);
   }
   // Reassign to trigger reactivity
-  relations = new Set(relations);
+  frame = { relations: new Set(frame.relations) };
 }
 
 function handleNodeClick(node: World, event: MouseEvent) {
@@ -59,24 +54,24 @@ function handleSvgClick() {
 
 const positions: Record<World, Vector> = {
   a: {
-    x: 75,
-    y: 75,
+    x: 50,
+    y: 50,
   },
   b: {
-    x: 225,
-    y: 75,
+    x: 200,
+    y: 50,
   },
   c: {
-    x: 225,
-    y: 225,
+    x: 200,
+    y: 200,
   },
   d: {
-    x: 75,
-    y: 225,
+    x: 50,
+    y: 200,
   },
 };
 
-const center: Vector = { x: 150, y: 150 };
+const center: Vector = { x: 125, y: 125 };
 
 const radius: Vector = { x: 20, y: 0 };
 
@@ -100,14 +95,14 @@ function getPath(rel: Relation) {
 
   const angle = theta(sub(positions[r], positions[l]));
 
-  const offset = relations.has(reverse(rel)) ? degree(10) : 0;
+  const offset = frame.relations.has(reverse(rel)) ? degree(10) : 0;
 
   const dl = rotate(radius, angle + offset);
   const dr = rotate(radius, angle + Math.PI - offset);
   const from = add(positions[l], dl);
   const to = add(positions[r], dr);
 
-  if (!relations.has(reverse(rel)))
+  if (!frame.relations.has(reverse(rel)))
     return `M ${from.x} ${from.y} L ${to.x} ${to.y}`;
 
   return `M ${from.x} ${from.y} C ${from.x + dl.x * 2} ${from.y + dl.y * 2}, ${to.x + dr.x * 2} ${to.y + dr.y * 2}, ${to.x} ${to.y}`;
@@ -136,7 +131,7 @@ function getPath(rel: Relation) {
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<svg class="border border-foreground rounded" width="300" height="300" onclick={handleSvgClick}>
+<svg width="250" height="250" onclick={handleSvgClick}>
   <defs>
     <marker
       id="arrowhead"
@@ -148,11 +143,11 @@ function getPath(rel: Relation) {
       orient="auto"
       markerUnits="strokeWidth"
     >
-      <path d="M0,0 L0,10 L10,5 z" fill="#333" />
+      <path d="M0,0 L0,10 L10,5 z" fill="rgb(var(--foreground))" />
     </marker>
   </defs>
 
-  {#each Array.from(relations) as rel}
+  {#each Array.from(frame.relations) as rel}
     {#key rel}
       <path
         d={getPath(rel)}

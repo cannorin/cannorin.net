@@ -1,5 +1,5 @@
 <script lang="ts">
-import { type Formula, tryParse } from "@cannorin/kripke";
+import { type Formula, prettyPrint, tryParse } from "@cannorin/kripke";
 
 let {
   formula = $bindable<Formula | undefined>(undefined),
@@ -7,7 +7,7 @@ let {
   formula?: Formula | undefined;
 } = $props();
 
-let input = $state("");
+let input = $state(formula ? prettyPrint(formula) : "");
 let error = $state(false);
 
 $effect(() => {
@@ -15,7 +15,10 @@ $effect(() => {
   if (fml) {
     formula = fml;
     error = false;
-  } else if (input !== null && input.length > 0) error = true;
+  } else {
+    formula = undefined;
+    error = input !== null && input.length > 0;
+  }
 });
 </script>
 

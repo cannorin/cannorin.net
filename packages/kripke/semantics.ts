@@ -124,6 +124,7 @@ function applyPermutation<T extends Frame>(
 
 export function generateAllFrames() {
   const canonicals: number[] = [];
+  const nontrivials: number[] = [];
   const map = new Map<number, number>();
 
   const total = 2 ** relation.length;
@@ -131,6 +132,7 @@ export function generateAllFrames() {
     if (map.has(id)) continue;
 
     const relations = decode(relation, id);
+
     const frame = { relations };
     const equivalentIds: number[] = [];
 
@@ -148,6 +150,11 @@ export function generateAllFrames() {
     for (const equivalentId of equivalentIds) {
       map.set(equivalentId, canonicalId);
     }
+
+    // Exclude the sizes with less than 10 frames (= can be bruteforced)
+    if (relations.size >= 3 && relations.size <= 13) {
+      nontrivials.push(canonicalId);
+    }
   }
 
   const isomorphic: Uint16Array = new Uint16Array(total);
@@ -157,8 +164,18 @@ export function generateAllFrames() {
     isomorphic[id] = value;
   }
 
-  return { canonicals, isomorphic };
+  return { canonicals, isomorphic, nontrivials };
 }
 
-const { canonicals, isomorphic } = generateAllFrames();
-export { canonicals, isomorphic };
+const allFrames = generateAllFrames();
+
+/** canonical frames among all the isomorphic ones */
+const canonicals = allFrames.canonicals;
+
+/** mapping to get the canonical frame */
+const isomorphic = allFrames.isomorphic;
+
+/** frames that are suitable for the puzzle */
+const nontrivials = allFrames.nontrivials;
+
+export { canonicals, isomorphic, nontrivials };
