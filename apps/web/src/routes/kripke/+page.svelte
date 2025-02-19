@@ -2,12 +2,14 @@
 import { Button } from "$lib/components/ui/button";
 import * as Dialog from "$lib/components/ui/dialog";
 import { type Formula, isomorphic, validWorlds } from "@cannorin/kripke";
+import LuRotateCw from "lucide-svelte/icons/rotate-cw";
 import LuX from "lucide-svelte/icons/x";
 import { onMount } from "svelte";
 
 import FrameInput from "./frame-input.svelte";
 import Game, { type GameStatus, type Move } from "./game.svelte";
 import Rules from "./rules.svelte";
+import Share from "./share.svelte";
 
 import { daily } from "./store";
 import { getDailyFrame, getTimeUntilNextGame } from "./system";
@@ -82,12 +84,20 @@ onMount(() => {
           <FrameInput class="pb-6" disabled width={250} height={250} frame={frame} />
         </div>
 
-        <Dialog.Footer class="gap-x-1 gap-y-2">
-          <Button
-            variant="outline"
-            onclick={() => (dialogOpen = false)}>
-            <LuX class="w-4 h-4 mt-[2px]" /> Close
-          </Button>
+        <Dialog.Footer>
+          <div class="flex flex-col md:flex-row gap-2 w-full justify-end">
+            <Share date={$daily.date} moves={$daily.moves} status={status} />
+            <Button
+              href="/kripke/random"
+              data-sveltekit-reload>
+              <LuRotateCw class="w-4 h-4 mt-[2px]" /> Play Random Challenge
+            </Button>
+            <Button
+              variant="foreground"
+              onclick={() => (dialogOpen = false)}>
+              <LuX class="w-4 h-4 mt-[2px]" /> Close
+            </Button>
+          </div>
         </Dialog.Footer>
       </Dialog.Content>
     </Dialog.Root>

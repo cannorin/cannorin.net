@@ -200,10 +200,8 @@ const colors: Record<number, string> = {
         </li>
       {/if}
       {#if status === "win"}
-        <li class="flex flex-col items-center gap-2 rounded bg-primary text-background p-5 animate-fade-in">
+        <li class="flex flex-col items-center gap-2 rounded bg-green-700 text-background p-5 animate-fade-in">
           <p class="text-xl font-bold">YOU WIN!</p>
-
-          <p class="text-sm">Play <a class="underline font-medium" href="/kripke/random">random challenge</a>?</p>
         </li>
       {:else if status === "lose"}
         {#await getAnswer() then answerId}
@@ -216,7 +214,6 @@ const colors: Record<number, string> = {
               <span class="text-xs text-muted self-start px-2 py-1">id: {answerId}</span>
               <FrameInput class="pb-6" disabled width={250} height={250} frame={getFrame(answerId)} />
             </div>
-            <p class="text-sm self-end">Play <a class="underline font-medium" href="/kripke/random">random challenge</a>?</p>
           </li>
         {/await}
       {/if}
