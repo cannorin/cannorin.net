@@ -1,5 +1,8 @@
 <script lang="ts">
 import Katex from "$lib/components/katex.svelte";
+import { Button } from "$lib/components/ui/button";
+import * as Dialog from "$lib/components/ui/dialog";
+import { cn } from "$lib/utils";
 import {
   type Formula,
   type Frame,
@@ -9,8 +12,10 @@ import {
   latexSymbols,
   prettyPrint,
 } from "@cannorin/kripke";
+import LuCheck from "lucide-svelte/icons/check";
 import LuHeart from "lucide-svelte/icons/heart";
 import LuHeartCrack from "lucide-svelte/icons/heart-crack";
+import LuX from "lucide-svelte/icons/x";
 import FormulaInput from "./formula-input.svelte";
 import FrameInput from "./frame-input.svelte";
 
@@ -26,6 +31,7 @@ export type Props = {
   relationSize: number;
   guess: (frameId: number) => boolean | Promise<boolean>;
   check: (formula: Formula) => number | Promise<number>;
+  getAnswer: () => number | Promise<number>;
 };
 
 let {
@@ -34,10 +40,12 @@ let {
   relationSize,
   guess: guessImpl,
   check: checkImpl,
+  getAnswer,
 }: Props = $props();
 
 let formula: Formula | undefined = $state(undefined);
 let frame: Frame = $state(getFrame(0));
+let frameId = $derived(getId(frame));
 let math = $derived.by(() => {
   if (formula) return prettyPrint(formula, { symbols: latexSymbols });
   return "\\phantom{p}";
@@ -46,21 +54,24 @@ let math = $derived.by(() => {
 let remainingRelations = $derived(relationSize - frame.relations.size);
 
 let life = $derived(10 - moves.length);
+let dialogOpen = $state(false);
 
 $effect(() => {
   if (life <= 0) {
     status = "lose";
+    dialogOpen = true;
     return;
   }
   if (moves.some((move) => move.type === "guess" && move.correct)) {
     status = "win";
+    dialogOpen = true;
     return;
   }
 });
 
 let canGuess = $derived.by(() => {
   if (status !== "playing" || remainingRelations !== 0) return false;
-  const frameId = isomorphic[getId(frame)];
+  const frameId = getId(frame);
   return !moves.some(
     (move) => move.type === "guess" && move.frameId === frameId,
   );
@@ -90,6 +101,14 @@ async function check() {
   moves = [...moves];
   formula = undefined;
 }
+
+const colors: Record<number, string> = {
+  0: "bg-muted",
+  1: "bg-red-700",
+  2: "bg-amber-700",
+  3: "bg-yellow-600",
+  4: "bg-green-700",
+};
 </script>
 
 {#snippet sampleArrow()}
@@ -116,16 +135,16 @@ async function check() {
   <div class="flex items-center justify-between">
     {#each [1,2,3,4,5,6,7,8,9,10] as i}
       {#if i <= life}
-        <LuHeart class="text-primary" />
+        <LuHeart class={cn("text-primary", life <= 3 && "animate-pulse")} />
       {:else}
-        <LuHeartCrack class="text-muted" />
+        <LuHeartCrack class="text-muted animate-blink" />
       {/if}
     {/each}
   </div>
 
   <div class="flex flex-col items-center gap-2">
-    <div class="w-[300px] h-[300px] flex flex-col items-center justify-betwenn border rounded border-border">
-      <span class="text-xs text-muted self-start px-2 py-1">id: {isomorphic[getId(frame)]}</span>
+    <div class="w-[300px] h-[300px] flex flex-col items-center justify-between border rounded border-border">
+      <span class="text-xs text-muted self-start px-2 py-1">id: {frameId} (≈ {isomorphic[frameId]})</span>
       <FrameInput bind:frame disabled={status !== "playing"} />
       <span class="text-sm px-2 py-1 self-end flex items-center">
         {@render sampleArrow()} × {remainingRelations}
@@ -145,34 +164,100 @@ async function check() {
 
   <div class="flex flex-col items-center gap-2">
     <Katex math={math} />
-    <FormulaInput bind:formula disabled={status !== "playing"} />
-    <button
-      onclick={check}
-      disabled={!canCheck}
-      class={[
-        "rounded w-full p-1 text-background font-bold flex items-center justify-center gap-2",
-        canCheck ? "bg-primary" : "bg-muted cursor-not-allowed"
-      ]}>
-      {#if life <= 1}
-        Can't Check <span class="font-normal">(Last Move!)</span>
-      {:else}
-        Check! <span class="flex items-center font-normal">(<LuHeart size=14 class="mt-1 mr-[1px]"/> 1)</span>
-      {/if}
-    </button>
+    <form
+      class="flex flex-col items-center gap-2"
+      onsubmit={(e) => { e.preventDefault(); check(); }}>
+      <FormulaInput bind:formula disabled={status !== "playing"} />
+      <button
+        type="submit"
+        disabled={!canCheck}
+        class={[
+          "rounded w-full p-1 text-background font-bold flex items-center justify-center gap-2",
+          canCheck ? "bg-primary" : "bg-muted cursor-not-allowed"
+        ]}>
+        {#if life <= 1}
+          Can't Check <span class="font-normal">(Last Move!)</span>
+        {:else}
+          Check! <span class="flex items-center font-normal">(<LuHeart size=14 class="mt-1 mr-[1px]"/> 1)</span>
+        {/if}
+      </button>
+    </form>
   </div>
 
   <div>
     <ul class="flex flex-col gap-2">
       {#each moves as move}
-        <li>
-          {#if move.type === "guess"}
-            Guess({move.frameId}) = {move.correct}
-          {/if}
-          {#if move.type === "check"}
-            Valid({move.formulaStr}) = {move.valid}
-          {/if}
-        </li>
+        {#if move.type === "guess"}
+          <li class="flex justify-between items-center animate-fade-in">
+            <FrameInput disabled width={125} height={125} frame={getFrame(move.frameId)} />
+            <span class={["rounded w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6 text-background flex items-center justify-center", move.correct ? "bg-green-700" : "bg-muted"]}>
+              {#if move.correct}
+                <LuCheck size=24 />
+              {:else}
+                <LuX size=24 />
+              {/if}
+            </span>
+          </li>
+        {/if}
+        {#if move.type === "check"}
+          <li class="flex justify-between items-center animate-fade-in">
+            <Katex math={move.formulaStr} />
+            <span class={["rounded w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6 text-background font-bold flex items-center justify-center pb-[2px]", colors[move.valid]]}>{move.valid}</span>
+          </li>
+        {/if}
       {/each}
+      {#if status === "win"}
+        <li class="flex flex-col items-center gap-5 rounded bg-primary text-background p-5 animate-fade-in">
+          <p class="text-xl font-bold">YOU WIN!</p>
+        </li>
+      {:else if status === "lose"}
+        {#await getAnswer() then answerId}
+          <li class="flex flex-col gap-5 rounded bg-primary text-background p-5 animate-fade-in">
+            <div>
+              <p class="text-xl font-bold">YOU LOSE!</p>
+              <p class="text-sm">The answer was:</p>
+            </div>
+            <div class="flex flex-col items-center rounded bg-background w-full">
+              <span class="text-xs text-muted self-start px-2 py-1">id: {answerId}</span>
+              <FrameInput class="pb-6" disabled width={250} height={250} frame={getFrame(answerId)} />
+            </div>
+          </li>
+        {/await}
+      {/if}
     </ul>
   </div>
 </div>
+
+{#if status !== "playing"}
+  {#await getAnswer() then answerId}
+    <Dialog.Root bind:open={dialogOpen}>
+      <Dialog.Content class="animate-fade-in">
+        <Dialog.Header>
+          <Dialog.Title>
+            {#if status === "win"}
+              YOU WIN!
+            {:else if status === "lose"}
+              YOU LOSE!
+            {/if}
+          </Dialog.Title>
+          <Dialog.Description>
+            The answer was:
+          </Dialog.Description>
+        </Dialog.Header>
+
+        <div class="flex flex-col items-center w-fit rounded bg-background mx-auto">
+          <span class="text-xs text-muted self-start px-2 py-1">id: {answerId}</span>
+          <FrameInput class="pb-6" disabled width={250} height={250} frame={getFrame(answerId)} />
+        </div>
+
+        <Dialog.Footer class="gap-x-1 gap-y-2">
+          <Button
+            variant="outline"
+            onclick={() => (dialogOpen = false)}>
+            <LuX class="w-4 h-4 mt-[2px]" /> Close
+          </Button>
+        </Dialog.Footer>
+      </Dialog.Content>
+    </Dialog.Root>
+  {/await}
+{/if}

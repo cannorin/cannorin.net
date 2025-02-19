@@ -8,15 +8,21 @@ import {
   right,
   worlds,
 } from "@cannorin/kripke";
+import type { SVGAttributes } from "svelte/elements";
 import { type Vector, add, degree, rotate, sub, theta } from "./vector";
+
+export interface FrameInputProps extends SVGAttributes<SVGElement> {
+  frame?: Frame | undefined;
+  disabled?: boolean | undefined;
+}
 
 let {
   frame = $bindable<Frame>({ relations: new Set() }),
   disabled = false,
-}: {
-  frame?: Frame | undefined;
-  disabled?: boolean | undefined;
-} = $props();
+  width,
+  height,
+  ...rest
+}: FrameInputProps = $props();
 
 let selected: World | null = $state(null);
 
@@ -130,7 +136,7 @@ function getPath(rel: Relation) {
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<svg width="250" height="250" onclick={handleSvgClick}>
+<svg width={width ?? 250} height={height ?? 250} {...rest} viewBox="0,0,250,250" onclick={handleSvgClick}>
   <defs>
     <marker
       id="arrowhead"

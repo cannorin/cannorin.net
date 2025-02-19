@@ -9,13 +9,14 @@ const dailyFrameId = isomorphic[getId(dailyFrame)];
 const relationSize = dailyFrame.relations.size;
 const guess = (frameId: number) => isomorphic[frameId] === dailyFrameId;
 const check = (formula: Formula) => validWorlds(dailyFrame, formula).length;
+const getAnswer = () => dailyFrameId;
 </script>
 
 <main class="flex flex-col min-h-screen max-w-full items-center gap-12 lg:gap-16 py-8">
   <h1 class="font-display text-6xl">KRiPkE</h1>
 
   <div class="flex flex-col md:flex-row-reverse gap-x-20 gap-y-8">
-    <Game relationSize={relationSize} guess={guess} check={check} />
+    <Game relationSize={relationSize} guess={guess} check={check} getAnswer={getAnswer} />
 
     <div class="w-[300px] prose prose-sm">
       <h2>Rules</h2>
@@ -49,15 +50,15 @@ const check = (formula: Formula) => validWorlds(dailyFrame, formula).length;
       <p>You may use the following symbols:</p>
       <ul>
         <li>propositional variables: <code>p</code>, <code>q</code>, <code>r</code>, <code>s</code></li>
-        <li>verum: <code>T</code>, <code>⊤</code>, <code>1</code>, <code>\top</code></li>
-        <li>falsum: <code>F</code>, <code>⊥</code>, <code>0</code>, <code>\bot</code></li>
-        <li>negation: <code>~</code>, <code>¬</code>, <code>\neg</code>, <code>\lnot</code></li>
-        <li>box modality: <code>[]</code>, <code>□</code>, <code>L</code>, <code>\Box</code></li>
-        <li>diamond modality: <code>&lt;&gt;</code>, <code>⋄</code>, <code>M</code>, <code>\Diamond</code></li>
-        <li>conjunction: <code>&amp;</code>, <code>^</code>, <code>∧</code>, <code>\wedge</code>, <code>\land</code></li>
-        <li>disjunction: <code>|</code>, <code>v</code>, <code>∨</code>, <code>\vee</code>, <code>\lor</code></li>
-        <li>implication: <code>-&gt;</code>, <code>→</code>, <code>\rightarrow</code>, <code>\to</code>, <code>\implies</code></li>
-        <li>equivalence: <code>&lt;-&gt;</code>, <code>↔</code>, <code>\leftrightarrow</code>, <code>\iff</code></li>
+        <li>verum: <code>⊤</code>, <code>T</code>, <code>1</code>, <code>\top</code></li>
+        <li>falsum: <code>⊥</code>, <code>F</code>, <code>0</code>, <code>\bot</code></li>
+        <li>negation: <code>¬</code>, <code>~</code>, <code>\neg</code>, <code>\lnot</code></li>
+        <li>box modality: <code>□</code>, <code>[]</code>, <code>!</code>, <code>L</code>, <code>\Box</code></li>
+        <li>diamond modality: <code>⋄</code>, <code>&lt;&gt;</code>, <code>?</code>, <code>M</code>, <code>\Diamond</code></li>
+        <li>conjunction: <code>∧</code>, <code>^</code>, <code>&amp;</code>,  <code>\wedge</code>, <code>\land</code></li>
+        <li>disjunction: <code>∨</code>, <code>v</code>, <code>|</code>, <code>\vee</code>, <code>\lor</code></li>
+        <li>implication: <code>→</code>, <code>-&gt;</code>, <code>&gt;</code>, <code>\rightarrow</code>, <code>\to</code></li>
+        <li>equivalence: <code>↔</code>,  <code>&lt;-&gt;</code>, <code>=</code>, <code>\leftrightarrow</code>, <code>\equiv</code></li>
         <li>parentheses: <code>(</code>, <code>)</code></li>
       </ul>
     </div>
