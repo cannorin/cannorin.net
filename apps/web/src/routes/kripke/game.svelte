@@ -1,7 +1,6 @@
 <script lang="ts">
 import Katex from "$lib/components/katex.svelte";
-import { Button } from "$lib/components/ui/button";
-import * as Dialog from "$lib/components/ui/dialog";
+
 import { cn } from "$lib/utils";
 import {
   type Formula,
@@ -44,28 +43,21 @@ let {
 }: Props = $props();
 
 let formula: Formula | undefined = $state(undefined);
+let formulaStr = $derived(
+  formula ? prettyPrint(formula, { symbols: latexSymbols }) : "",
+);
 let frame: Frame = $state(getFrame(0));
 let frameId = $derived(getId(frame));
-let math = $derived.by(() => {
-  if (formula) return prettyPrint(formula, { symbols: latexSymbols });
-  return "\\phantom{p}";
-});
 
 let remainingRelations = $derived(relationSize - frame.relations.size);
 
 let life = $derived(10 - moves.length);
-let dialogOpen = $state(false);
 
 $effect(() => {
-  if (life <= 0) {
-    status = "lose";
-    dialogOpen = true;
-    return;
-  }
   if (moves.some((move) => move.type === "guess" && move.correct)) {
     status = "win";
-    dialogOpen = true;
-    return;
+  } else if (life <= 0) {
+    status = "lose";
   }
 });
 
@@ -87,7 +79,6 @@ async function guess() {
 
 let canCheck = $derived.by(() => {
   if (status !== "playing" || life === 1 || !formula) return false;
-  const formulaStr = prettyPrint(formula);
   return !moves.some(
     (move) => move.type === "check" && move.formulaStr === formulaStr,
   );
@@ -96,7 +87,6 @@ let canCheck = $derived.by(() => {
 async function check() {
   if (!canCheck || !formula) return;
   const valid = await checkImpl(formula);
-  const formulaStr = prettyPrint(formula, { symbols: latexSymbols });
   moves.push({ type: "check", formulaStr, valid });
   moves = [...moves];
   formula = undefined;
@@ -162,30 +152,27 @@ const colors: Record<number, string> = {
     </button>
   </div>
 
-  <div class="flex flex-col items-center gap-2">
-    <Katex math={math} />
-    <form
-      class="flex flex-col items-center gap-2"
-      onsubmit={(e) => { e.preventDefault(); check(); }}>
-      <FormulaInput bind:formula disabled={status !== "playing"} />
-      <button
-        type="submit"
-        disabled={!canCheck}
-        class={[
-          "rounded w-full p-1 text-background font-bold flex items-center justify-center gap-2",
-          canCheck ? "bg-primary" : "bg-muted cursor-not-allowed"
-        ]}>
-        {#if life <= 1}
-          Can't Check <span class="font-normal">(Last Move!)</span>
-        {:else}
-          Check! <span class="flex items-center font-normal">(<LuHeart size=14 class="mt-1 mr-[1px]"/> 1)</span>
-        {/if}
-      </button>
-    </form>
-  </div>
+  <form
+    class="flex flex-col items-center gap-2"
+    onsubmit={(e) => { e.preventDefault(); check(); }}>
+    <FormulaInput bind:formula disabled={status !== "playing"} />
+    <button
+      type="submit"
+      disabled={!canCheck}
+      class={[
+        "rounded w-full p-1 text-background font-bold flex items-center justify-center gap-2",
+        canCheck ? "bg-primary" : "bg-muted cursor-not-allowed"
+      ]}>
+      {#if life <= 1}
+        Can't Check <span class="font-normal">(Last Move!)</span>
+      {:else}
+        Check! <span class="flex items-center font-normal">(<LuHeart size=14 class="mt-1 mr-[1px]"/> 1)</span>
+      {/if}
+    </button>
+  </form>
 
   <div>
-    <ul class="flex flex-col gap-2">
+    <ul class="flex flex-col-reverse gap-2">
       {#each moves as move}
         {#if move.type === "guess"}
           <li class="flex justify-between items-center animate-fade-in">
@@ -206,13 +193,21 @@ const colors: Record<number, string> = {
           </li>
         {/if}
       {/each}
+      {#if formulaStr}
+        <li class="flex justify-between items-center animate-fade-in">
+          <Katex math={formulaStr} />
+          <span class={["rounded w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6 text-background font-bold flex items-center justify-center pb-[2px] bg-muted"]}>?</span>
+        </li>
+      {/if}
       {#if status === "win"}
-        <li class="flex flex-col items-center gap-5 rounded bg-primary text-background p-5 animate-fade-in">
+        <li class="flex flex-col items-center gap-2 rounded bg-primary text-background p-5 animate-fade-in">
           <p class="text-xl font-bold">YOU WIN!</p>
+
+          <p class="text-sm">Play <a class="underline font-medium" href="/kripke/random">random challenge</a>?</p>
         </li>
       {:else if status === "lose"}
         {#await getAnswer() then answerId}
-          <li class="flex flex-col gap-5 rounded bg-primary text-background p-5 animate-fade-in">
+          <li class="flex flex-col gap-2 rounded bg-foreground text-background p-5 animate-fade-in">
             <div>
               <p class="text-xl font-bold">YOU LOSE!</p>
               <p class="text-sm">The answer was:</p>
@@ -221,6 +216,7 @@ const colors: Record<number, string> = {
               <span class="text-xs text-muted self-start px-2 py-1">id: {answerId}</span>
               <FrameInput class="pb-6" disabled width={250} height={250} frame={getFrame(answerId)} />
             </div>
+            <p class="text-sm self-end">Play <a class="underline font-medium" href="/kripke/random">random challenge</a>?</p>
           </li>
         {/await}
       {/if}
@@ -228,36 +224,3 @@ const colors: Record<number, string> = {
   </div>
 </div>
 
-{#if status !== "playing"}
-  {#await getAnswer() then answerId}
-    <Dialog.Root bind:open={dialogOpen}>
-      <Dialog.Content class="animate-fade-in">
-        <Dialog.Header>
-          <Dialog.Title>
-            {#if status === "win"}
-              YOU WIN!
-            {:else if status === "lose"}
-              YOU LOSE!
-            {/if}
-          </Dialog.Title>
-          <Dialog.Description>
-            The answer was:
-          </Dialog.Description>
-        </Dialog.Header>
-
-        <div class="flex flex-col items-center w-fit rounded bg-background mx-auto">
-          <span class="text-xs text-muted self-start px-2 py-1">id: {answerId}</span>
-          <FrameInput class="pb-6" disabled width={250} height={250} frame={getFrame(answerId)} />
-        </div>
-
-        <Dialog.Footer class="gap-x-1 gap-y-2">
-          <Button
-            variant="outline"
-            onclick={() => (dialogOpen = false)}>
-            <LuX class="w-4 h-4 mt-[2px]" /> Close
-          </Button>
-        </Dialog.Footer>
-      </Dialog.Content>
-    </Dialog.Root>
-  {/await}
-{/if}

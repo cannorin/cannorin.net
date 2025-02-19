@@ -1,39 +1,42 @@
 <script lang="ts">
+import { page } from "$app/state";
 import { Button } from "$lib/components/ui/button";
 import * as Dialog from "$lib/components/ui/dialog";
 import { type Formula, isomorphic, validWorlds } from "@cannorin/kripke";
 import LuX from "lucide-svelte/icons/x";
-import { onMount } from "svelte";
 
-import FrameInput from "./frame-input.svelte";
-import Game, { type GameStatus, type Move } from "./game.svelte";
-import Rules from "./rules.svelte";
+import FrameInput from "../frame-input.svelte";
+import Game, { type GameStatus, type Move } from "../game.svelte";
+import Rules from "../rules.svelte";
+import { getRandomFrame, randomSeed } from "../system";
 
-import { daily } from "./store";
-import { getDailyFrame, getTimeUntilNextGame } from "./system";
+const seed = (() => {
+  const seedStr = page.url.searchParams.get("seed");
+  if (seedStr) {
+    const seed = Math.floor(Number.parseInt(seedStr));
+    return seed;
+  }
+  return randomSeed();
+})();
 
-const { id, frame } = getDailyFrame();
+const { id, frame } = getRandomFrame(seed);
 const guess = (frameId: number) => isomorphic[frameId] === id;
 const check = (formula: Formula) => validWorlds(frame, formula).length;
 const getAnswer = () => id;
 const relationSize = frame.relations.size;
 
+let moves: Move[] = $state([]);
 let status: GameStatus = $state("playing");
+
 let dialogOpen = $state(false);
 $effect(() => {
   if (status !== "playing") dialogOpen = true;
 });
-
-let timeUntilNextGame = $state(getTimeUntilNextGame());
-onMount(() => {
-  const interval = setInterval(() => {
-    timeUntilNextGame = getTimeUntilNextGame();
-  }, 1000);
-  return () => {
-    clearInterval(interval);
-  };
-});
 </script>
+
+{#snippet seedNumber()}
+  <a class="text-primary font-medium underline" href={`/kripke/random?seed=${seed}`}>{seed}</a>
+{/snippet}
 
 <main class="flex flex-col min-h-screen max-w-full items-center gap-12 lg:gap-16 py-8">
   <h1 class="font-display text-6xl">KRiPkE</h1>
@@ -41,18 +44,19 @@ onMount(() => {
   <div class="flex flex-col md:flex-row-reverse gap-x-20 gap-y-8">
     <section class="flex flex-col gap-2">
       <h2 class="text-sm">
-        <span class="font-bold">Daily Challenge: </span>
-        {timeUntilNextGame.hours}:{timeUntilNextGame.minutes}:{timeUntilNextGame.seconds} until the next game.
+        <span class="font-bold">Random Challenge</span>
+        <span>(seed: {@render seedNumber()})</span>
       </h2>
-      <Game bind:moves={$daily.moves} bind:status relationSize={relationSize} guess={guess} check={check} getAnswer={getAnswer} />
+      <Game bind:moves bind:status relationSize={relationSize} guess={guess} check={check} getAnswer={getAnswer} />
     </section>
 
     <section class="w-[300px] prose prose-sm">
-      <h2>Daily Challenge!</h2>
+      <h2>Random Challenge!</h2>
       <ul>
-        <li>The answer of the game changes every day.</li>
-        <li>The progress of the game persists until the next day ({timeUntilNextGame.hours}:{timeUntilNextGame.minutes}:{timeUntilNextGame.seconds} from now).</li>
-        <li>You can also play <a href="/kripke/random">Random Challenge</a>.</li>
+        <li>The answer of the game is determined by a seed number {@render seedNumber()}, which changes on every reload.</li>
+        <li>You can right-click on the seed number to obtain a permalink to this exact game.</li>
+        <li>Unlike Daily Challenge, the progress of the game does not persist.</li>
+        <li>You can also play <a href="/kripke">Daily Challenge</a>, if you have not yet.</li>
       </ul>
 
       <Rules />

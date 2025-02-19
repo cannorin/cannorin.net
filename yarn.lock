@@ -3948,6 +3948,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:apps/web"
   dependencies:
+    "@biomejs/biome": "npm:1.9.4"
     "@cannorin/kripke": "workspace:*"
     "@fontsource/poiret-one": "npm:5.1.1"
     "@fontsource/zen-kaku-gothic-new": "npm:5.1.1"
