@@ -45,26 +45,22 @@ https://www.cannorin.net/kripke${seed ? `/random?seed=${seed}` : ""}`;
   <ul class="flex items-center gap-4">
     <li>
       <a href="https://x.com/intent/tweet?text={shareText}" target="_blank" rel="noopener noreferrer">
-        <SiX size={20} />
-        <span class="sr-only"> Share to X (Twitter)</span>
+        <SiX title="Share to X (Twitter)" size={20} />
       </a>
     </li>
     <li>
       <a href="https://mastoshare.net/share?text={shareText}" target="_blank" rel="noopener noreferrer">
-        <SiMastodon size={20} />
-        <span class="sr-only"> Share to Mastodon</span>
+        <SiMastodon title="Share to Mastodon" size={20} />
       </a>
     </li>
     <li>
       <a href="https://misskeyshare.link/share.html?text={shareText}" target="_blank" rel="noopener noreferrer">
-        <SiMisskey size={20} />
-        <span class="sr-only"> Share to Misskey</span>
+        <SiMisskey title="Share to Misskey" size={20} />
       </a>
     </li>
     <li>
       <a href="https://bsky.app/intent/compose?text={shareText}" target="_blank" rel="noopener noreferrer">
-        <SiBluesky size={20} />
-        <span class="sr-only"> Share to Bluesky</span>
+        <SiBluesky title="Share to Bluesky" size={20} />
       </a>
     </li>
   </ul>
