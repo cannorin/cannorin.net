@@ -1,14 +1,22 @@
 <script lang="ts">
+import Katex from "$lib/components/katex.svelte";
 import LuHeart from "lucide-svelte/icons/heart";
+
+const frame = "\\footnotesize \\mathcal{F} = \\left<W, R\\right>";
+const numberConstraint = "\\footnotesize |W| = 4";
+const f = "\\footnotesize \\mathcal{F}";
+const validCount =
+  "\\footnotesize \\mathrm{N}(\\varphi) = \\bigl| \\Set{ w \\in W | \\forall \\mathop{\\Vdash}\\, (w \\Vdash \\varphi) } \\bigr|";
 </script>
 
 <h2>Rules</h2>
 <ul>
   <li>
-    A Kripke frame with 4 worlds is generated.
+    A Kripke frame with 4 worlds is generated:
+    <Katex math={frame} />, where <Katex math={numberConstraint} />.
   </li>
   <li>
-    The game tells you how many accessibility relations are in the frame, but not the exact shape of it.
+    The game tells you how many accessibility relations are in the frame <Katex math={f} />, but not the exact shape of it.
   </li>
   <li>
     You have a total of 10 moves <span class="inline-flex items-center max-w-fit">(<LuHeart aria-label="♡" size=12 class="mt-1"/>)</span>.
@@ -16,11 +24,15 @@ import LuHeart from "lucide-svelte/icons/heart";
     <ul>
       <li>
         Enter a modal formula.
-        The game tells you in how many worlds the formula is valid (for every valuation).
+        The game tells you in how many worlds the formula is valid.
+        In other words, it tells you the following natural number:
+        <div>
+          <Katex math={validCount} />
+        </div>
       </li>
       <li>
         Guess the Kripke frame.
-        If your frame is equal or isomorphic to the secret frame, you win.
+        If your frame is equal or isomorphic to the secret frame <Katex math={f} />, you win.
       </li>
     </ul>
   </li>

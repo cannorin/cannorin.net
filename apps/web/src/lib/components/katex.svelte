@@ -3,7 +3,7 @@ import katex from "katex";
 import "katex/dist/katex.min.css";
 import type { HTMLAttributes } from "svelte/elements";
 
-export interface KatexProps extends HTMLAttributes<HTMLDivElement> {
+export interface KatexProps extends HTMLAttributes<HTMLSpanElement> {
   displayMode?: boolean;
   math: string;
 }
@@ -15,6 +15,6 @@ let katexString = $derived.by(() =>
 );
 </script>
 
-<div {...rest}>
+<span {...rest}>
   {@html katexString}
-</div>
+</span>
