@@ -1,5 +1,4 @@
 <script lang="ts">
-import { page } from "$app/state";
 import { Button } from "$lib/components/ui/button";
 import * as Dialog from "$lib/components/ui/dialog";
 import { type Formula, isomorphic, validWorlds } from "@cannorin/kripke";
@@ -8,17 +7,10 @@ import LuX from "lucide-svelte/icons/x";
 import FrameInput from "../frame-input.svelte";
 import Game, { type GameStatus, type Move } from "../game.svelte";
 import Rules from "../rules.svelte";
-import { getRandomFrame, randomSeed } from "../system";
+import { getRandomFrame } from "../system";
 
-const seed = (() => {
-  const seedStr = page.url.searchParams.get("seed");
-  if (seedStr) {
-    const seed = Math.floor(Number.parseInt(seedStr));
-    return seed;
-  }
-  return randomSeed();
-})();
-
+let { data } = $props();
+const seed = data.seed;
 const { id, frame } = getRandomFrame(seed);
 const guess = (frameId: number) => isomorphic[frameId] === id;
 const check = (formula: Formula) => validWorlds(frame, formula).length;
