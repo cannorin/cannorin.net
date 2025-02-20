@@ -35,7 +35,7 @@ let shareText = $derived.by(() => {
 
 ${history} ${status === "win" ? moves.length : "X"}/10
 
-https://www.cannorin.net/kripke${seed ? `/random?seed=${seed}` : ""}`;
+https://www.cannorin.net/kripke${seed ? `/random/${seed}` : ""}`;
 
   return encodeURIComponent(text);
 });

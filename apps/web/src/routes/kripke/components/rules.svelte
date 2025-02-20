@@ -2,8 +2,11 @@
 import Katex from "$lib/components/katex.svelte";
 import LuHeart from "lucide-svelte/icons/heart";
 
+let { relationSize }: { relationSize: number } = $props();
+
 const frame = "\\footnotesize \\mathcal{F} = \\left<W, R\\right>";
-const numberConstraint = "\\footnotesize |W| = 4";
+const worldConstraint = "\\footnotesize |W| = 4";
+const relationConstraint = `\\footnotesize |R| = ${relationSize}`;
 const f = "\\footnotesize \\mathcal{F}";
 const validCount =
   "\\footnotesize \\mathrm{N}(\\varphi) = \\bigl| \\Set{ w \\in W | \\forall \\mathop{\\Vdash}\\, (w \\Vdash \\varphi) } \\bigr|";
@@ -12,11 +15,8 @@ const validCount =
 <h2>Rules</h2>
 <ul>
   <li>
-    A Kripke frame with 4 worlds is generated:
-    <Katex math={frame} />, where <Katex math={numberConstraint} />.
-  </li>
-  <li>
-    The game tells you how many accessibility relations are in the frame <Katex math={f} />, but not the exact shape of it.
+    A <a href="https://en.wikipedia.org/wiki/Kripke_semantics" target="_blank" rel="noopener noreferrer">Kripke frame</a> with 4 worlds and {relationSize} relation(s) is generated:
+    <Katex math={frame} />, where <Katex math={worldConstraint} /> and <Katex math={relationConstraint} />.
   </li>
   <li>
     You have a total of 10 moves <span class="inline-flex items-center max-w-fit">(<LuHeart aria-label="♡" size=12 class="mt-1"/>)</span>.
@@ -32,7 +32,7 @@ const validCount =
       </li>
       <li>
         Guess the Kripke frame.
-        If your frame is equal or isomorphic to the secret frame <Katex math={f} />, you win.
+        If your frame is equal or isomorphic to <Katex math={f} />, you win.
       </li>
     </ul>
   </li>

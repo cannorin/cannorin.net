@@ -1,6 +1,6 @@
 import { persisted } from "svelte-persisted-store";
-import type { Move } from "./game.svelte";
-import { date } from "./system";
+import type { Move } from "./components/game.svelte";
+import { date } from "./lib/system";
 
 export type Daily = {
   date: string;

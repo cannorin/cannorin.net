@@ -9,7 +9,7 @@ import {
   worlds,
 } from "@cannorin/kripke";
 import type { SVGAttributes } from "svelte/elements";
-import { type Vector, add, degree, rotate, sub, theta } from "./vector";
+import { type Vector, add, degree, rotate, sub, theta } from "../lib/vector";
 
 export interface FrameInputProps extends SVGAttributes<SVGElement> {
   frame?: Frame | undefined;
@@ -116,28 +116,30 @@ function getPath(rel: Relation) {
 }
 </script>
 
-<style>
-  .node {
-    fill: rgb(var(--background));
-    stroke: rgb(var(--foreground));
-    stroke-width: 1;
-  }
-  .node.selected {
-    stroke: rgb(var(--primary));
-    stroke-width: 3;
-  }
-  .edge {
-    stroke: rgb(var(--foreground));
-    stroke-width: 1;
-    fill: none;
-    marker-end: url(#arrowhead);
-  }
-</style>
-
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<svg width={width ?? 250} height={height ?? 250} {...rest} viewBox="0,0,250,250" onclick={handleSvgClick}>
-  <defs>
+<svg width={width ?? 250} height={height ?? 250} {...rest} viewBox="0,0,250,250" onclick={handleSvgClick}  xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .node {
+      fill: rgb(var(--background));
+      stroke: rgb(var(--foreground));
+      stroke-width: 1;
+    }
+    .node.selected {
+      stroke: rgb(var(--primary));
+      stroke-width: 3;
+    }
+    .edge {
+      stroke: rgb(var(--foreground));
+      stroke-width: 1;
+      fill: none;
+      marker-end: url(#arrowhead);
+    }
+    .arrowhead {
+      fill: rgb(var(--foreground));
+    }
+  </style>
+    <defs>
     <marker
       id="arrowhead"
       viewBox="0 0 10 10"
@@ -148,7 +150,7 @@ function getPath(rel: Relation) {
       orient="auto"
       markerUnits="strokeWidth"
     >
-      <path d="M0,0 L0,10 L10,5 z" fill="rgb(var(--foreground))" />
+      <path class="arrowhead" d="M0,0 L0,10 L10,5 z" />
     </marker>
   </defs>
 

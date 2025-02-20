@@ -31,6 +31,7 @@ export type Props = {
   guess: (frameId: number) => boolean | Promise<boolean>;
   check: (formula: Formula) => number | Promise<number>;
   getAnswer: () => number | Promise<number>;
+  onShare?: () => void;
 };
 
 let {
@@ -40,13 +41,16 @@ let {
   guess: guessImpl,
   check: checkImpl,
   getAnswer,
+  onShare,
 }: Props = $props();
 
 let formula: Formula | undefined = $state(undefined);
 let formulaStr = $derived(
   formula ? prettyPrint(formula, { symbols: latexSymbols }) : "",
 );
-let frame: Frame = $state(getFrame(0));
+let frame: Frame = $state(
+  getFrame(moves.findLast((move) => move.type === "guess")?.frameId ?? 0),
+);
 let frameId = $derived(getId(frame));
 
 let remainingRelations = $derived(relationSize - frame.relations.size);
@@ -200,20 +204,30 @@ const colors: Record<number, string> = {
         </li>
       {/if}
       {#if status === "win"}
-        <li class="flex flex-col items-center gap-2 rounded bg-green-700 text-background p-5 animate-fade-in">
-          <p class="text-xl font-bold">YOU WIN!</p>
+        <li>
+          <button
+            class="flex flex-col items-center gap-2 rounded bg-green-700 text-background p-5 animate-fade-in w-full"
+            onclick={() => onShare?.()}>
+            <p class="text-xl font-bold">YOU WIN!</p>
+            <p class="sr-only">Open result screen</p>
+          </button>
         </li>
       {:else if status === "lose"}
         {#await getAnswer() then answerId}
-          <li class="flex flex-col gap-2 rounded bg-foreground text-background p-5 animate-fade-in">
-            <div>
-              <p class="text-xl font-bold">YOU LOSE!</p>
-              <p class="text-sm">The answer was:</p>
-            </div>
-            <div class="flex flex-col items-center rounded bg-background w-full">
-              <span class="text-xs text-muted self-start px-2 py-1">id: {answerId}</span>
-              <FrameInput class="pb-6" disabled width={250} height={250} frame={getFrame(answerId)} />
-            </div>
+          <li>
+            <button
+              class="flex flex-col gap-2 rounded bg-foreground text-background p-5 animate-fade-in w-full"
+              onclick={() => onShare?.()}>
+              <div>
+                <p class="text-xl font-bold">YOU LOSE!</p>
+                <p class="text-sm">The answer was:</p>
+              </div>
+              <div class="flex flex-col items-center rounded bg-background w-full">
+                <span class="text-xs text-muted self-start px-2 py-1">id: {answerId}</span>
+                <FrameInput class="pb-6" disabled width={250} height={250} frame={getFrame(answerId)} />
+              </div>
+              <p class="sr-only">Open result screen</p>
+            </button>
           </li>
         {/await}
       {/if}

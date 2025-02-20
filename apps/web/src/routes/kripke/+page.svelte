@@ -6,15 +6,17 @@ import LuRotateCw from "lucide-svelte/icons/rotate-cw";
 import LuX from "lucide-svelte/icons/x";
 import { onMount } from "svelte";
 
-import FrameInput from "./frame-input.svelte";
-import Game, { type GameStatus, type Move } from "./game.svelte";
-import Rules from "./rules.svelte";
-import Share from "./share.svelte";
+import FrameInput from "./components/frame-input.svelte";
+import Game, { type GameStatus } from "./components/game.svelte";
+import Rules from "./components/rules.svelte";
+import Share from "./components/share.svelte";
 
+import { getFrameBySeed, getTimeUntilNextGame } from "./lib/system";
 import { daily } from "./store";
-import { getDailyFrame, getTimeUntilNextGame } from "./system";
 
-const { id, frame } = getDailyFrame();
+let { data } = $props();
+const seed = data.seed;
+const { id, frame } = getFrameBySeed(seed);
 const guess = (frameId: number) => isomorphic[frameId] === id;
 const check = (formula: Formula) => validWorlds(frame, formula).length;
 const getAnswer = () => id;
@@ -46,7 +48,10 @@ onMount(() => {
         <span class="font-bold">Daily Challenge: </span>
         {timeUntilNextGame.hours}:{timeUntilNextGame.minutes}:{timeUntilNextGame.seconds} until the next game.
       </h2>
-      <Game bind:moves={$daily.moves} bind:status relationSize={relationSize} guess={guess} check={check} getAnswer={getAnswer} />
+      <Game
+        bind:moves={$daily.moves} bind:status relationSize={relationSize}
+        guess={guess} check={check} getAnswer={getAnswer}
+        onShare={() => { dialogOpen = true; }} />
     </section>
 
     <section class="w-[300px] prose prose-sm">
@@ -57,7 +62,7 @@ onMount(() => {
         <li>You can also play <a href="/kripke/random">Random Challenge</a>.</li>
       </ul>
 
-      <Rules />
+      <Rules relationSize={relationSize} />
     </section>
   </div>
 </main>
@@ -80,7 +85,7 @@ onMount(() => {
         </Dialog.Header>
 
         <div class="flex flex-col items-center w-fit rounded bg-background mx-auto">
-          <span class="text-xs text-muted self-start px-2 py-1">id: {answerId}</span>
+          <span class="text-xs text-muted self-start px-2 py-1">id: {answerId}, seed: <a class="text-primary underline font-medium" href="/kripke/random/{seed}">{seed}</a></span>
           <FrameInput class="pb-6" disabled width={250} height={250} frame={frame} />
         </div>
 
@@ -88,8 +93,7 @@ onMount(() => {
           <div class="flex flex-col md:flex-row gap-2 w-full justify-end">
             <Share date={$daily.date} moves={$daily.moves} status={status} />
             <Button
-              href="/kripke/random"
-              data-sveltekit-reload>
+              href="/kripke/random">
               <LuRotateCw class="w-4 h-4 mt-[2px]" /> Play Random Challenge
             </Button>
             <Button
