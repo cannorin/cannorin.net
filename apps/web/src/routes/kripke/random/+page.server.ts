@@ -1,5 +1,5 @@
-import type { SeoProps } from "$components/seo";
-import { randomSeed } from "../system.js";
+import { redirect } from "@sveltejs/kit";
+import { randomSeed } from "../lib/system";
 
 export async function load({ url }) {
   const seedStr = url.searchParams.get("seed");
@@ -13,20 +13,5 @@ export async function load({ url }) {
       return randomSeed();
     }
   })();
-
-  return {
-    seed,
-    seo: {
-      title: "KRIPKE (random challenge) - cannorin.net",
-      description: "KRIPKE - WORDLE, but for Kripke frames!",
-      openGraph: {
-        title: "KRIPKE (random challenge) - cannorin.net",
-        description: "KRIPKE - WORDLE, but for Kripke frames!",
-      },
-      twitter: {
-        title: "KRIPKE (random challenge) - cannorin.net",
-        description: "KRIPKE - WORDLE, but for Kripke frames!",
-      },
-    } as SeoProps,
-  };
+  redirect(302, `/kripke/random/${seed}`);
 }

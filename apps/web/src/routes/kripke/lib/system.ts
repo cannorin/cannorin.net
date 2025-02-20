@@ -20,26 +20,17 @@ function cyrb53(str: string, seed = 0): number {
 
 export const date = () => new Date().toISOString().split("T")[0];
 
-export function getDailyFrame() {
-  // Use UTC ISO string so it's consistent across time zones
+export const dailySeed = () => {
   const dateStr = date();
-  const hash = cyrb53(dateStr);
-  const index = hash % nontrivials.length;
-  return {
-    date: dateStr,
-    id: nontrivials[index],
-    frame: getFrame(nontrivials[index]),
-  };
-}
+  return cyrb53(dateStr) % 0x100000000;
+};
 
 export const randomSeed = () => Math.floor(Math.random() * 0x100000000);
 
-export function getRandomFrame(seed?: number) {
-  const actualSeed = seed ?? randomSeed();
+export function getFrameBySeed(seed: number) {
   const hash = cyrb53("random", seed);
   const index = hash % nontrivials.length;
   return {
-    seed: actualSeed,
     id: nontrivials[index],
     frame: getFrame(nontrivials[index]),
   };

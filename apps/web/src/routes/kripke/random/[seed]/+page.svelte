@@ -5,15 +5,15 @@ import { type Formula, isomorphic, validWorlds } from "@cannorin/kripke";
 import LuRotateCw from "lucide-svelte/icons/rotate-cw";
 import LuX from "lucide-svelte/icons/x";
 
-import FrameInput from "../frame-input.svelte";
-import Game, { type GameStatus, type Move } from "../game.svelte";
-import Rules from "../rules.svelte";
-import Share from "../share.svelte";
-import { getRandomFrame } from "../system";
+import FrameInput from "../../components/frame-input.svelte";
+import Game, { type GameStatus, type Move } from "../../components/game.svelte";
+import Rules from "../../components/rules.svelte";
+import Share from "../../components/share.svelte";
+import { getFrameBySeed } from "../../lib/system";
 
 let { data } = $props();
 const seed = data.seed;
-const { id, frame } = getRandomFrame(seed);
+const { id, frame } = getFrameBySeed(seed);
 const guess = (frameId: number) => isomorphic[frameId] === id;
 const check = (formula: Formula) => validWorlds(frame, formula).length;
 const getAnswer = () => id;
@@ -29,7 +29,7 @@ $effect(() => {
 </script>
 
 {#snippet seedNumber()}
-  <a class="text-primary font-medium underline" href={`/kripke/random?seed=${seed}`}>{seed}</a>
+  <a class="text-primary font-medium underline" href={`/kripke/random/${seed}`}>{seed}</a>
 {/snippet}
 
 <main class="flex flex-col min-h-screen max-w-full items-center gap-12 lg:gap-16 py-8">
@@ -41,7 +41,10 @@ $effect(() => {
         <span class="font-bold">Random Challenge</span>
         <span>(seed: {@render seedNumber()})</span>
       </h2>
-      <Game bind:moves bind:status relationSize={relationSize} guess={guess} check={check} getAnswer={getAnswer} />
+      <Game
+        bind:moves bind:status relationSize={relationSize}
+        guess={guess} check={check} getAnswer={getAnswer}
+        onShare={() => { dialogOpen = true; }}/>
     </section>
 
     <section class="w-[300px] prose prose-sm">
@@ -76,7 +79,7 @@ $effect(() => {
         </Dialog.Header>
 
         <div class="flex flex-col items-center w-fit rounded bg-background mx-auto">
-          <span class="text-xs text-muted self-start px-2 py-1">id: {answerId}</span>
+          <span class="text-xs text-muted self-start px-2 py-1">id: {answerId}, seed: <a class="text-primary underline font-medium" href="/kripke/random/{seed}">{seed}</a></span>
           <FrameInput class="pb-6" disabled width={250} height={250} frame={frame} />
         </div>
 
@@ -84,8 +87,7 @@ $effect(() => {
           <div class="flex flex-col md:flex-row gap-2 w-full justify-end">
             <Share seed={seed} moves={moves} status={status} />
             <Button
-              href="/kripke/random"
-              data-sveltekit-reload>
+              href="/kripke/random">
               <LuRotateCw class="w-4 h-4 mt-[2px]" /> Play New Game
             </Button>
             <Button
