@@ -48,7 +48,9 @@ let formula: Formula | undefined = $state(undefined);
 let formulaStr = $derived(
   formula ? prettyPrint(formula, { symbols: latexSymbols }) : "",
 );
-let frame: Frame = $state(getFrame(0));
+let frame: Frame = $state(
+  getFrame(moves.findLast((move) => move.type === "guess")?.frameId ?? 0),
+);
 let frameId = $derived(getId(frame));
 
 let remainingRelations = $derived(relationSize - frame.relations.size);

@@ -62,7 +62,7 @@ onMount(() => {
         <li>You can also play <a href="/kripke/random">Random Challenge</a>.</li>
       </ul>
 
-      <Rules />
+      <Rules relationSize={relationSize} />
     </section>
   </div>
 </main>

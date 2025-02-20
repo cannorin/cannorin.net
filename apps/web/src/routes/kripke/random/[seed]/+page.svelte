@@ -50,13 +50,13 @@ $effect(() => {
     <section class="w-[300px] prose prose-sm">
       <h2>Random Challenge!</h2>
       <ul>
-        <li>The answer of the game is determined by a seed number {@render seedNumber()}, which changes on every reload.</li>
+        <li>The answer of the game is determined by a seed number {@render seedNumber()}.</li>
         <li>You can right-click on the seed number to obtain a permalink to this exact game.</li>
         <li>Unlike Daily Challenge, the progress of the game does not persist.</li>
         <li>You can also play <a href="/kripke">Daily Challenge</a>, if you have not yet.</li>
       </ul>
 
-      <Rules />
+      <Rules relationSize={relationSize} />
     </section>
   </div>
 </main>
