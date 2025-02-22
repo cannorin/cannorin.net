@@ -107,21 +107,8 @@ const colors: Record<number, string> = {
 
 {#snippet sampleArrow()}
   <svg width="50" height="10" class="mt-[2px]">
-    <defs>
-      <marker
-        id="arrowhead"
-        viewBox="0 0 10 10"
-        refX="8"
-        refY="5"
-        markerWidth="6"
-        markerHeight="6"
-        orient="auto"
-        markerUnits="strokeWidth"
-      >
-        <path d="M0,0 L0,10 L10,5 z" fill="rgb(var(--foreground))" />
-      </marker>
-    </defs>
-    <path d="M 5 5 L 45 5" stroke="rgb(var(--foreground))" stroke-width="1" marker-end="url(#arrowhead)" />
+    <path d="M 0 5 L 45 5" stroke="rgb(var(--foreground))" stroke-width="1" />
+    <polygon points="46 5 38.4824590337 7.73616114661 38.4824590337 2.26383885339" stroke="rgb(var(--foreground))" stroke-width="0.5" fill="rgb(var(--foreground))" />"
   </svg>
 {/snippet}
 

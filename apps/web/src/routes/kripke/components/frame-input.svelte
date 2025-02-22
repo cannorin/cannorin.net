@@ -9,7 +9,15 @@ import {
   worlds,
 } from "@cannorin/kripke";
 import type { SVGAttributes } from "svelte/elements";
-import { type Vector, add, degree, rotate, sub, theta } from "../lib/vector";
+import {
+  type Radian,
+  type Vector,
+  add,
+  degree,
+  rotate,
+  sub,
+  theta,
+} from "../lib/vector";
 
 export interface FrameInputProps extends SVGAttributes<SVGElement> {
   frame?: Frame | undefined;
@@ -82,23 +90,32 @@ const center: Vector = { x: 125, y: 125 };
 
 const radius: Vector = { x: 20, y: 0 };
 
-function getSelfPath(w: World) {
+function tip(position: Vector, angle: Radian) {
+  const length = 8;
+  const offset = degree(20);
+  const lb = add(position, rotate({ x: length, y: 0 }, angle - offset));
+  const rb = add(position, rotate({ x: length, y: 0 }, angle + offset));
+  return { lb, rb };
+}
+
+function getSelfArrow(w: World) {
   const angle = theta(sub(center, positions[w])) + Math.PI;
   const offset = degree(45);
   const loopRadius = 20;
   const start = add(positions[w], rotate(radius, angle - offset));
   const end = add(positions[w], rotate(radius, angle + offset));
+  const { lb, rb } = tip(end, angle + offset - degree(10));
 
-  return `
-    M ${start.x} ${start.y}
-    A ${loopRadius} ${loopRadius} 0 1 1 ${end.x} ${end.y}
-  `;
+  return {
+    path: `M ${start.x} ${start.y} A ${loopRadius} ${loopRadius} 0 1 1 ${end.x} ${end.y}`,
+    tipPolygon: `${end.x} ${end.y} ${lb.x} ${lb.y} ${rb.x} ${rb.y}`,
+  };
 }
 
-function getPath(rel: Relation) {
+function getArrow(rel: Relation) {
   const l = left(rel);
   const r = right(rel);
-  if (l === r) return getSelfPath(l);
+  if (l === r) return getSelfArrow(l);
 
   const angle = theta(sub(positions[r], positions[l]));
 
@@ -106,62 +123,61 @@ function getPath(rel: Relation) {
 
   const dl = rotate(radius, angle + offset);
   const dr = rotate(radius, angle + Math.PI - offset);
+
   const from = add(positions[l], dl);
   const to = add(positions[r], dr);
+  const { lb, rb } = tip(to, angle + Math.PI - offset);
 
   if (!frame.relations.has(reverse(rel)))
-    return `M ${from.x} ${from.y} L ${to.x} ${to.y}`;
+    return {
+      path: `M ${from.x} ${from.y} L ${to.x} ${to.y}`,
+      tipPolygon: `${to.x} ${to.y} ${lb.x} ${lb.y} ${rb.x} ${rb.y}`,
+    };
 
-  return `M ${from.x} ${from.y} C ${from.x + dl.x * 2} ${from.y + dl.y * 2}, ${to.x + dr.x * 2} ${to.y + dr.y * 2}, ${to.x} ${to.y}`;
+  return {
+    path: `M ${from.x} ${from.y} C ${from.x + dl.x * 2} ${from.y + dl.y * 2}, ${to.x + dr.x * 2} ${to.y + dr.y * 2}, ${to.x} ${to.y}`,
+    tipPolygon: `${to.x} ${to.y} ${lb.x} ${lb.y} ${rb.x} ${rb.y}`,
+  };
 }
 </script>
+
+<style>
+  .node {
+    fill: rgb(var(--background));
+    stroke: rgb(var(--foreground));
+    stroke-width: 1;
+  }
+  .node.selected {
+    stroke: rgb(var(--primary));
+    stroke-width: 3;
+  }
+  .edge {
+    stroke: rgb(var(--foreground));
+    stroke-width: 1;
+    fill: none;
+  }
+  .tip {
+    stroke: rgb(var(--foreground));
+    stroke-width: 0.5;
+    fill: rgb(var(--foreground));
+  }
+</style>
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <svg width={width ?? 250} height={height ?? 250} {...rest} viewBox="0,0,250,250" onclick={handleSvgClick}  xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .node {
-      fill: rgb(var(--background));
-      stroke: rgb(var(--foreground));
-      stroke-width: 1;
-    }
-    .node.selected {
-      stroke: rgb(var(--primary));
-      stroke-width: 3;
-    }
-    .edge {
-      stroke: rgb(var(--foreground));
-      stroke-width: 1;
-      fill: none;
-      marker-end: url(#arrowhead);
-    }
-    .arrowhead {
-      fill: rgb(var(--foreground));
-    }
-  </style>
-    <defs>
-    <marker
-      id="arrowhead"
-      viewBox="0 0 10 10"
-      refX="8"
-      refY="5"
-      markerWidth="6"
-      markerHeight="6"
-      orient="auto"
-      markerUnits="strokeWidth"
-    >
-      <path class="arrowhead" d="M0,0 L0,10 L10,5 z" />
-    </marker>
-  </defs>
-
   {#each Array.from(frame.relations) as rel}
-    {#key rel}
-      <path
-        d={getPath(rel)}
-        class={["edge", !disabled && "cursor-pointer"]}
-        onclick={(e) => !disabled && handleEdgeClick(rel, e)}
-      />
-    {/key}
+    {@const { path, tipPolygon } = getArrow(rel)}
+    <path
+      d={path}
+      class={["edge", !disabled && "cursor-pointer"]}
+      onclick={(e) => !disabled && handleEdgeClick(rel, e)}
+    />
+    <polygon
+      class="tip"
+      points={tipPolygon}
+      onclick={(e) => !disabled && handleEdgeClick(rel, e)}
+    />
   {/each}
 
   {#each worlds as w}
