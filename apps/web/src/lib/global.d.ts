@@ -40,10 +40,6 @@ interface ReadonlyArray<T> {
   ): searchElement is T extends LiteralUnionLike<T> ? T : never;
 }
 
-interface Map<K> {
-  has(key: Weaken<K>): key is K;
-}
-
 declare module "*&enhanced" {
   import type { Picture } from "vite-imagetools";
 

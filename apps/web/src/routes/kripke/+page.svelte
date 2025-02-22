@@ -11,8 +11,8 @@ import Game, { type GameStatus } from "./components/game.svelte";
 import Rules from "./components/rules.svelte";
 import Share from "./components/share.svelte";
 
+import { daily } from "./lib/store";
 import { getFrameBySeed, getTimeUntilNextGame } from "./lib/system";
-import { daily } from "./store";
 
 let { data } = $props();
 const seed = data.seed;
