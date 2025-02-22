@@ -10,11 +10,13 @@ import {
   isomorphic,
   latexSymbols,
   prettyPrint,
+  unicodeSymbols,
 } from "@cannorin/kripke";
 import LuCheck from "lucide-svelte/icons/check";
 import LuHeart from "lucide-svelte/icons/heart";
 import LuHeartCrack from "lucide-svelte/icons/heart-crack";
 import LuX from "lucide-svelte/icons/x";
+import { formulaHistory } from "../lib/store";
 import FormulaInput from "./formula-input.svelte";
 import FrameInput from "./frame-input.svelte";
 
@@ -91,6 +93,9 @@ let canCheck = $derived.by(() => {
 async function check() {
   if (!canCheck || !formula) return;
   const valid = await checkImpl(formula);
+  formulaHistory.update((h) =>
+    formula ? h.add(prettyPrint(formula, { symbols: unicodeSymbols })) : h,
+  );
   moves.push({ type: "check", formulaStr, valid });
   moves = [...moves];
   formula = undefined;
