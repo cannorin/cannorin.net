@@ -50,17 +50,35 @@ const generateAlt = (words: string[]) =>
 export const topSymbols = ["⊤", "T", "1", "\\top", "top"];
 export const botSymbols = ["⊥", "F", "0", "\\bot", "bot"];
 export const notSymbols = ["¬", "~", "\\neg", "\\lnot", "not"];
-export const boxSymbols = ["□", "[]", "!", "L", "\\Box", "box"];
-export const diamondSymbols = ["⋄", "<>", "?", "M", "\\Diamond", "dia"];
+export const boxSymbols = ["□", "◻", "[]", "!", "L", "\\Box", "box"];
+export const diamondSymbols = [
+  "◇",
+  "◊",
+  "♢",
+  "⋄",
+  "<>",
+  "?",
+  "M",
+  "\\Diamond",
+  "dia",
+];
 export const andSymbols = ["∧", "^", "&", "\\wedge", "\\land", "and"];
 export const orSymbols = ["∨", "v", "|", "\\vee", "\\lor", "or"];
-export const toSymbols = ["→", "->", ">", "\\rightarrow", "\\to", "to"];
-export const eqSymbols = ["↔", "<->", "=", "\\leftrightarrow", "\\equiv", "eq"];
+export const toSymbols = ["→", "->", "⊃", ">", "\\rightarrow", "\\to", "to"];
+export const eqSymbols = [
+  "↔",
+  "<->",
+  "≡",
+  "=",
+  "\\leftrightarrow",
+  "\\equiv",
+  "eq",
+];
 export const lParenSymbols = ["(", "\\left"];
 export const rParenSymbols = [")", "\\right"];
 
 const lexer = buildLexer([
-  [true, /^[pqrs]/g, TokenKind.PropVar],
+  [true, generateAlt(propVars), TokenKind.PropVar],
   [true, generateAlt(topSymbols), TokenKind.Top],
   [true, generateAlt(botSymbols), TokenKind.Bot],
   [true, generateAlt(notSymbols), TokenKind.Not],

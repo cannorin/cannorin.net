@@ -70,7 +70,7 @@ export const unicodeSymbols: Symbols = {
   top: "⊤",
   bot: "⊥",
   box: "□",
-  diamond: "⋄",
+  diamond: "◇",
   not: "¬",
   and: "∧",
   or: "∨",
