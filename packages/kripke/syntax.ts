@@ -7,7 +7,7 @@ export type Formula =
   | { type: "propvar"; name: PropVar }
   | { type: "not" | "box" | "diamond"; fml: Formula }
   | {
-      type: "to" | "or" | "and" | "iff";
+      type: "to" | "or" | "and" | "eq";
       left: Formula;
       right: Formula;
     };
@@ -24,7 +24,7 @@ export function vars(fml: Formula): Set<PropVar> {
     case "to":
     case "or":
     case "and":
-    case "iff":
+    case "eq":
       return new Set([...vars(fml.left), ...vars(fml.right)]);
     case "propvar":
       return new Set([fml.name]);
@@ -49,8 +49,8 @@ export const and = (left: Formula, right: Formula) =>
   ({ type: "and", left, right }) as const satisfies Formula;
 export const or = (left: Formula, right: Formula) =>
   ({ type: "or", left, right }) as const satisfies Formula;
-export const iff = (left: Formula, right: Formula) =>
-  ({ type: "iff", left, right }) as const satisfies Formula;
+export const eq = (left: Formula, right: Formula) =>
+  ({ type: "eq", left, right }) as const satisfies Formula;
 
 export type Symbols = Record<Exclude<Formula["type"], "propvar">, string>;
 
@@ -63,7 +63,7 @@ export const asciiSymbols: Symbols = {
   and: "^",
   or: "v",
   to: "->",
-  iff: "<->",
+  eq: "<->",
 };
 
 export const unicodeSymbols: Symbols = {
@@ -75,7 +75,7 @@ export const unicodeSymbols: Symbols = {
   and: "∧",
   or: "∨",
   to: "→",
-  iff: "↔",
+  eq: "↔",
 };
 
 export const latexSymbols: Symbols = {
@@ -87,7 +87,7 @@ export const latexSymbols: Symbols = {
   and: "\\land",
   or: "\\lor",
   to: "\\to",
-  iff: "\\leftrightarrow",
+  eq: "\\leftrightarrow",
 };
 
 export function prettyPrint(
@@ -138,13 +138,13 @@ export function prettyPrint(
         `${prettyPrint(fml.left, { symbols, paren: true })} ${symbols.to} ${prettyPrint(fml.right, newConfig)}`,
       );
     }
-    case "iff": {
+    case "eq": {
       const newConfig: typeof config = {
         symbols,
-        paren: (f) => f.type !== "iff",
+        paren: (f) => f.type !== "eq",
       };
       return withParen(
-        `${prettyPrint(fml.left, newConfig)} ${symbols.iff} ${prettyPrint(fml.right, newConfig)}`,
+        `${prettyPrint(fml.left, newConfig)} ${symbols.eq} ${prettyPrint(fml.right, newConfig)}`,
       );
     }
   }

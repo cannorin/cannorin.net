@@ -17,7 +17,7 @@ import {
   bot,
   box,
   diamond,
-  iff,
+  eq,
   not,
   or,
   propVars,
@@ -36,25 +36,42 @@ enum TokenKind {
   And = 6,
   Or = 7,
   To = 8,
-  Iff = 9,
+  Eq = 9,
   LParen = 10,
   RParen = 11,
   Space = 12,
 }
 
+const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+const generateAlt = (words: string[]) =>
+  new RegExp(`^(${words.map((s) => escapeRegExp(s)).join("|")})`, "g");
+
+export const topSymbols = ["⊤", "T", "1", "\\top", "top"];
+export const botSymbols = ["⊥", "F", "0", "\\bot", "bot"];
+export const notSymbols = ["¬", "~", "\\neg", "\\lnot", "not"];
+export const boxSymbols = ["□", "[]", "!", "L", "\\Box", "box"];
+export const diamondSymbols = ["⋄", "<>", "?", "M", "\\Diamond", "dia"];
+export const andSymbols = ["∧", "^", "&", "\\wedge", "\\land", "and"];
+export const orSymbols = ["∨", "v", "|", "\\vee", "\\lor", "or"];
+export const toSymbols = ["→", "->", ">", "\\rightarrow", "\\to", "to"];
+export const eqSymbols = ["↔", "<->", "=", "\\leftrightarrow", "\\equiv", "eq"];
+export const lParenSymbols = ["(", "\\left"];
+export const rParenSymbols = [")", "\\right"];
+
 const lexer = buildLexer([
   [true, /^[pqrs]/g, TokenKind.PropVar],
-  [true, /^(T|⊤|1|\\top)/g, TokenKind.Top],
-  [true, /^(F|⊥|0|\\bot)/g, TokenKind.Bot],
-  [true, /^(~|¬|\\neg|\\lnot)/g, TokenKind.Not],
-  [true, /^(\[\]|□|!|L|\\Box)/g, TokenKind.Box],
-  [true, /^(<>|⋄|\?|M|\\Diamond)/g, TokenKind.Diamond],
-  [true, /^(&|\^|∧|\\wedge|\\land)/g, TokenKind.And],
-  [true, /^(\||v|∨|\\vee|\\lor)/g, TokenKind.Or],
-  [true, /^(>|->|→|\\rightarrow|\\to)/g, TokenKind.To],
-  [true, /^(=|<->|↔|\\leftrightarrow|\\equiv)/g, TokenKind.Iff],
-  [true, /^(\(|\\left\()/g, TokenKind.LParen],
-  [true, /^(\)|\\right\))/g, TokenKind.RParen],
+  [true, generateAlt(topSymbols), TokenKind.Top],
+  [true, generateAlt(botSymbols), TokenKind.Bot],
+  [true, generateAlt(notSymbols), TokenKind.Not],
+  [true, generateAlt(boxSymbols), TokenKind.Box],
+  [true, generateAlt(diamondSymbols), TokenKind.Diamond],
+  [true, generateAlt(andSymbols), TokenKind.And],
+  [true, generateAlt(orSymbols), TokenKind.Or],
+  [true, generateAlt(toSymbols), TokenKind.To],
+  [true, generateAlt(eqSymbols), TokenKind.Eq],
+  [true, generateAlt(lParenSymbols), TokenKind.LParen],
+  [true, generateAlt(rParenSymbols), TokenKind.RParen],
   [false, /^\s+/g, TokenKind.Space],
 ]);
 
@@ -96,7 +113,7 @@ function unary([op, value]: [
 function binary(
   left: Formula,
   [op, right]: [
-    Token<TokenKind.And | TokenKind.Or | TokenKind.To | TokenKind.Iff>,
+    Token<TokenKind.And | TokenKind.Or | TokenKind.To | TokenKind.Eq>,
     Formula,
   ],
 ): Formula {
@@ -107,8 +124,8 @@ function binary(
       return or(left, right);
     case TokenKind.To:
       return to(left, right);
-    case TokenKind.Iff:
-      return iff(left, right);
+    case TokenKind.Eq:
+      return eq(left, right);
     default:
       throw new Error(`Unknown binary operator: ${op.text}`);
   }
@@ -140,7 +157,7 @@ ANDOR.setPattern(
 );
 
 EXP.setPattern(
-  lrec_sc(ANDOR, seq(alt(tok(TokenKind.To), tok(TokenKind.Iff)), EXP), binary),
+  lrec_sc(ANDOR, seq(alt(tok(TokenKind.To), tok(TokenKind.Eq)), EXP), binary),
 );
 
 export function parse(expr: string): Formula {

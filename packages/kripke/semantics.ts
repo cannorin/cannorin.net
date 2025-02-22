@@ -64,7 +64,7 @@ export function satisfy(m: Model, w: World, fml: Formula): boolean {
       if (!satisfy(m, w, fml.left)) return false;
       return satisfy(m, w, fml.right);
     }
-    case "iff": {
+    case "eq": {
       return satisfy(m, w, fml.left) === satisfy(m, w, fml.right);
     }
   }

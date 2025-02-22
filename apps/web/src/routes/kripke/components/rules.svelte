@@ -1,5 +1,18 @@
 <script lang="ts">
 import Katex from "$lib/components/katex.svelte";
+import {
+  andSymbols,
+  botSymbols,
+  boxSymbols,
+  diamondSymbols,
+  eqSymbols,
+  lParenSymbols,
+  notSymbols,
+  orSymbols,
+  rParenSymbols,
+  toSymbols,
+  topSymbols,
+} from "@cannorin/kripke";
 import LuHeart from "lucide-svelte/icons/heart";
 
 let { relationSize }: { relationSize: number } = $props();
@@ -41,18 +54,24 @@ const validCount =
   </li>
 </ul>
 
+{#snippet symbols(words: string[])}
+  {#each words as word, i}
+    {i > 0 ? ", " : ""}<code>{word}</code>
+  {/each}
+{/snippet}
+
 <h2>Syntax</h2>
 <p>You may use the following symbols:</p>
 <ul>
-  <li>propositional variables: <code>p</code>, <code>q</code>, <code>r</code>, <code>s</code></li>
-  <li>verum: <code>⊤</code>, <code>T</code>, <code>1</code>, <code>\top</code></li>
-  <li>falsum: <code>⊥</code>, <code>F</code>, <code>0</code>, <code>\bot</code></li>
-  <li>negation: <code>¬</code>, <code>~</code>, <code>\neg</code>, <code>\lnot</code></li>
-  <li>box modality: <code>□</code>, <code>[]</code>, <code>!</code>, <code>L</code>, <code>\Box</code></li>
-  <li>diamond modality: <code>⋄</code>, <code>&lt;&gt;</code>, <code>?</code>, <code>M</code>, <code>\Diamond</code></li>
-  <li>conjunction: <code>∧</code>, <code>^</code>, <code>&amp;</code>,  <code>\wedge</code>, <code>\land</code></li>
-  <li>disjunction: <code>∨</code>, <code>v</code>, <code>|</code>, <code>\vee</code>, <code>\lor</code></li>
-  <li>implication: <code>→</code>, <code>-&gt;</code>, <code>&gt;</code>, <code>\rightarrow</code>, <code>\to</code></li>
-  <li>equivalence: <code>↔</code>,  <code>&lt;-&gt;</code>, <code>=</code>, <code>\leftrightarrow</code>, <code>\equiv</code></li>
-  <li>parentheses: <code>(</code>, <code>)</code></li>
+  <li>propositional variables: {@render symbols(["p", "q", "r", "s"])}</li>
+  <li>verum: {@render symbols(topSymbols)}</li>
+  <li>falsum: {@render symbols(botSymbols)}</li>
+  <li>negation: {@render symbols(notSymbols)}</li>
+  <li>box: {@render symbols(boxSymbols)}</li>
+  <li>diamond: {@render symbols(diamondSymbols)}</li>
+  <li>conjunction: {@render symbols(andSymbols)}</li>
+  <li>disjunction: {@render symbols(orSymbols)}</li>
+  <li>implication: {@render symbols(toSymbols)}</li>
+  <li>equivalence: {@render symbols(eqSymbols)}</li>
+  <li>parentheses: {@render symbols([...lParenSymbols, ...rParenSymbols])}</li>
 </ul>
