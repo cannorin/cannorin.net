@@ -1704,12 +1704,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esrap@npm:^1.3.2":
-  version: 1.3.2
-  resolution: "esrap@npm:1.3.2"
+"esrap@npm:^1.4.3":
+  version: 1.4.5
+  resolution: "esrap@npm:1.4.5"
   dependencies:
     "@jridgewell/sourcemap-codec": "npm:^1.4.15"
-  checksum: 10c0/0d79db203ae439b4601cede1d885c5d36f5184b8055683c128cc99a832aa72586a11d8ee0ff4013a37d0c9d4857bb1ecc6b835fa4c2276538b684183423445a2
+  checksum: 10c0/7dd93c2481bcee8e53f1a9b15094ebba2724a0fa17c864aa728d5cfc3db9aca1640293cdb873243eb981c2cad5eb0bfed6e7f3cf427e5467e698042b3cc0ec3b
   languageName: node
   linkType: hard
 
@@ -3409,9 +3409,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:5.16.1":
-  version: 5.16.1
-  resolution: "svelte@npm:5.16.1"
+"svelte@npm:5.20.4":
+  version: 5.20.4
+  resolution: "svelte@npm:5.20.4"
   dependencies:
     "@ampproject/remapping": "npm:^2.3.0"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
@@ -3422,12 +3422,12 @@ __metadata:
     axobject-query: "npm:^4.1.0"
     clsx: "npm:^2.1.1"
     esm-env: "npm:^1.2.1"
-    esrap: "npm:^1.3.2"
+    esrap: "npm:^1.4.3"
     is-reference: "npm:^3.0.3"
     locate-character: "npm:^3.0.0"
     magic-string: "npm:^0.30.11"
     zimmerframe: "npm:^1.1.2"
-  checksum: 10c0/87b65aaf324d84f6c391eadb20a6b71601b78542294bc2ef8f569081a70bec69e91196613d4dccc86a1deeda9bdc4a50ead3ebe4ed926bf44609eb44f690bb8b
+  checksum: 10c0/f89590e506307698fbbf09bf36fdaae640936cf83cead43a1e283f99c525d53ac109e8f8259448a0925d0578db4f956f2a248b54f4d93cb9baeb9d2707a42129
   languageName: node
   linkType: hard
 
@@ -3974,7 +3974,7 @@ __metadata:
     remark-footnotes: "npm:2.0"
     remark-math: "npm:3"
     schema-dts: "npm:1.1.2"
-    svelte: "npm:5.16.1"
+    svelte: "npm:5.20.4"
     svelte-check: "npm:4.1.4"
     svelte-persisted-store: "npm:0.12.0"
     sveltekit-rate-limiter: "npm:0.6.1"
