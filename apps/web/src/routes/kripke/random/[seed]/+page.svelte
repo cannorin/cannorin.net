@@ -87,6 +87,7 @@ $effect(() => {
           <div class="flex flex-col md:flex-row gap-2 w-full justify-end">
             <Share seed={seed} moves={moves} status={status} />
             <Button
+              data-sveltekit-reload
               href="/kripke/random">
               <LuRotateCw class="w-4 h-4 mt-[2px]" /> Play New Game
             </Button>
