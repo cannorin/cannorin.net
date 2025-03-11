@@ -45,7 +45,7 @@
     "@fontsource/poiret-one": "5.1.1",
     "@fontsource/zen-kaku-gothic-new": "5.1.1",
     "@icons-pack/svelte-simple-icons": "4.0.1",
-    "@tailwindcss/typography": "0.5.15",
+    "@tailwindcss/typography": "0.5.16",
     "deepmerge": "4.3.1",
     "lucide-svelte": "0.475.0",
     "svelte-persisted-store": "0.12.0",
