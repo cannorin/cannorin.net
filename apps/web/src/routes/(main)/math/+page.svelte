@@ -252,7 +252,7 @@ const talks: Talk[] = [
       <section>
         <h3>論文・発表等</h3>
 
-        <h4 class="text-primary font-bold">査読論文</h4>
+        <h4 class="text-primary font-bold">論文</h4>
 
         <ol class="space-y-3">
           {#each papers as paper}
