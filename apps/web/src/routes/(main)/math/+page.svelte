@@ -297,7 +297,7 @@ const talks: Talk[] = [
             神戸大学大学院 システム情報学研究科 情報数理研究室
           </p>
           <p>
-            Email: <a class="text-primary underline font-medium inline" href="231x032x@gsuite.kobe-u.ac.jp">231x032x@gsuite.kobe-u.ac.jp</a>
+            Email: <a class="text-primary underline font-medium inline" href="mailto:231x032x@gsuite.kobe-u.ac.jp">231x032x@gsuite.kobe-u.ac.jp</a>
           </p>
         </div>
       </address>
