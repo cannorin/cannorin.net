@@ -12,7 +12,7 @@ import Card from "./card.svelte";
 
     <Card class="md:!sticky md:top-16" more="back" />
 
-    <section class="p-5 prose prose-sm prose-light">
+    <section class="px-5 py-5 md:py-0 prose prose-sm prose-light">
       <p>
         何でも屋気味なフルスタックエンジニアです。
       </p>
@@ -69,17 +69,19 @@ import Card from "./card.svelte";
         </li>
       </ul>
 
-      <h3 id="contact">連絡先</h3>
 
-      <ul>
-        <li>チューターやバグ修正など、カジュアルな案件は <a href="https://github.com/sponsors/cannorin" target="_blank" rel="noopener noreferrer">GitHub Sponsors</a> をご利用ください。</li>
-        <li>
-          ウェブサイト構築など、大規模な案件についてのご連絡は <a href="https://keybase.io/cannorin" target="_blank" rel="noopener noreferrer">Keybase</a>,
-          <a href="https://discord.com/users/497190979216867329" target="_blank" rel="noopener noreferrer">Discord</a>,
-          または <a href="mailto:contact@cannorin.net">contact@cannorin.net</a> までお願いします。
-        </li>
-        <li>なお、現在特に転職の予定はありません。</li>
-      </ul>
+      <address class="not-italic">
+        <h3 id="contact">連絡先</h3>
+        <ul>
+          <li>チューターやバグ修正など、カジュアルな案件は <a href="https://github.com/sponsors/cannorin" target="_blank" rel="noopener noreferrer">GitHub Sponsors</a> をご利用ください。</li>
+          <li>
+            ウェブサイト構築など、大規模な案件についてのご連絡は <a href="https://keybase.io/cannorin" target="_blank" rel="noopener noreferrer">Keybase</a>,
+            <a href="https://discord.com/users/497190979216867329" target="_blank" rel="noopener noreferrer">Discord</a>,
+            または <a href="mailto:contact@cannorin.net">contact@cannorin.net</a> までお願いします。
+          </li>
+          <li>なお、現在特に転職の予定はありません。</li>
+        </ul>
+      </address>
 
       <a href="/" class="back mt-8 text-foreground no-underline font-normal">
         Back

@@ -12,7 +12,7 @@ import Card from "./card.svelte";
 
     <Card class="md:!sticky md:top-16" more="back" />
 
-    <section class="p-5 prose prose-sm prose-light">
+    <section class="px-5 py-5 md:py-0 prose prose-sm prose-light">
       <p>ブレイクビーツと高速四つ打ちを中心に、統一感と説得力のあるマルチジャンルプレイをする DJ です。</p>
       <p>以下のような雰囲気の DJ が得意です。</p>
 
@@ -97,14 +97,13 @@ import Card from "./card.svelte";
         </li>
       </ul>
 
-      <h3 id="contact">連絡先</h3>
-
-      <p>
+      <address class="not-italic">
+        <h3 id="contact">連絡先</h3>
         ブッキングや音楽制作などのご連絡は
         <a href="https://discord.com/users/497190979216867329" target="_blank" rel="noopener noreferrer">Discord</a>,
         <a href="https://x.com/cannorin3" target="_blank" rel="noopener noreferrer">Twitter (X)</a>,
         または <a href="mailto:contact@cannorin.net">contact@cannorin.net</a> までお願いします。
-      </p>
+      </address>
 
       <a href="/" class="back mt-8 text-foreground no-underline font-normal">
         Back

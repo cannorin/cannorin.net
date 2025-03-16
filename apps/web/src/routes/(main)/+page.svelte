@@ -38,7 +38,7 @@ export const snapshot: Snapshot<SnapshotData> = {
 
     <CardDev more="/dev" />
 
-    <CardMath more="coming soon" />
+    <CardMath more="/math" />
   </section>
 
   <section class="followme">
