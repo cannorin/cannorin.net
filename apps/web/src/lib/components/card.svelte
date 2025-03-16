@@ -9,7 +9,7 @@ export interface CardProps {
   title: Snippet;
   description: Snippet;
   links: Snippet;
-  more?: "coming soon" | "back" | `/${string}` | undefined;
+  more?: "back" | `/${string}` | undefined;
 }
 
 let { image, title, description, links, more, ...rest }: CardProps = $props();
@@ -30,14 +30,7 @@ let { image, title, description, links, more, ...rest }: CardProps = $props();
     <nav>
       <ul class="links">
         {@render links()}
-        {#if more === "coming soon"}
-          <li class="more">
-            <button disabled class="tooltip cursor-not-allowed">
-              <span class="tooltip-text">coming soon™</span>
-              More
-            </button>
-          </li>
-        {:else if more === "back"}
+        {#if more === "back"}
           <li class="more">
             <a href="/">
               Back
@@ -99,48 +92,5 @@ let { image, title, description, links, more, ...rest }: CardProps = $props();
         }
       }
     }
-  }
-
-  /* カーソルを重ねる要素 */
-  .tooltip {
-    position: relative; /* ツールチップの位置の基準に */
-  }
-
-  /* ツールチップのテキスト */
-  .tooltip-text {
-    opacity: 0; /* はじめは隠しておく */
-    visibility: hidden; /* はじめは隠しておく */
-    position: absolute; /* 絶対配置 */
-    left: 50%; /* 親に対して中央配置 */
-    transform: translateX(-50%); /* 親に対して中央配置 */
-    bottom: 34px; /* 親要素下からの位置 */
-    display: inline-block;
-    padding: 5px; /* 余白 */
-    white-space: nowrap; /* テキストを折り返さない */
-    font-size: 0.8rem; /* フォントサイズ */
-    line-height: 1.3; /* 行間 */
-    background: rgb(var(--foreground) / 1); /* 背景色 */
-    color: rgb(var(--background) / 1); /* 文字色 */
-    border-radius: 8px; /* 角丸 */
-    transition: 0.3s ease-in; /* アニメーション */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 25px;
-      left: 50%;
-      margin-left: -7px;
-      border: 7px solid transparent;
-      border-top: 7px solid rgb(var(--foreground) / 1);
-    }
-  }
-
-  /* ホバー時にツールチップの非表示を解除 */
-  .tooltip:hover .tooltip-text {
-    opacity: 1;
-    visibility: visible;
   }
 </style>
