@@ -43,7 +43,7 @@
   "dependencies": {
     "@cannorin/kripke": "workspace:*",
     "@fontsource/poiret-one": "5.1.1",
-    "@fontsource/zen-kaku-gothic-new": "5.1.1",
+    "@fontsource/zen-kaku-gothic-new": "5.2.5",
     "@icons-pack/svelte-simple-icons": "4.0.1",
     "@tailwindcss/typography": "0.5.16",
     "deepmerge": "4.3.1",
