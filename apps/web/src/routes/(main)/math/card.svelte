@@ -16,7 +16,7 @@ let { more, ...rest }: Pick<CardProps, "more" | "class"> = $props();
   {/snippet}
 
   {#snippet description()}
-    大学院において数理論理学を研究しており、非古典論理、特に様相論理を専門としています。2025年度より博士課程に進学します。
+    大学院において数理論理学を研究しており、非古典論理、特に様相論理を専門としています。2025年度より博士課程に在学中です。
   {/snippet}
 
   {#snippet links()}
