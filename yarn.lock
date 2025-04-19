@@ -3857,9 +3857,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.4.12":
-  version: 5.4.12
-  resolution: "vite@npm:5.4.12"
+"vite@npm:5.4.18":
+  version: 5.4.18
+  resolution: "vite@npm:5.4.18"
   dependencies:
     esbuild: "npm:^0.21.3"
     fsevents: "npm:~2.3.3"
@@ -3896,7 +3896,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/a0f130e3e0c781f54c60ee4b7cccf92c266e4117be1f65ab55c02abc27b29fa70dc0ed05eca54a9983f76450063a47f86db06ac49f28ee96392a0dc362b17da8
+  checksum: 10c0/a8cbbec6bdf399e62c386d70b8485e4f2f1b427beb19bc7c5d52b402a0c3750b7ff469fc20a8333755ea13bc1b0af5df3f22c8fd37d1739ee51d709b7a4740b6
   languageName: node
   linkType: hard
 
@@ -3958,7 +3958,7 @@ __metadata:
     tailwind-variants: "npm:1.0.0"
     tailwindcss: "npm:3.4.17"
     typescript: "npm:5.7.3"
-    vite: "npm:5.4.12"
+    vite: "npm:5.4.18"
   languageName: unknown
   linkType: soft
 
