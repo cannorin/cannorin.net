@@ -830,14 +830,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-auto@npm:3.3.1":
-  version: 3.3.1
-  resolution: "@sveltejs/adapter-auto@npm:3.3.1"
+"@sveltejs/adapter-auto@npm:6.0.0":
+  version: 6.0.0
+  resolution: "@sveltejs/adapter-auto@npm:6.0.0"
   dependencies:
     import-meta-resolve: "npm:^4.1.0"
   peerDependencies:
     "@sveltejs/kit": ^2.0.0
-  checksum: 10c0/c7d75e82331fd26fb6ff312b242c248da9508e4388281c20b13359b20577fc9dc3e9151ab176bbbd55f3367f90a61552e508e69d203c3a2f97284f787fc0e3e5
+  checksum: 10c0/056d801c8e601f4c3c83e2547bfd3998ecfb9aaa642a4831eee436a512d62d8c0f264d3728136e30367a47eb0f13140292d6831a874e33798a16d302098d70d7
   languageName: node
   linkType: hard
 
@@ -3929,7 +3929,7 @@ __metadata:
     "@fontsource/zen-kaku-gothic-new": "npm:5.2.5"
     "@icons-pack/svelte-simple-icons": "npm:4.0.1"
     "@poppanator/sveltekit-svg": "npm:5.0.0"
-    "@sveltejs/adapter-auto": "npm:3.3.1"
+    "@sveltejs/adapter-auto": "npm:6.0.0"
     "@sveltejs/enhanced-img": "npm:0.4.4"
     "@sveltejs/kit": "npm:2.20.6"
     "@sveltejs/vite-plugin-svelte": "npm:4.0.4"
