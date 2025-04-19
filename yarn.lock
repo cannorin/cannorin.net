@@ -325,10 +325,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/zen-kaku-gothic-new@npm:5.1.1":
-  version: 5.1.1
-  resolution: "@fontsource/zen-kaku-gothic-new@npm:5.1.1"
-  checksum: 10c0/4c9f47849c41247c05655eab9363de5a112fd7a827614d7560bcf36f0b352f2f338359c8caaefaa74c6e109b506cb91554499acdbc31937de5cc33f98d3583fa
+"@fontsource/zen-kaku-gothic-new@npm:5.2.5":
+  version: 5.2.5
+  resolution: "@fontsource/zen-kaku-gothic-new@npm:5.2.5"
+  checksum: 10c0/bf8f67194f309775f507ee694d2a136d994fd1d55959be3e973de61fc928c168f8e3d7be56533f27ed18695ad0e32637aff154381f4955aae605c5cca531bd54
   languageName: node
   linkType: hard
 
@@ -3926,7 +3926,7 @@ __metadata:
     "@biomejs/biome": "npm:1.9.4"
     "@cannorin/kripke": "workspace:*"
     "@fontsource/poiret-one": "npm:5.1.1"
-    "@fontsource/zen-kaku-gothic-new": "npm:5.1.1"
+    "@fontsource/zen-kaku-gothic-new": "npm:5.2.5"
     "@icons-pack/svelte-simple-icons": "npm:4.0.1"
     "@poppanator/sveltekit-svg": "npm:5.0.0"
     "@sveltejs/adapter-auto": "npm:3.3.1"
