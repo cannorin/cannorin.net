@@ -42,7 +42,7 @@ const isAccepted = (p: Paper) =>
 
 const papers: Paper[] = [
   {
-    type: "preprint",
+    type: "submitted",
     title:
       "Uniform Lyndon interpolation for the pure logic of necessitation with a modal reduction principle",
     authors: ["Yuta Sato"],
