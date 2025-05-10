@@ -37,6 +37,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      - name: Create dummy environment files
+        run: |
+          cp .env.example .env
+          cp apps/web/.env.example apps/web/.env
+
       - name: Type check
         run: yarn check
 
@@ -45,8 +50,3 @@ jobs:
 
       - name: Build
         run: yarn build
-        env:
-          PUBLIC_WEB_DOMAIN: "www.cannorin.net"
-          PUBLIC_WEB_TURNSTILE_SITEKEY: "1x00000000000000000000BB"
-          WEB_TURNSTILE_SECRET_KEY: "1x0000000000000000000000000000000AA"
-          MISSKEY_API_KEY: "dummy"
