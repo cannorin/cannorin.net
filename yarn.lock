@@ -1266,6 +1266,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/mdast@npm:^4.0.4":
+  version: 4.0.4
+  resolution: "@types/mdast@npm:4.0.4"
+  dependencies:
+    "@types/unist": "npm:*"
+  checksum: 10c0/84f403dbe582ee508fd9c7643ac781ad8597fcbfc9ccb8d4715a2c92e4545e5772cbd0dbdf18eda65789386d81b009967fdef01b24faf6640f817287f54d9c82
+  languageName: node
+  linkType: hard
+
 "@types/prismjs@npm:1.26.5":
   version: 1.26.5
   resolution: "@types/prismjs@npm:1.26.5"
@@ -2774,17 +2783,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdsvex@npm:0.12.3":
-  version: 0.12.3
-  resolution: "mdsvex@npm:0.12.3"
+"mdsvex@npm:0.12.5":
+  version: 0.12.5
+  resolution: "mdsvex@npm:0.12.5"
   dependencies:
+    "@types/mdast": "npm:^4.0.4"
     "@types/unist": "npm:^2.0.3"
     prism-svelte: "npm:^0.4.7"
     prismjs: "npm:^1.17.1"
+    unist-util-visit: "npm:^2.0.1"
     vfile-message: "npm:^2.0.4"
   peerDependencies:
     svelte: ^3.56.0 || ^4.0.0 || ^5.0.0-next.120
-  checksum: 10c0/2821baf521b2e323ea3c3040f6e3ce0305c43d8024b6e406862305458f181823cfde595ed26118a382589b0e2fb88d2742de7b8ffe9b3f61a703adddd88a0e13
+  checksum: 10c0/85114c4e61b90f811d9e0245c6c6db713ada293a111f1b428ad396bcda2b42219a528e4c746e2b25051e5b5c3e1300a6076b2d9947feec359657fb7269670d67
   languageName: node
   linkType: hard
 
@@ -4263,6 +4274,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"unist-util-is@npm:^4.0.0":
+  version: 4.1.0
+  resolution: "unist-util-is@npm:4.1.0"
+  checksum: 10c0/21ca3d7bacc88853b880b19cb1b133a056c501617d7f9b8cce969cd8b430ed7e1bc416a3a11b02540d5de6fb86807e169d00596108a459d034cf5faec97c055e
+  languageName: node
+  linkType: hard
+
 "unist-util-is@npm:^5.0.0":
   version: 5.2.1
   resolution: "unist-util-is@npm:5.2.1"
@@ -4309,6 +4327,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"unist-util-visit-parents@npm:^3.0.0":
+  version: 3.1.1
+  resolution: "unist-util-visit-parents@npm:3.1.1"
+  dependencies:
+    "@types/unist": "npm:^2.0.0"
+    unist-util-is: "npm:^4.0.0"
+  checksum: 10c0/231c80c5ba8e79263956fcaa25ed2a11ad7fe77ac5ba0d322e9d51bbc4238501e3bb52f405e518bcdc5471e27b33eff520db0aa4a3b1feb9fb6e2de6ae385d49
+  languageName: node
+  linkType: hard
+
 "unist-util-visit-parents@npm:^5.1.1":
   version: 5.1.3
   resolution: "unist-util-visit-parents@npm:5.1.3"
@@ -4326,6 +4354,17 @@ __metadata:
     "@types/unist": "npm:^3.0.0"
     unist-util-is: "npm:^6.0.0"
   checksum: 10c0/51b1a5b0aa23c97d3e03e7288f0cdf136974df2217d0999d3de573c05001ef04cccd246f51d2ebdfb9e8b0ed2704451ad90ba85ae3f3177cf9772cef67f56206
+  languageName: node
+  linkType: hard
+
+"unist-util-visit@npm:^2.0.1":
+  version: 2.0.3
+  resolution: "unist-util-visit@npm:2.0.3"
+  dependencies:
+    "@types/unist": "npm:^2.0.0"
+    unist-util-is: "npm:^4.0.0"
+    unist-util-visit-parents: "npm:^3.0.0"
+  checksum: 10c0/7b11303d82271ca53a2ced2d56c87a689dd518596c99ff4a11cdff750f5cc5c0e4b64b146bd2363557cb29443c98713bfd1e8dc6d1c3f9d474b9eb1f23a60888
   languageName: node
   linkType: hard
 
@@ -4507,7 +4546,7 @@ __metadata:
     deepmerge: "npm:4.3.1"
     katex: "npm:0.16.21"
     lucide-svelte: "npm:0.475.0"
-    mdsvex: "npm:0.12.3"
+    mdsvex: "npm:0.12.5"
     misskey-js: "npm:2024.11.1-alpha.0"
     prismjs: "npm:1.30.0"
     rehype-external-links: "npm:3.0.0"
