@@ -77,6 +77,17 @@ type Talk = {
 
 const talks: Talk[] = [
   {
+    title: "Analysis of the pure logic of necessitation and its extensions",
+    talkers: ["Yuta Sato"],
+    conference: {
+      name: "Logic Colloquium 2025",
+      url: "https://www.colloquium.co/lc2025",
+    },
+    location: "TU Wien",
+    date: new Date(2025, 7 - 1, 8),
+    slide: "/math/lc2025.pdf",
+  },
+  {
     title: "必然化の論理の拡張 NAmn のシークエント計算と補間定理",
     talkers: ["Yuta Sato"],
     conference: {
