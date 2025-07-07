@@ -3607,12 +3607,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"schema-dts@npm:1.1.2":
-  version: 1.1.2
-  resolution: "schema-dts@npm:1.1.2"
-  peerDependencies:
-    typescript: ">=4.1.0"
-  checksum: 10c0/bcca8719b1bb1cd71ba2b01a5126b3579e917a2f193e10fcffe020fa42fef911776ed9d2197c9f376780e703994b3ab854db3f962c47064f7282f41eff0f1d24
+"schema-dts@npm:1.1.5":
+  version: 1.1.5
+  resolution: "schema-dts@npm:1.1.5"
+  checksum: 10c0/babe23a1577c75c5df79d73acf34af3399e60928eab46f2236a0c4212061f5778d613a31c9e9ec86a2807d20b1ea460673d72d3fe1f64fb7543867460e607f76
   languageName: node
   linkType: hard
 
@@ -4554,7 +4552,7 @@ __metadata:
     rehype-katex-svelte: "npm:1.2.0"
     remark-footnotes: "npm:2.0"
     remark-math: "npm:3"
-    schema-dts: "npm:1.1.2"
+    schema-dts: "npm:1.1.5"
     svelte: "npm:5.20.4"
     svelte-check: "npm:4.1.5"
     svelte-persisted-store: "npm:0.12.0"

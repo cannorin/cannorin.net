@@ -32,7 +32,7 @@
     "rehype-katex-svelte": "1.2.0",
     "remark-footnotes": "2.0",
     "remark-math": "3",
-    "schema-dts": "1.1.2",
+    "schema-dts": "1.1.5",
     "svelte": "5.20.4",
     "svelte-check": "4.1.5",
     "svgo": "3.3.2",
