@@ -94,6 +94,31 @@ const sites: {
   <h1 class="sr-only">Links</h1>
 
   <section class="w-full !max-w-[720px] prose prose-sm prose-light">
+    <h2 class="text-xl">コンテンツ</h2>
+
+    <p>ブラウザで遊べる自作ゲームと、ブラウザで使える自作ツールを置いています。</p>
+
+    <nav>
+      <ul>
+        <li>
+          <a href="/kripke" >The Kripke Game</a>
+          <div class="text-xs">
+            論理式を使って <a href="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AA%E3%83%97%E3%82%AD%E6%84%8F%E5%91%B3%E8%AB%96" target="_blank" rel="noopener noreferrer">クリプキフレーム</a> の形状を推測する Wordle 風ゲームです。
+          </div>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="https://7colou.red/UdonExternSearch2/" target="_blank" rel="noopener noreferrer">Udon Extern Search 2</a>
+          <div class="text-xs">
+            VRChat のスクリプト基盤 Udon で使える関数を検索できます。
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </section>
+
+  <section class="w-full !max-w-[720px] prose prose-sm prose-light">
     <h2 class="text-xl">その他のリンク</h2>
 
     <p>他のページで紹介していない各種アカウント・ページを載せています。</p>
