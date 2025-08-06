@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@cannorin/kripke": "workspace:*",
-    "@fontsource/poiret-one": "5.1.1",
+    "@fontsource/poiret-one": "5.2.6",
     "@fontsource/zen-kaku-gothic-new": "5.2.5",
     "@icons-pack/svelte-simple-icons": "4.0.1",
     "@tailwindcss/typography": "0.5.16",
