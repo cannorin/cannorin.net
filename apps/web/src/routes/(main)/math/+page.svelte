@@ -264,6 +264,8 @@ const talks: Talk[] = [
       <section>
         <h3>論文・発表等</h3>
 
+        <p>上から新しい順に並んでいます。</p>
+
         <h4 class="text-primary font-bold">論文</h4>
 
         <ol class="space-y-3">
@@ -276,17 +278,19 @@ const talks: Talk[] = [
           {/each}
         </ol>
 
-        <h4 class="text-primary font-bold">プレプリント</h4>
+        {#if papers.some((p) => !isAccepted(p))}
+          <h4 class="text-primary font-bold">プレプリント</h4>
 
-        <ol class="space-y-3">
-          {#each papers as paper}
-            {#if !isAccepted(paper)}
-              <li>
-                {@render paperArticle(paper)}
-              </li>
-            {/if}
-          {/each}
-        </ol>
+          <ol class="space-y-3">
+            {#each papers as paper}
+              {#if !isAccepted(paper)}
+                <li>
+                  {@render paperArticle(paper)}
+                </li>
+              {/if}
+            {/each}
+          </ol>
+        {/if}
 
         <h4 class="text-primary font-bold">口頭発表</h4>
 
