@@ -23,7 +23,7 @@ type SubmittedPaper = PaperBase & {
 
 type JournalPaperBase = PaperBase & {
   journal: string;
-  doi: string;
+  doi?: string;
 };
 
 type AcceptedPaper = JournalPaperBase & {
@@ -42,13 +42,14 @@ const isAccepted = (p: Paper) =>
 
 const papers: Paper[] = [
   {
-    type: "submitted",
+    type: "accepted",
     title:
       "Uniform Lyndon interpolation for the pure logic of necessitation with a modal reduction principle",
     authors: ["Yuta Sato"],
     arxiv: "2503.10176",
     researchGate:
       "https://www.researchgate.net/publication/389821716_Uniform_Lyndon_interpolation_for_the_pure_logic_of_necessitation_with_a_modal_reduction_principle",
+    journal: "Journal of Logic and Computation",
   },
   {
     type: "accepted",
