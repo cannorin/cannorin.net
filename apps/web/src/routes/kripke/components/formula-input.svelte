@@ -42,7 +42,7 @@ $effect(() => {
 {/if}
 
 {#snippet mathKey(latexCommand: string, actualText?: string)}
-  <button onclick={(e) => {
+  <button type="button" onclick={(e) => {
     e.preventDefault();
     input += actualText ?? latexCommand;
     inputElement.focus();
