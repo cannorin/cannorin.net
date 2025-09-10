@@ -78,6 +78,27 @@ type Talk = {
 
 const talks: Talk[] = [
   {
+    title: "命題化とカット除去による N+Am,n の一様 Lyndon 補間定理の証明",
+    talkers: ["Yuta Sato"],
+    conference: {
+      name: "日本数学会 2025年度秋季総合分科会",
+      url: "https://www.mathsoc.jp/activity/meeting/nagoya25sept/index.html",
+    },
+    location: "名古屋大学",
+    date: new Date(2025, 9 - 1, 18),
+  },
+  {
+    title: "Uniform Lyndon Interpolation for N+Am,n",
+    talkers: ["Yuta Sato"],
+    conference: {
+      name: "18th Asian Logic Conference",
+      url: "https://www2.kobe-u.ac.jp/~brendle/alc2025/main.html",
+    },
+    location: "Kyoto Sangyo University",
+    date: new Date(2025, 9 - 1, 12),
+    slide: "/math/alc2025.pdf",
+  },
+  {
     title: "Analysis of the pure logic of necessitation and its extensions",
     talkers: ["Yuta Sato"],
     conference: {
