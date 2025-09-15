@@ -587,13 +587,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@icons-pack/svelte-simple-icons@npm:4.0.1":
-  version: 4.0.1
-  resolution: "@icons-pack/svelte-simple-icons@npm:4.0.1"
+"@icons-pack/svelte-simple-icons@npm:6.4.0":
+  version: 6.4.0
+  resolution: "@icons-pack/svelte-simple-icons@npm:6.4.0"
   peerDependencies:
-    "@sveltejs/kit": 2.5.0
-    svelte: 4.2.0
-  checksum: 10c0/d20b7cd2502bfc0c38a5b4fff49f4e3c2e6587067bc8dd98a839511df6127f8fbc88b819f2d8cce036240f44e7c0e20ced0ec8d6f7992cc9ee3b7efa9eca87ed
+    "@sveltejs/kit": ^2.5.0
+    svelte: ^4.2.0 || ^5.0.0
+  checksum: 10c0/4abc467ed7576537421566478a36bd0d5e6053df892487c46cc1c82087715fca5dfac09a27aa7786f4e12bba6675ed628582102eb0c369de2afe500e4cb47699
   languageName: node
   linkType: hard
 
@@ -4530,7 +4530,7 @@ __metadata:
     "@cannorin/kripke": "workspace:*"
     "@fontsource/poiret-one": "npm:5.2.6"
     "@fontsource/zen-kaku-gothic-new": "npm:5.2.5"
-    "@icons-pack/svelte-simple-icons": "npm:4.0.1"
+    "@icons-pack/svelte-simple-icons": "npm:6.4.0"
     "@poppanator/sveltekit-svg": "npm:5.0.0"
     "@sveltejs/adapter-auto": "npm:6.0.0"
     "@sveltejs/adapter-cloudflare": "npm:7.2.3"
