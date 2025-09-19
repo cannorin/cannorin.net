@@ -1,6 +1,6 @@
+import { MultiSet } from "@cannorin/utils/multiset";
 import { persisted } from "svelte-persisted-store";
 import type { Move } from "../components/game.svelte";
-import { MultiSet } from "./multiset";
 import { date } from "./system";
 
 export type Daily = {

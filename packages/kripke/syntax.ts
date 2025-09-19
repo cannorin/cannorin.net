@@ -1,6 +1,6 @@
 export type PropVar = "p" | "q" | "r" | "s";
 
-export const propVars: PropVar[] = ["p", "q", "r", "s"];
+export const propVars = ["p", "q", "r", "s"] as const satisfies PropVar[];
 
 export type Formula =
   | { type: "top" | "bot" }
@@ -147,5 +147,228 @@ export function prettyPrint(
         `${prettyPrint(fml.left, newConfig)} ${symbols.eq} ${prettyPrint(fml.right, newConfig)}`,
       );
     }
+  }
+}
+
+export function simplify(fml: Formula): Formula {
+  switch (fml.type) {
+    case "top":
+    case "bot":
+    case "propvar":
+      return fml;
+    case "not":
+    case "box":
+    case "diamond": {
+      const inner = simplify(fml.fml);
+      if (fml.type === "not" && inner.type === "not") return inner.fml;
+      if (fml.type === "not" && inner.type === "top") return bot;
+      if (fml.type === "not" && inner.type === "bot") return top;
+      if (fml.type === "box" && inner.type === "top") return top;
+      if (fml.type === "diamond" && inner.type === "bot") return bot;
+
+      return {
+        type: fml.type,
+        fml: inner,
+      };
+    }
+    case "or":
+    case "and":
+    case "to":
+    case "eq": {
+      const innerLeft = simplify(fml.left);
+      const innerRight = simplify(fml.right);
+
+      if (fml.type === "and" && innerLeft.type === "top") return innerRight;
+      if (fml.type === "and" && innerRight.type === "top") return innerLeft;
+      if (
+        fml.type === "and" &&
+        (innerLeft.type === "bot" || innerRight.type === "bot")
+      )
+        return bot;
+      if (fml.type === "or" && innerLeft.type === "bot") return innerRight;
+      if (fml.type === "or" && innerRight.type === "bot") return innerLeft;
+      if (
+        fml.type === "or" &&
+        (innerLeft.type === "top" || innerRight.type === "top")
+      )
+        return top;
+      if (fml.type === "to" && innerLeft.type === "top") return innerRight;
+      if (fml.type === "to" && innerLeft.type === "bot") return top;
+      if (fml.type === "to" && innerRight.type === "top") return top;
+      if (fml.type === "to" && innerRight.type === "bot")
+        return simplify(not(innerLeft));
+      if (fml.type === "eq" && innerLeft.type === "top") return innerRight;
+      if (fml.type === "eq" && innerRight.type === "top") return innerLeft;
+      if (fml.type === "eq" && innerRight.type === "bot")
+        return simplify(not(innerLeft));
+      if (fml.type === "eq" && innerLeft.type === "bot")
+        return simplify(not(innerRight));
+
+      return {
+        type: fml.type,
+        left: innerLeft,
+        right: innerRight,
+      };
+    }
+  }
+}
+
+export type NNFFormula<T = undefined> =
+  | { type: "top" | "bot"; tag: T }
+  | { type: "propvar"; name: PropVar; tag: T }
+  | { type: "not"; fml: { type: "propvar"; name: PropVar; tag: T }; tag: T }
+  | { type: "box" | "diamond"; fml: NNFFormula<T>; tag: T }
+  | {
+      type: "and" | "or";
+      left: NNFFormula<T>;
+      right: NNFFormula<T>;
+      tag: T;
+    };
+
+export function toNNF(fml: Formula): NNFFormula {
+  switch (fml.type) {
+    case "top":
+      return { ...fml, tag: undefined };
+    case "bot":
+      return { ...fml, tag: undefined };
+    case "propvar":
+      return { ...fml, tag: undefined };
+    case "box": {
+      return {
+        type: "box",
+        fml: toNNF(fml.fml),
+        tag: undefined,
+      };
+    }
+    case "diamond": {
+      return {
+        type: "diamond",
+        fml: toNNF(fml.fml),
+        tag: undefined,
+      };
+    }
+    case "to": {
+      return toNNF(or(not(fml.left), fml.right));
+    }
+    case "eq": {
+      return toNNF(
+        and(or(not(fml.left), fml.right), or(not(fml.right), fml.left)),
+      );
+    }
+    case "or": {
+      return {
+        type: "or",
+        left: toNNF(fml.left),
+        right: toNNF(fml.right),
+        tag: undefined,
+      };
+    }
+    case "and": {
+      return {
+        type: "and",
+        left: toNNF(fml.left),
+        right: toNNF(fml.right),
+        tag: undefined,
+      };
+    }
+    case "not": {
+      switch (fml.fml.type) {
+        case "top":
+          return { ...bot, tag: undefined };
+        case "bot":
+          return { ...top, tag: undefined };
+        case "propvar":
+          return {
+            type: "not",
+            fml: { ...fml.fml, tag: undefined },
+            tag: undefined,
+          };
+        case "not":
+          return toNNF(fml.fml.fml);
+        case "box":
+          return {
+            type: "diamond",
+            fml: toNNF(not(fml.fml.fml)),
+            tag: undefined,
+          };
+        case "diamond":
+          return { type: "box", fml: toNNF(not(fml.fml.fml)), tag: undefined };
+        case "or":
+          return {
+            type: "and",
+            left: toNNF(not(fml.fml.left)),
+            right: toNNF(not(fml.fml.right)),
+            tag: undefined,
+          };
+        case "and":
+          return {
+            type: "or",
+            left: toNNF(not(fml.fml.left)),
+            right: toNNF(not(fml.fml.right)),
+            tag: undefined,
+          };
+        case "to":
+          return {
+            type: "and",
+            left: toNNF(fml.fml.left),
+            right: toNNF(not(fml.fml.right)),
+            tag: undefined,
+          };
+        case "eq":
+          return {
+            type: "or",
+            left: {
+              type: "and",
+              left: toNNF(fml.fml.left),
+              right: toNNF(not(fml.fml.right)),
+              tag: undefined,
+            },
+            right: {
+              type: "and",
+              left: toNNF(not(fml.fml.left)),
+              right: toNNF(fml.fml.right),
+              tag: undefined,
+            },
+            tag: undefined,
+          };
+      }
+    }
+  }
+}
+
+export function tagNNF<T, U>(
+  fml: NNFFormula<T>,
+  tagger: (fml: Omit<NNFFormula<T>, "tag">, tag: T) => U,
+): NNFFormula<U> {
+  switch (fml.type) {
+    case "top":
+    case "bot":
+    case "propvar":
+      return { ...fml, tag: tagger(fml, fml.tag) };
+    case "not":
+      return {
+        type: "not",
+        fml: {
+          type: "propvar",
+          name: fml.fml.name,
+          tag: tagger(fml.fml, fml.fml.tag),
+        },
+        tag: tagger(fml, fml.tag),
+      };
+    case "box":
+    case "diamond":
+      return {
+        type: fml.type,
+        fml: tagNNF(fml.fml, tagger),
+        tag: tagger(fml, fml.tag),
+      };
+    case "and":
+    case "or":
+      return {
+        type: fml.type,
+        left: tagNNF(fml.left, tagger),
+        right: tagNNF(fml.right, tagger),
+        tag: tagger(fml, fml.tag),
+      };
   }
 }

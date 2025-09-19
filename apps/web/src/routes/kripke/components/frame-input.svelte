@@ -8,7 +8,6 @@ import {
   right,
   worlds,
 } from "@cannorin/kripke";
-import type { SVGAttributes } from "svelte/elements";
 import {
   type Radian,
   type Vector,
@@ -17,7 +16,8 @@ import {
   rotate,
   sub,
   theta,
-} from "../lib/vector";
+} from "@cannorin/utils/vector";
+import type { SVGAttributes } from "svelte/elements";
 
 export interface FrameInputProps extends SVGAttributes<SVGElement> {
   frame?: Frame | undefined;

@@ -39,3 +39,28 @@ export function permutations<T>(arr: readonly T[]): T[][] {
   }
   return result;
 }
+
+export function maximal<T>(
+  xs: readonly T[],
+  preorder: (x: T, y: T) => boolean,
+): T[] {
+  const res: T[] = [];
+  outer: for (const x of xs) {
+    for (let i = 0; i < res.length; ) {
+      const y = res[i] as T;
+      const xLeY = preorder(x, y);
+      const yLeX = preorder(y, x);
+
+      if (xLeY && !yLeX) {
+        continue outer;
+      }
+      if (yLeX && !xLeY) {
+        res.splice(i, 1);
+        continue;
+      }
+      i++;
+    }
+    res.push(x);
+  }
+  return res;
+}

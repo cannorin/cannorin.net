@@ -1,13 +1,13 @@
 {
-  "name": "@cannorin/kripke",
+  "name": "@cannorin/utils",
   "version": "0.0.1",
   "private": true,
   "exports": {
     ".": "./index.ts",
-    "./syntax": "./syntax.ts",
-    "./semantics": "./semantics.ts",
-    "./parser": "./parser.ts",
-    "./sat": "./sat.ts"
+    "./headless": "./src/headless.ts",
+    "./array": "./src/array.ts",
+    "./vector": "./src/vector.ts",
+    "./multiset": "./src/multiset.ts"
   },
   "scripts": {
     "build": "tsc",
@@ -18,9 +18,5 @@
   "devDependencies": {
     "typescript": "5.7.3",
     "vitest": "3.2.4"
-  },
-  "dependencies": {
-    "@cannorin/utils": "workspace:*",
-    "typescript-parsec": "0.3.4"
   }
 }

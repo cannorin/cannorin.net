@@ -1,9 +1,9 @@
+import { sampleMany } from "@cannorin/utils/array";
 import { type RequestEvent, text } from "@sveltejs/kit";
 import { RateLimiter } from "sveltekit-rate-limiter/server";
 
 import { dev } from "$app/environment";
 import { MISSKEY_API_KEY } from "$env/static/private";
-import { sample } from "$lib";
 import type { InviteListResponse } from "misskey-js/entities.js";
 
 const limiter = new RateLimiter({
@@ -31,7 +31,7 @@ export async function GET(event: RequestEvent) {
     },
   );
   const json = await res.json();
-  const invite = sample(json as InviteListResponse).find(
+  const invite = sampleMany(json as InviteListResponse).find(
     (x) => !x.createdBy && !x.usedAt,
   );
   if (invite) return text(invite.code);
