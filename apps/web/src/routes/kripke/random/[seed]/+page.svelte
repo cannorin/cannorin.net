@@ -1,7 +1,8 @@
 <script lang="ts">
 import { Button } from "$lib/components/ui/button";
 import * as Dialog from "$lib/components/ui/dialog";
-import { type Formula, isomorphic, validWorlds } from "@cannorin/kripke";
+import { type Formula, isomorphic } from "@cannorin/kripke";
+import { validWorlds } from "@cannorin/kripke/sat";
 import LuRotateCw from "lucide-svelte/icons/rotate-cw";
 import LuX from "lucide-svelte/icons/x";
 
