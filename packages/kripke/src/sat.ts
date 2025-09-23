@@ -1,19 +1,37 @@
-import type {} from "@cannorin/utils/headless";
-import { type Frame, type World, left, right, worlds } from "./semantics";
+import { BitSet, maximal } from "@cannorin/utils";
+import {
+  type Frame,
+  type Model,
+  type World,
+  left,
+  right,
+  worlds,
+} from "./semantics";
 import {
   type Formula,
   type NNFFormula,
-  type PropVar,
   not,
+  propVars,
   simplify,
   tagNNF,
   toNNF,
 } from "./syntax";
-import { maximal } from "./utils";
 
-export type Constraints =
-  | true
-  | ReadonlySet<`${World}${PropVar}` | `!${World}${PropVar}`>;
+const allValuations = worlds.flatMap((w) =>
+  propVars.map((p) => `${w}${p}` as const),
+);
+
+const valuationSet = new BitSet(allValuations);
+
+export type Constraints = {
+  positive: number;
+  negative: number;
+};
+
+const empty: Constraints = {
+  positive: valuationSet.empty,
+  negative: valuationSet.empty,
+};
 
 export type Context = {
   notFml: NNFFormula<number>;
@@ -103,30 +121,25 @@ export function buildContext(frame: Frame, fml: Formula): Context {
   return { notFml, next, memo: new Map(), constant };
 }
 
-const subsumes = (c1: Constraints, c2: Constraints): boolean => {
-  if (c1 === true) return c2 === true;
-  if (c2 === true) return true;
-  for (const v of c2.values()) {
-    if (!c1.has(v)) return false;
-  }
-  return true;
+const isWeaker = (c1: Constraints, c2: Constraints): boolean => {
+  return (
+    valuationSet.isSuperset(c1.positive, c2.positive) &&
+    valuationSet.isSuperset(c1.negative, c2.negative)
+  );
 };
 
 const union = (c1: Constraints, c2: Constraints): Constraints => {
-  if (c1 === true) return c2;
-  if (c2 === true) return c1;
-  return new Set([...c1.values(), ...c2.values()]);
+  return {
+    positive: valuationSet.union(c1.positive, c2.positive),
+    negative: valuationSet.union(c1.negative, c2.negative),
+  };
 };
 
 const consistent = (c: Constraints) => {
-  if (c === true) return true;
-  for (const v of c.values()) {
-    if (!v.startsWith("!") && c.has(`!${v}`)) return false;
-  }
-  return true;
+  return valuationSet.isDisjoint(c.positive, c.negative);
 };
 
-export function sat(
+function sat(
   frame: Frame,
   fml: NNFFormula<number>,
   world: World,
@@ -134,7 +147,7 @@ export function sat(
 ): Constraints[] {
   const key = `${world}:${fml.tag}` as const;
   const c = ctx.constant.get(key);
-  if (c === true) return [true];
+  if (c === true) return [empty];
   if (c === false) return [];
 
   let result = ctx.memo.get(key);
@@ -142,16 +155,26 @@ export function sat(
 
   switch (fml.type) {
     case "top":
-      result = [true];
+      result = [empty];
       break;
     case "bot":
       result = [];
       break;
     case "propvar":
-      result = [new Set([`${world}${fml.name}` as const])];
+      result = [
+        {
+          positive: valuationSet.create(`${world}${fml.name}`),
+          negative: valuationSet.empty,
+        },
+      ];
       break;
     case "not":
-      result = [new Set([`!${world}${fml.fml.name}` as const])];
+      result = [
+        {
+          positive: valuationSet.empty,
+          negative: valuationSet.create(`${world}${fml.fml.name}`),
+        },
+      ];
       break;
     case "box": {
       result = ctx.next[world]
@@ -162,16 +185,16 @@ export function sat(
               current.flatMap((c1) =>
                 prev.map((c2) => union(c1, c2)).filter(consistent),
               ),
-              subsumes,
+              isWeaker,
             ),
-          [true],
+          [empty],
         );
       break;
     }
     case "diamond": {
       result = maximal(
         ctx.next[world].flatMap((w) => sat(frame, fml.fml, w, ctx)),
-        subsumes,
+        isWeaker,
       );
       break;
     }
@@ -185,9 +208,9 @@ export function sat(
             current.flatMap((c1) =>
               prev.map((c2) => union(c1, c2)).filter(consistent),
             ),
-            subsumes,
+            isWeaker,
           ),
-        [true],
+        [empty],
       );
       break;
     }
@@ -197,7 +220,7 @@ export function sat(
           sat(frame, fml.left, world, ctx),
           sat(frame, fml.right, world, ctx),
         ].flat(),
-        subsumes,
+        isWeaker,
       );
       break;
     }
@@ -207,14 +230,53 @@ export function sat(
   return result;
 }
 
-export function validInWorld(frame: Frame, fml: Formula, world: World) {
-  const ctx = buildContext(frame, fml);
+export function findCountermodelsAt(
+  frame: Frame,
+  fml: Formula,
+  world: World,
+  ctx = buildContext(frame, fml),
+): Model[] {
+  return sat(frame, ctx.notFml, world, ctx).map(({ positive }) => ({
+    ...frame,
+    valuations: valuationSet.decode(positive),
+  }));
+}
+
+export function findCountermodels(
+  frame: Frame,
+  fml: Formula,
+  ctx = buildContext(frame, fml),
+): Model[] {
+  return maximal(
+    worlds.flatMap((world) => sat(frame, ctx.notFml, world, ctx)),
+    isWeaker,
+  ).map(({ positive }) => ({
+    ...frame,
+    valuations: valuationSet.decode(positive),
+  }));
+}
+
+export function validInWorld(
+  frame: Frame,
+  fml: Formula,
+  world: World,
+  ctx = buildContext(frame, fml),
+) {
   return sat(frame, ctx.notFml, world, ctx).length === 0;
 }
 
-export function validWorlds(frame: Frame, fml: Formula) {
-  const ctx = buildContext(frame, fml);
-  return worlds.filter(
-    (world) => sat(frame, ctx.notFml, world, ctx).length === 0,
-  );
+export function validWorlds(
+  frame: Frame,
+  fml: Formula,
+  ctx = buildContext(frame, fml),
+) {
+  return worlds.filter((world) => validInWorld(frame, ctx.notFml, world, ctx));
+}
+
+export function validInFrame(
+  frame: Frame,
+  fml: Formula,
+  ctx = buildContext(frame, fml),
+) {
+  return worlds.every((world) => validInWorld(frame, ctx.notFml, world, ctx));
 }

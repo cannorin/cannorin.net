@@ -1,6 +1,6 @@
-import { sample } from "@cannorin/utils/array";
-import { parse } from "../parser";
-import { getFrame, nontrivials } from "../semantics";
+import { sample } from "@cannorin/utils";
+import { parse } from "../src/parser";
+import { getFrame, nontrivials } from "../src/semantics";
 import {
   type Formula,
   and,
@@ -13,7 +13,7 @@ import {
   propvar,
   to,
   top,
-} from "../syntax";
+} from "../src/syntax";
 
 const formulaTypes = [
   "top",
@@ -52,9 +52,24 @@ export const testFormulas: Formula[] = [
   parse("LLp -> p"),
   parse("p -> LLp"),
 
+  parse("M(p -> Mp)"),
+  parse("r -> M((p -> Mp) & Mr)"),
+  parse("p -> MMp"),
+  parse("M(p -> Lp)"),
+  parse("L0"),
+  parse("ML0"),
+  parse("L(p -> Mp)"),
+  parse("p -> MMMp"),
+  parse("p -> MMMMp"),
+  parse("M1"),
+  parse("ML(p -> Mp)"),
+  parse("Lp -> LMp"),
+  parse("M(p -> LLp)"),
+
   // pathological
   parse("L(M(1 & p) v LM1) -> (s <-> 1)"),
   parse("L(M((q v ~q) & p) v LM(s v ~s)) -> (s <-> (p v ~p))"),
+  parse("~(Lr & ¬Mp) & M~L(q v q)"),
 ];
 
 export function randomFormula(depth = 5): Formula {

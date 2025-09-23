@@ -1,4 +1,4 @@
-import { MultiSet } from "@cannorin/utils/multiset";
+import { MultiSet } from "@cannorin/utils";
 import { persisted } from "svelte-persisted-store";
 import type { Move } from "../components/game.svelte";
 import { date } from "./system";

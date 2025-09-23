@@ -1,5 +1,5 @@
-import { type Formula, type PropVar, propVars, vars } from "./syntax";
-import { decode, encode, permutations, power } from "./utils";
+import { BitSet, permutate } from "@cannorin/utils";
+import type { Formula, PropVar } from "./syntax";
 
 export const worlds = ["a", "b", "c", "d"] as const;
 
@@ -15,17 +15,14 @@ export const relation: Relation[] = worlds.flatMap((w) =>
   worlds.map((x) => `${w}${x}` as const),
 );
 
+const relationSet = new BitSet(relation);
+
 export interface Frame {
   relations: Set<Relation>;
 }
 
 export interface Model extends Frame {
   valuations: Set<`${World}${PropVar}`>;
-}
-
-export function valuation(fml?: Formula): `${World}${PropVar}`[] {
-  const vs = fml ? Array.from(vars(fml)) : propVars;
-  return worlds.flatMap((w) => vs.map((p) => `${w}${p}` as const));
 }
 
 export function satisfy(m: Model, w: World, fml: Formula): boolean {
@@ -73,37 +70,15 @@ export function satisfy(m: Model, w: World, fml: Formula): boolean {
 export const validInModel = (m: Model, fml: Formula) =>
   worlds.every((w) => satisfy(m, w, fml));
 
-export function validInFrame(f: Frame, fml: Formula) {
-  for (const valuations of power(valuation(fml))) {
-    if (!validInModel({ ...f, valuations }, fml)) return false;
-  }
-  return true;
-}
-
-export function validWorlds(f: Frame, fml: Formula) {
-  const result: World[] = [];
-  for (const w of worlds) {
-    let valid = true;
-    for (const valuations of power(valuation(fml))) {
-      if (!satisfy({ ...f, valuations }, w, fml)) {
-        valid = false;
-        break;
-      }
-    }
-    if (valid) result.push(w);
-  }
-  return result;
-}
-
 export function getFrame(id: number): Frame {
-  return { relations: decode(relation, id) };
+  return { relations: relationSet.decode(id) };
 }
 
 export function getId(frame: Frame) {
-  return encode(relation, frame.relations);
+  return relationSet.encode(frame.relations);
 }
 
-const worldPermutations = permutations(worlds).map(
+const worldPermutations = permutate(worlds).map(
   (perm) => new Map(worlds.map((k, i) => [k, perm[i] as World])),
 );
 
@@ -131,7 +106,7 @@ export function generateAllFrames() {
   for (let id = 0; id < total; id++) {
     if (map.has(id)) continue;
 
-    const relations = decode(relation, id);
+    const relations = relationSet.decode(id);
 
     const frame = { relations };
     const equivalentIds: number[] = [];
@@ -139,7 +114,7 @@ export function generateAllFrames() {
     let canonicalId = id;
     for (const perm of worldPermutations) {
       const permuted = applyPermutation(frame, perm);
-      const permutedId = encode(relation, permuted.relations);
+      const permutedId = relationSet.encode(permuted.relations);
       equivalentIds.push(permutedId);
       if (canonicalId === null || permutedId < canonicalId) {
         canonicalId = permutedId;

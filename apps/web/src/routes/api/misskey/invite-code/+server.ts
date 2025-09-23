@@ -1,4 +1,4 @@
-import { sampleMany } from "@cannorin/utils/array";
+import { sampleMany } from "@cannorin/utils";
 import { type RequestEvent, text } from "@sveltejs/kit";
 import { RateLimiter } from "sveltekit-rate-limiter/server";
 
