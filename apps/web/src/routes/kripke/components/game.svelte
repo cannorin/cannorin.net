@@ -71,7 +71,8 @@ let canGuess = $derived.by(() => {
   if (status !== "playing" || remainingRelations !== 0) return false;
   const frameId = getId(frame);
   return !moves.some(
-    (move) => move.type === "guess" && move.frameId === frameId,
+    (move) =>
+      move.type === "guess" && isomorphic[move.frameId] === isomorphic[frameId],
   );
 });
 
