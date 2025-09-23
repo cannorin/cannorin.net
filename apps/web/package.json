@@ -12,9 +12,6 @@
     "lint": "biome check",
     "fix": "biome check --fix"
   },
-  "engines": {
-    "node": ">=22"
-  },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@poppanator/sveltekit-svg": "5.0.0",
