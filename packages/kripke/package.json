@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "exports": {
-    ".": "./index.ts",
-    "./syntax": "./syntax.ts",
-    "./semantics": "./semantics.ts",
-    "./parser": "./parser.ts",
-    "./sat": "./sat.ts"
+    ".": "./src/index.ts",
+    "./syntax": "./src/syntax.ts",
+    "./semantics": "./src/semantics.ts",
+    "./parser": "./src/parser.ts",
+    "./sat": "./src/sat.ts"
   },
   "scripts": {
     "build": "tsc",
