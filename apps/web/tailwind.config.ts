@@ -3,7 +3,11 @@ import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
-  content: ["./src/**/*.{html,js,svelte,ts,md}"],
+  content: [
+    "./src/**/*.{html,js,svelte,ts,md}",
+    "../../node_modules/svelte-ux/**/*.{svelte,js}",
+    "../../node_modules/layerchart/**/*.{svelte,js}",
+  ],
 
   theme: {
     container: {

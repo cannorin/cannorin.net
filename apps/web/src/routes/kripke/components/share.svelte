@@ -5,15 +5,12 @@ import SiMisskey from "@icons-pack/svelte-simple-icons/icons/SiMisskey";
 import SiX from "@icons-pack/svelte-simple-icons/icons/SiX";
 import type { GameStatus, Move } from "./game.svelte";
 
-let {
-  date,
-  moves,
-  status,
-  seed,
-}: { moves: Move[]; status: GameStatus } & (
+export type ShareProps = { moves: Move[]; status: GameStatus } & (
   | { date: string; seed?: undefined }
   | { seed: number; date?: undefined }
-) = $props();
+);
+
+let { date, moves, status, seed }: ShareProps = $props();
 
 const numberEmojis = ["0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣"];
 
