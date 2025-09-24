@@ -5,6 +5,7 @@ import * as Dialog from "$lib/components/ui/dialog";
 import {
   type Formula,
   getFrame,
+  isomorphic,
   nontrivials,
   tryParse,
   validWorlds,
@@ -65,7 +66,9 @@ function evaluate() {
   const res: number[] = [frames.length];
   for (const move of moves) {
     if (move.type === "guess") {
-      frames = frames.filter((f) => f.id !== move.frameId);
+      const frameId = isomorphic[move.frameId];
+      if (move.correct) frames = [{ id: frameId, frame: getFrame(frameId) }];
+      else frames = frames.filter((f) => f.id !== frameId);
     }
     if (move.type === "check") {
       if (move.valid < 0 || move.valid > 4) return undefined;
