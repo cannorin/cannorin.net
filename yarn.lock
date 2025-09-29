@@ -647,10 +647,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/poiret-one@npm:5.2.6":
-  version: 5.2.6
-  resolution: "@fontsource/poiret-one@npm:5.2.6"
-  checksum: 10c0/d099cbbff508a7482f0af9d6c3342f6fabdb4e0efbe4ca32f3250b078825cfd9ed20dd3b9dd31eb4687418200de9d4ceffe2e5ed650bcfa11bb83dfad7808bc8
+"@fontsource/poiret-one@npm:5.2.8":
+  version: 5.2.8
+  resolution: "@fontsource/poiret-one@npm:5.2.8"
+  checksum: 10c0/9a1f672bd42eeac0d492b342483edca280ba3b6746d8852bd7890fa1cea5f8c4f46de173a4f61523a83524fc6681d74c0021f99f6a45cd69a7203a7b7d691086
   languageName: node
   linkType: hard
 
@@ -5565,7 +5565,7 @@ __metadata:
     "@biomejs/biome": "npm:1.9.4"
     "@cannorin/kripke": "workspace:*"
     "@cannorin/utils": "workspace:*"
-    "@fontsource/poiret-one": "npm:5.2.6"
+    "@fontsource/poiret-one": "npm:5.2.8"
     "@fontsource/zen-kaku-gothic-new": "npm:5.2.5"
     "@icons-pack/svelte-simple-icons": "npm:6.4.0"
     "@poppanator/sveltekit-svg": "npm:5.0.0"
