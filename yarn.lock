@@ -4875,7 +4875,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:3.4.17, tailwindcss@npm:^3.4.15":
+"tailwindcss@npm:4.1.14":
+  version: 4.1.14
+  resolution: "tailwindcss@npm:4.1.14"
+  checksum: 10c0/c7e9ebfb241707b2a3eb7d465fd326cc8fcfa22e7215e01f67cccec32db8a49a19e17d1f694fc5d0435d55350ea3f863521c52c9bbe6bd790c2009dc8ff516a1
+  languageName: node
+  linkType: hard
+
+"tailwindcss@npm:^3.4.15":
   version: 3.4.17
   resolution: "tailwindcss@npm:3.4.17"
   dependencies:
@@ -5602,7 +5609,7 @@ __metadata:
     svgo: "npm:3.3.2"
     tailwind-merge: "npm:3.0.2"
     tailwind-variants: "npm:1.0.0"
-    tailwindcss: "npm:3.4.17"
+    tailwindcss: "npm:4.1.14"
     typescript: "npm:5.7.3"
     vite: "npm:7.1.7"
     wrangler: "npm:4.12.0"
