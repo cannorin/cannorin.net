@@ -84,11 +84,9 @@ export function buildContext(frame: Frame, fml: Formula): Context {
         addConstants(f.fml);
         for (const w1 of worlds) {
           const xs = next[w1].map((w2) => constant.get(`${w2}:${f.fml.tag}`));
-          if (xs.some((x) => x === undefined)) continue;
-          constant.set(
-            `${w1}:${f.tag}`,
-            xs.some((x) => x === true),
-          );
+          if (xs.some((x) => x === true)) constant.set(`${w1}:${f.tag}`, true);
+          if (xs.every((x) => x === false))
+            constant.set(`${w1}:${f.tag}`, false);
         }
         return;
       }
@@ -98,8 +96,9 @@ export function buildContext(frame: Frame, fml: Formula): Context {
         for (const w of worlds) {
           const l = constant.get(`${w}:${f.left.tag}`);
           const r = constant.get(`${w}:${f.right.tag}`);
-          if (l === undefined || r === undefined) continue;
-          constant.set(`${w}:${f.tag}`, l || r);
+          if (l === true || r === true) constant.set(`${w}:${f.tag}`, true);
+          else if (l === false && r === false)
+            constant.set(`${w}:${f.tag}`, false);
         }
         return;
       }
