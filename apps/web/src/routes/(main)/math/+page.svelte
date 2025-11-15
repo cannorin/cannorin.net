@@ -42,7 +42,7 @@ const isAccepted = (p: Paper) =>
 
 const papers: Paper[] = [
   {
-    type: "accepted",
+    type: "published",
     title:
       "Uniform Lyndon interpolation for the pure logic of necessitation with a modal reduction principle",
     authors: ["Yuta Sato"],
@@ -50,6 +50,8 @@ const papers: Paper[] = [
     researchGate:
       "https://www.researchgate.net/publication/389821716_Uniform_Lyndon_interpolation_for_the_pure_logic_of_necessitation_with_a_modal_reduction_principle",
     journal: "Journal of Logic and Computation",
+    doi: "10.1093/logcom/exaf048",
+    info: "Volume 35, Issue 7, October 2025"
   },
   {
     type: "accepted",
