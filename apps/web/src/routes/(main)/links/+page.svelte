@@ -1,7 +1,7 @@
 <script lang="ts">
+import type { Snippet } from "svelte";
 import { limitWidth } from "$lib/constants";
 import { cn } from "$lib/utils";
-import type { Snippet } from "svelte";
 
 const categories = [
   { type: "mine" },

@@ -1,10 +1,9 @@
 import { sampleMany } from "@cannorin/utils";
 import { type RequestEvent, text } from "@sveltejs/kit";
+import type { InviteListResponse } from "misskey-js/entities.js";
 import { RateLimiter } from "sveltekit-rate-limiter/server";
-
 import { dev } from "$app/environment";
 import { MISSKEY_API_KEY } from "$env/static/private";
-import type { InviteListResponse } from "misskey-js/entities.js";
 
 const limiter = new RateLimiter({
   IP: [10, "d"], // IP address limiter

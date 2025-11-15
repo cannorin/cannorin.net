@@ -1,10 +1,10 @@
 import { BitSet, maximal } from "@cannorin/utils";
 import {
   type Frame,
-  type Model,
-  type World,
   left,
+  type Model,
   right,
+  type World,
   worlds,
 } from "./semantics";
 import {

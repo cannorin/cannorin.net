@@ -1,11 +1,11 @@
-import type { SeoProps } from "$components/seo";
 import { error } from "@sveltejs/kit";
+import type { SeoProps } from "$components/seo";
 
 export async function load({ params }) {
   const seedStr = params.seed;
   const seed = (() => {
     try {
-      const seed = Number.parseInt(seedStr);
+      const seed = Number.parseInt(seedStr, 10);
       if (!Number.isSafeInteger(seed)) throw error(400);
       return seed;
     } catch {

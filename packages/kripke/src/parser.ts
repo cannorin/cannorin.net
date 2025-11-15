@@ -1,6 +1,5 @@
 import type {} from "@cannorin/utils/headless";
 import {
-  type Token,
   alt,
   apply,
   buildLexer,
@@ -10,15 +9,16 @@ import {
   lrec_sc,
   rule,
   seq,
+  type Token,
   tok,
 } from "typescript-parsec";
 import {
-  type Formula,
   and,
   bot,
   box,
   diamond,
   eq,
+  type Formula,
   not,
   or,
   propVars,

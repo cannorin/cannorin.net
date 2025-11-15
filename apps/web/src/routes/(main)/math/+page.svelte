@@ -51,7 +51,7 @@ const papers: Paper[] = [
       "https://www.researchgate.net/publication/389821716_Uniform_Lyndon_interpolation_for_the_pure_logic_of_necessitation_with_a_modal_reduction_principle",
     journal: "Journal of Logic and Computation",
     doi: "10.1093/logcom/exaf048",
-    info: "Volume 35, Issue 7, October 2025"
+    info: "Volume 35, Issue 7, October 2025",
   },
   {
     type: "accepted",

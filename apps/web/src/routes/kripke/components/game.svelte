@@ -1,7 +1,4 @@
 <script lang="ts">
-import Katex from "$lib/components/katex.svelte";
-
-import { cn } from "$lib/utils";
 import {
   type Formula,
   type Frame,
@@ -16,6 +13,8 @@ import LuCheck from "lucide-svelte/icons/check";
 import LuHeart from "lucide-svelte/icons/heart";
 import LuHeartCrack from "lucide-svelte/icons/heart-crack";
 import LuX from "lucide-svelte/icons/x";
+import Katex from "$lib/components/katex.svelte";
+import { cn } from "$lib/utils";
 import { formulaHistory } from "../lib/store";
 import FormulaInput from "./formula-input.svelte";
 import FrameInput from "./frame-input.svelte";

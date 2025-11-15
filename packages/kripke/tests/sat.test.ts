@@ -1,7 +1,7 @@
 import { power } from "@cannorin/utils";
 import { expect, test } from "vitest";
 import { validWorlds } from "../src/sat";
-import { type Frame, type World, satisfy, worlds } from "../src/semantics";
+import { type Frame, satisfy, type World, worlds } from "../src/semantics";
 import {
   type Formula,
   type PropVar,

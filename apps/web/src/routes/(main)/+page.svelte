@@ -1,17 +1,16 @@
 <script lang="ts">
-import { limitWidth } from "$lib/constants";
-import { cn } from "$lib/utils";
-import type { Snapshot } from "../$types";
-import CardDev from "./dev/card.svelte";
-import CardMath from "./math/card.svelte";
-import CardMusic from "./music/card.svelte";
-
 import SiDiscord from "@icons-pack/svelte-simple-icons/icons/SiDiscord";
 import SiKeybase from "@icons-pack/svelte-simple-icons/icons/SiKeybase";
 import SiMisskey from "@icons-pack/svelte-simple-icons/icons/SiMisskey";
 import SiSteam from "@icons-pack/svelte-simple-icons/icons/SiSteam";
 import SiTwitch from "@icons-pack/svelte-simple-icons/icons/SiTwitch";
 import SiX from "@icons-pack/svelte-simple-icons/icons/SiX";
+import { limitWidth } from "$lib/constants";
+import { cn } from "$lib/utils";
+import type { Snapshot } from "../$types";
+import CardDev from "./dev/card.svelte";
+import CardMath from "./math/card.svelte";
+import CardMusic from "./music/card.svelte";
 
 type SnapshotData = {
   scrollPosition: number;

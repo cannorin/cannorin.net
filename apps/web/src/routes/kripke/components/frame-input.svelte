@@ -1,21 +1,21 @@
 <script lang="ts">
 import {
   type Frame,
-  type Relation,
-  type World,
   left,
+  type Relation,
   reverse,
   right,
+  type World,
   worlds,
 } from "@cannorin/kripke";
 import {
-  type Radian,
-  type Vector,
   add,
   degree,
+  type Radian,
   rotate,
   sub,
   theta,
+  type Vector,
 } from "@cannorin/utils/vector";
 import type { SVGAttributes } from "svelte/elements";
 

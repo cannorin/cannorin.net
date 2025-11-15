@@ -2,13 +2,13 @@
 import "../app.css";
 import "./webfont.css";
 
+import { sineOut } from "svelte/easing";
+import { fade } from "svelte/transition";
 import { browser } from "$app/environment";
 import { onNavigate } from "$app/navigation";
 import { page } from "$app/state";
 import Seo, { defaultSeo, mergeSeo } from "$components/seo";
 import { PUBLIC_WEB_DOMAIN } from "$env/static/public";
-import { sineOut } from "svelte/easing";
-import { fade } from "svelte/transition";
 
 let viewTransition = !browser || !!document.startViewTransition;
 

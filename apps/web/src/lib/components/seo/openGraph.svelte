@@ -27,6 +27,7 @@ SOFTWARE.
 
 <script lang="ts">
 import type { SeoProps } from "./types";
+
 let { openGraph }: { openGraph?: SeoProps["openGraph"] } = $props();
 </script>
 

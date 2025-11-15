@@ -2,12 +2,12 @@ import { sample } from "@cannorin/utils";
 import { parse } from "../src/parser";
 import { getFrame, nontrivials } from "../src/semantics";
 import {
-  type Formula,
   and,
   bot,
   box,
   diamond,
   eq,
+  type Formula,
   not,
   or,
   propvar,
