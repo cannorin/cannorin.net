@@ -24,6 +24,9 @@ let shareText = $derived.by(() => {
         case "check": {
           return numberEmojis[move.valid];
         }
+        default: {
+          throw new Error("impossible");
+        }
       }
     })
     .join("");

@@ -1,7 +1,4 @@
 <script lang="ts">
-import { Button } from "$lib/components/ui/button";
-import * as Dialog from "$lib/components/ui/dialog";
-
 import {
   type Formula,
   getFrame,
@@ -10,13 +7,14 @@ import {
   tryParse,
   validWorlds,
 } from "@cannorin/kripke";
-import Game, { type GameStatus, type Move } from "./game.svelte";
-
 import LuRotateCw from "lucide-svelte/icons/rotate-cw";
 import LuX from "lucide-svelte/icons/x";
 import type { Snippet } from "svelte";
+import { Button } from "$lib/components/ui/button";
+import * as Dialog from "$lib/components/ui/dialog";
 import Chart from "./chart.svelte";
 import FrameInput from "./frame-input.svelte";
+import Game, { type GameStatus, type Move } from "./game.svelte";
 import Rules from "./rules.svelte";
 import Share, { type ShareProps } from "./share.svelte";
 

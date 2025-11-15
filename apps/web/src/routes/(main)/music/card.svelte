@@ -1,12 +1,10 @@
 <script lang="ts">
-import Card, { type CardProps } from "$components/card.svelte";
-import { cn } from "$lib/utils";
-
-import IconJakeko from "$assets/images/static/icon/jakeko.webp?w=1080;800;600;400;300&enhanced";
-
 import SiBandcamp from "@icons-pack/svelte-simple-icons/icons/SiBandcamp";
 import SiMixcloud from "@icons-pack/svelte-simple-icons/icons/SiMixcloud";
 import SiSoundcloud from "@icons-pack/svelte-simple-icons/icons/SiSoundcloud";
+import IconJakeko from "$assets/images/static/icon/jakeko.webp?w=1080;800;600;400;300&enhanced";
+import Card, { type CardProps } from "$components/card.svelte";
+import { cn } from "$lib/utils";
 
 let { more, ...rest }: Pick<CardProps, "more" | "class"> = $props();
 </script>

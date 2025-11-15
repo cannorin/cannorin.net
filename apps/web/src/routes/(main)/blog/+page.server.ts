@@ -1,5 +1,5 @@
 import type { SeoProps } from "$lib/components/seo";
-import { type Metadata, data } from "./(articles)/data";
+import { data, type Metadata } from "./(articles)/data";
 
 export async function load() {
   const posts: (Metadata & { slug: string })[] = [];

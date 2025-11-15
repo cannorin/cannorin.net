@@ -1,6 +1,6 @@
 <script lang="ts">
-import Katex from "$lib/components/katex.svelte";
 import { type Formula, prettyPrint, tryParse } from "@cannorin/kripke";
+import Katex from "$lib/components/katex.svelte";
 import { formulaHistory } from "../lib/store";
 
 let {

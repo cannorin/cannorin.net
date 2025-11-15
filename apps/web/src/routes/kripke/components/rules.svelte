@@ -1,5 +1,4 @@
 <script lang="ts">
-import Katex from "$lib/components/katex.svelte";
 import {
   andSymbols,
   botSymbols,
@@ -10,10 +9,11 @@ import {
   notSymbols,
   orSymbols,
   rParenSymbols,
-  toSymbols,
   topSymbols,
+  toSymbols,
 } from "@cannorin/kripke";
 import LuHeart from "lucide-svelte/icons/heart";
+import Katex from "$lib/components/katex.svelte";
 
 let { relationSize }: { relationSize: number } = $props();
 

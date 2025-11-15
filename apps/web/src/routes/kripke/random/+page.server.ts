@@ -6,7 +6,7 @@ export async function load({ url }) {
   const seed = (() => {
     try {
       if (!seedStr) return randomSeed();
-      const seed = Number.parseInt(seedStr);
+      const seed = Number.parseInt(seedStr, 10);
       if (!Number.isSafeInteger(seed)) return randomSeed();
       return seed;
     } catch {

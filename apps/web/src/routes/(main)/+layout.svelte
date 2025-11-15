@@ -1,9 +1,9 @@
 <script lang="ts">
+import LuChevronsRight from "lucide-svelte/icons/chevrons-right";
+import LuCopyleft from "lucide-svelte/icons/copyleft";
 import { page } from "$app/state";
 import { limitWidth } from "$lib/constants";
 import { cn } from "$lib/utils";
-import LuChevronsRight from "lucide-svelte/icons/chevrons-right";
-import LuCopyleft from "lucide-svelte/icons/copyleft";
 
 let { children } = $props();
 </script>

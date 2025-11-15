@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.1/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.5/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -7,15 +7,13 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [".env", ".env.*", ".yarn/**/*", "*.*css"]
+    "includes": ["**", "!**/.env", "!**/.env.*", "!**/.yarn/**/*", "!**/*.*css"]
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space"
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
     "rules": {
@@ -29,11 +27,13 @@
   },
   "overrides": [
     {
-      "include": ["*.svelte", "*.md"],
+      "includes": ["**/*.svelte", "**/*.md"],
       "linter": {
         "rules": {
           "correctness": {
-            "noUnusedLabels": "off"
+            "noUnusedLabels": "off",
+            "noUnusedImports": "off",
+            "noUnusedVariables": "off"
           },
           "suspicious": {
             "noConfusingLabels": "off"

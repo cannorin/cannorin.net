@@ -1,7 +1,7 @@
 <script lang="ts">
-import { cn } from "$lib/utils";
 import type { Snippet } from "svelte";
 import type { Picture } from "vite-imagetools";
+import { cn } from "$lib/utils";
 
 export interface CardProps {
   class?: string | undefined;
