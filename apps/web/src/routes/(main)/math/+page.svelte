@@ -80,6 +80,16 @@ type Talk = {
 
 const talks: Talk[] = [
   {
+    title: "IML でも CML でもない直観主義様相論理について",
+    talkers: ["Yuta Sato"],
+    conference: {
+      name: "第60回MLG数理論理学研究集会",
+      url: "https://www2.kobe-u.ac.jp/~tk/jp/workshop/MLG2025/",
+    },
+    location: "神戸大学",
+    date: new Date(2025, 12 - 1, 20),
+  },
+  {
     title: "命題化とカット除去による N+Am,n の一様 Lyndon 補間定理の証明",
     talkers: ["Yuta Sato"],
     conference: {
