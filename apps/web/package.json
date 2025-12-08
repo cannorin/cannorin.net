@@ -51,7 +51,7 @@
     "@fontsource/poiret-one": "5.2.8",
     "@fontsource/zen-kaku-gothic-new": "5.2.7",
     "@icons-pack/svelte-simple-icons": "6.4.0",
-    "@tailwindcss/typography": "0.5.16",
+    "@tailwindcss/typography": "0.5.19",
     "d3-scale": "4.0.2",
     "deepmerge": "4.3.1",
     "layerchart": "1.0.12",
