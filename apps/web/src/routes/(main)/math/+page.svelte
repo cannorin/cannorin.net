@@ -88,6 +88,7 @@ const talks: Talk[] = [
     },
     location: "神戸大学",
     date: new Date(2025, 12 - 1, 20),
+    slide: "/math/mlg60.pdf",
   },
   {
     title: "命題化とカット除去による N+Am,n の一様 Lyndon 補間定理の証明",
