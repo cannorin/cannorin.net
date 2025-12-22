@@ -55,7 +55,7 @@
     "d3-scale": "4.0.2",
     "deepmerge": "4.3.1",
     "layerchart": "1.0.12",
-    "lucide-svelte": "0.556.0",
+    "lucide-svelte": "0.562.0",
     "svelte-persisted-store": "0.12.0",
     "sveltekit-rate-limiter": "0.7.0",
     "tailwind-merge": "3.0.2",
