@@ -1724,16 +1724,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-cloudflare@npm:7.2.3":
-  version: 7.2.3
-  resolution: "@sveltejs/adapter-cloudflare@npm:7.2.3"
+"@sveltejs/adapter-cloudflare@npm:7.2.6":
+  version: 7.2.6
+  resolution: "@sveltejs/adapter-cloudflare@npm:7.2.6"
   dependencies:
     "@cloudflare/workers-types": "npm:^4.20250507.0"
     worktop: "npm:0.8.0-next.18"
   peerDependencies:
     "@sveltejs/kit": ^2.0.0
     wrangler: ^4.0.0
-  checksum: 10c0/150480ad318ab2a8dab173ffd775f0e7ee2463abedf26519efd50adee58bdec29aa3f2b9df59d0217c37874e297c701601a774771e6c84b1eb138080255ce66a
+  checksum: 10c0/033a735555fd682c2ad751558809cfc8c8b71af4c79631abf386a962a06b1395876499c72db3924d8492e288ed31ef46a7aa810ff6c8b9df387cde13939a423e
   languageName: node
   linkType: hard
 
@@ -6623,7 +6623,7 @@ __metadata:
     "@icons-pack/svelte-simple-icons": "npm:6.4.0"
     "@poppanator/sveltekit-svg": "npm:6.0.1"
     "@sveltejs/adapter-auto": "npm:6.0.0"
-    "@sveltejs/adapter-cloudflare": "npm:7.2.3"
+    "@sveltejs/adapter-cloudflare": "npm:7.2.6"
     "@sveltejs/enhanced-img": "npm:0.9.3"
     "@sveltejs/kit": "npm:2.49.5"
     "@sveltejs/vite-plugin-svelte": "npm:6.2.1"
