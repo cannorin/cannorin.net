@@ -58,7 +58,7 @@
     "lucide-svelte": "0.562.0",
     "svelte-persisted-store": "0.12.0",
     "sveltekit-rate-limiter": "0.7.0",
-    "tailwind-merge": "3.0.2",
+    "tailwind-merge": "3.4.1",
     "zod": "4.3.5"
   }
 }
