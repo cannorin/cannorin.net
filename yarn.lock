@@ -12,16 +12,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ampproject/remapping@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "@ampproject/remapping@npm:2.3.0"
-  dependencies:
-    "@jridgewell/gen-mapping": "npm:^0.3.5"
-    "@jridgewell/trace-mapping": "npm:^0.3.24"
-  checksum: 10c0/81d63cca5443e0f0c72ae18b544cc28c7c0ec2cea46e7cb888bb0e0f411a1191d0d6b7af798d54e30777d8d1488b2ec0732aac2be342d3d7d3ffd271c6f489ed
-  languageName: node
-  linkType: hard
-
 "@biomejs/biome@npm:2.3.8":
   version: 2.3.8
   resolution: "@biomejs/biome@npm:2.3.8"
@@ -946,6 +936,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jridgewell/remapping@npm:^2.3.4":
+  version: 2.3.5
+  resolution: "@jridgewell/remapping@npm:2.3.5"
+  dependencies:
+    "@jridgewell/gen-mapping": "npm:^0.3.5"
+    "@jridgewell/trace-mapping": "npm:^0.3.24"
+  checksum: 10c0/3de494219ffeb2c5c38711d0d7bb128097edf91893090a2dbc8ee0b55d092bb7347b1fd0f478486c5eab010e855c73927b1666f2107516d472d24a73017d1194
+  languageName: node
+  linkType: hard
+
 "@jridgewell/resolve-uri@npm:^3.0.3, @jridgewell/resolve-uri@npm:^3.1.0":
   version: 3.1.2
   resolution: "@jridgewell/resolve-uri@npm:3.1.2"
@@ -1393,22 +1393,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:2.49.5":
-  version: 2.49.5
-  resolution: "@sveltejs/kit@npm:2.49.5"
+"@sveltejs/kit@npm:2.52.2":
+  version: 2.52.2
+  resolution: "@sveltejs/kit@npm:2.52.2"
   dependencies:
     "@standard-schema/spec": "npm:^1.0.0"
     "@sveltejs/acorn-typescript": "npm:^1.0.5"
     "@types/cookie": "npm:^0.6.0"
     acorn: "npm:^8.14.1"
     cookie: "npm:^0.6.0"
-    devalue: "npm:^5.6.2"
+    devalue: "npm:^5.6.3"
     esm-env: "npm:^1.2.2"
     kleur: "npm:^4.1.5"
     magic-string: "npm:^0.30.5"
     mrmime: "npm:^2.0.0"
-    sade: "npm:^1.8.1"
-    set-cookie-parser: "npm:^2.6.0"
+    set-cookie-parser: "npm:^3.0.0"
     sirv: "npm:^3.0.0"
   peerDependencies:
     "@opentelemetry/api": ^1.0.0
@@ -1423,7 +1422,7 @@ __metadata:
       optional: true
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 10c0/c17b21f3482167c92cf301f3599b7acf9be68dcc0d61e23fe1f001d1c802e55aa7629972444c499604a6d45d75d0535a359e8c1c7eac4b18542aec8c8ba22d3d
+  checksum: 10c0/8e7b9ba781b84f0104813386bf457ea6e27da6e2a08be1f41b907c7272a9ad6d097b89dcdfe5da9f35243e10623a8f84d88c24956e151a5f5f0401f6dd0fd65f
   languageName: node
   linkType: hard
 
@@ -1623,6 +1622,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/trusted-types@npm:^2.0.7":
+  version: 2.0.7
+  resolution: "@types/trusted-types@npm:2.0.7"
+  checksum: 10c0/4c4855f10de7c6c135e0d32ce462419d8abbbc33713b31d294596c0cc34ae1fa6112a2f9da729c8f7a20707782b0d69da3b1f8df6645b0366d08825ca1522e0c
+  languageName: node
+  linkType: hard
+
 "@types/unist@npm:*, @types/unist@npm:^3.0.0":
   version: 3.0.3
   resolution: "@types/unist@npm:3.0.3"
@@ -1728,15 +1734,6 @@ __metadata:
   version: 2.0.0
   resolution: "abbrev@npm:2.0.0"
   checksum: 10c0/f742a5a107473946f426c691c08daba61a1d15942616f300b5d32fd735be88fef5cba24201757b6c407fd564555fb48c751cfa33519b2605c8a7aadd22baf372
-  languageName: node
-  linkType: hard
-
-"acorn-typescript@npm:^1.4.13":
-  version: 1.4.13
-  resolution: "acorn-typescript@npm:1.4.13"
-  peerDependencies:
-    acorn: ">=8.9.0"
-  checksum: 10c0/f2f17cf03379d63beeb007f0feea02cebbd9af261f6b5619ea7345b177bd7a5f99752927cbf652baa3fc97962ae4561592093ab0a1c3e00ca4f354ba23c557ae
   languageName: node
   linkType: hard
 
@@ -2514,10 +2511,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"devalue@npm:^5.6.2":
-  version: 5.6.2
-  resolution: "devalue@npm:5.6.2"
-  checksum: 10c0/654f257ec525a2d3f35c941bfbb361148bc65ced060710969fbaa1c45abf1c9d7c4fcb77310bf8d2fb73c34cf60bad10710e7bf5b15643bbc082518ea04cb00b
+"devalue@npm:^5.6.3":
+  version: 5.6.3
+  resolution: "devalue@npm:5.6.3"
+  checksum: 10c0/701fbe57b9b8b71cf5f9e706a6c977cffadd5083298e442d460e82f04480b8c5656aa3c6eb36aed33b387f4266aed6abd2143cd91e94f96931302225d14789ba
   languageName: node
   linkType: hard
 
@@ -2862,12 +2859,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esrap@npm:^1.4.3":
-  version: 1.4.5
-  resolution: "esrap@npm:1.4.5"
+"esrap@npm:^2.2.2":
+  version: 2.2.3
+  resolution: "esrap@npm:2.2.3"
   dependencies:
     "@jridgewell/sourcemap-codec": "npm:^1.4.15"
-  checksum: 10c0/7dd93c2481bcee8e53f1a9b15094ebba2724a0fa17c864aa728d5cfc3db9aca1640293cdb873243eb981c2cad5eb0bfed6e7f3cf427e5467e698042b3cc0ec3b
+  checksum: 10c0/6eda59f9968e52b9b150dec0cb8acf2f42fef62b16918cefb64d25e5aeaa969cf44ca2a6260b14994cb7e5ac2e78ab8170158339901ab0e913c52f780891ab95
   languageName: node
   linkType: hard
 
@@ -4776,7 +4773,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sade@npm:^1.7.4, sade@npm:^1.8.1":
+"sade@npm:^1.7.4":
   version: 1.8.1
   resolution: "sade@npm:1.8.1"
   dependencies:
@@ -4824,10 +4821,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"set-cookie-parser@npm:^2.6.0":
-  version: 2.7.1
-  resolution: "set-cookie-parser@npm:2.7.1"
-  checksum: 10c0/060c198c4c92547ac15988256f445eae523f57f2ceefeccf52d30d75dedf6bff22b9c26f756bd44e8e560d44ff4ab2130b178bd2e52ef5571bf7be3bd7632d9a
+"set-cookie-parser@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "set-cookie-parser@npm:3.0.1"
+  checksum: 10c0/29bd085ab3167fd0b3ee25b20575c1be845bf1c051b816c83ea99aada02c6a1bf16458e3c2825abf702bd09725bbb4868730737596b7a2d48f712551cf733d1d
   languageName: node
   linkType: hard
 
@@ -5158,25 +5155,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte@npm:5.20.4":
-  version: 5.20.4
-  resolution: "svelte@npm:5.20.4"
+"svelte@npm:5.51.5":
+  version: 5.51.5
+  resolution: "svelte@npm:5.51.5"
   dependencies:
-    "@ampproject/remapping": "npm:^2.3.0"
+    "@jridgewell/remapping": "npm:^2.3.4"
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
+    "@sveltejs/acorn-typescript": "npm:^1.0.5"
     "@types/estree": "npm:^1.0.5"
+    "@types/trusted-types": "npm:^2.0.7"
     acorn: "npm:^8.12.1"
-    acorn-typescript: "npm:^1.4.13"
     aria-query: "npm:^5.3.1"
     axobject-query: "npm:^4.1.0"
     clsx: "npm:^2.1.1"
+    devalue: "npm:^5.6.3"
     esm-env: "npm:^1.2.1"
-    esrap: "npm:^1.4.3"
+    esrap: "npm:^2.2.2"
     is-reference: "npm:^3.0.3"
     locate-character: "npm:^3.0.0"
     magic-string: "npm:^0.30.11"
     zimmerframe: "npm:^1.1.2"
-  checksum: 10c0/f89590e506307698fbbf09bf36fdaae640936cf83cead43a1e283f99c525d53ac109e8f8259448a0925d0578db4f956f2a248b54f4d93cb9baeb9d2707a42129
+  checksum: 10c0/d14c0e3cae78d0aea61a6156075304fd7ac32163a809d24c284462e589fd585cdc8916d47f5df8da9c8220f79f0e1ead39933f14650ea663163400a61463c128
   languageName: node
   linkType: hard
 
@@ -5938,7 +5937,7 @@ __metadata:
     "@sveltejs/adapter-auto": "npm:6.0.0"
     "@sveltejs/adapter-cloudflare": "npm:7.2.6"
     "@sveltejs/enhanced-img": "npm:0.9.3"
-    "@sveltejs/kit": "npm:2.49.5"
+    "@sveltejs/kit": "npm:2.52.2"
     "@sveltejs/vite-plugin-svelte": "npm:6.2.1"
     "@tailwindcss/typography": "npm:0.5.19"
     "@types/d3-array": "npm:^3"
@@ -5961,7 +5960,7 @@ __metadata:
     remark-footnotes: "npm:2.0"
     remark-math: "npm:6"
     schema-dts: "npm:1.1.5"
-    svelte: "npm:5.20.4"
+    svelte: "npm:5.51.5"
     svelte-check: "npm:4.3.3"
     svelte-persisted-store: "npm:0.12.0"
     sveltekit-rate-limiter: "npm:0.7.0"
