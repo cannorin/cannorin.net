@@ -1352,14 +1352,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-auto@npm:6.0.0":
-  version: 6.0.0
-  resolution: "@sveltejs/adapter-auto@npm:6.0.0"
-  dependencies:
-    import-meta-resolve: "npm:^4.1.0"
+"@sveltejs/adapter-auto@npm:7.0.1":
+  version: 7.0.1
+  resolution: "@sveltejs/adapter-auto@npm:7.0.1"
   peerDependencies:
     "@sveltejs/kit": ^2.0.0
-  checksum: 10c0/056d801c8e601f4c3c83e2547bfd3998ecfb9aaa642a4831eee436a512d62d8c0f264d3728136e30367a47eb0f13140292d6831a874e33798a16d302098d70d7
+  checksum: 10c0/b4d76a432cc077a0f5fb684dc83471676e7f4f0704e7350d18ebbdf8a69726e5f8ca7ebc709d06f6598725ac0a749c396d466f03095005d919ce97bc97324f50
   languageName: node
   linkType: hard
 
@@ -3267,13 +3265,6 @@ __metadata:
   version: 10.1.3
   resolution: "immer@npm:10.1.3"
   checksum: 10c0/b3929022c1999935c9c5e9491fce20d883c15a04072628056f3b8c51a63ac0876d1c1f25cec146e325c30c906bc7f15a636c29ed53156f0a3049150f152df4c8
-  languageName: node
-  linkType: hard
-
-"import-meta-resolve@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "import-meta-resolve@npm:4.1.0"
-  checksum: 10c0/42f3284b0460635ddf105c4ad99c6716099c3ce76702602290ad5cbbcd295700cbc04e4bdf47bacf9e3f1a4cec2e1ff887dabc20458bef398f9de22ddff45ef5
   languageName: node
   linkType: hard
 
@@ -5934,7 +5925,7 @@ __metadata:
     "@fontsource/zen-kaku-gothic-new": "npm:5.2.7"
     "@icons-pack/svelte-simple-icons": "npm:6.4.0"
     "@poppanator/sveltekit-svg": "npm:6.0.1"
-    "@sveltejs/adapter-auto": "npm:6.0.0"
+    "@sveltejs/adapter-auto": "npm:7.0.1"
     "@sveltejs/adapter-cloudflare": "npm:7.2.6"
     "@sveltejs/enhanced-img": "npm:0.9.3"
     "@sveltejs/kit": "npm:2.52.2"
