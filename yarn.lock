@@ -1419,16 +1419,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:2.53.3":
-  version: 2.53.3
-  resolution: "@sveltejs/kit@npm:2.53.3"
+"@sveltejs/kit@npm:2.57.1":
+  version: 2.57.1
+  resolution: "@sveltejs/kit@npm:2.57.1"
   dependencies:
     "@standard-schema/spec": "npm:^1.0.0"
     "@sveltejs/acorn-typescript": "npm:^1.0.5"
     "@types/cookie": "npm:^0.6.0"
     acorn: "npm:^8.14.1"
     cookie: "npm:^0.6.0"
-    devalue: "npm:^5.6.3"
+    devalue: "npm:^5.6.4"
     esm-env: "npm:^1.2.2"
     kleur: "npm:^4.1.5"
     magic-string: "npm:^0.30.5"
@@ -1439,7 +1439,7 @@ __metadata:
     "@opentelemetry/api": ^1.0.0
     "@sveltejs/vite-plugin-svelte": ^3.0.0 || ^4.0.0-next.1 || ^5.0.0 || ^6.0.0-next.0 || ^7.0.0
     svelte: ^4.0.0 || ^5.0.0-next.0
-    typescript: ^5.3.3
+    typescript: ^5.3.3 || ^6.0.0
     vite: ^5.0.3 || ^6.0.0 || ^7.0.0-beta.0 || ^8.0.0
   peerDependenciesMeta:
     "@opentelemetry/api":
@@ -1448,7 +1448,7 @@ __metadata:
       optional: true
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 10c0/14cbfdad5d94d31ba5c7b7037663a99c8c03d97a0b08bd95bfbac77b5d3189bb084bda6bc58962dd1ee924559f3c26adf0ccb5f87995f06cc7d356efde805301
+  checksum: 10c0/53a15aa190931f34449f887e1f4ca433788220a15221dafaed82cdb120655fe8826fb6089bad4d3ca48540db4d48147652c97d3a414f7d06ba419c3ea0bdce19
   languageName: node
   linkType: hard
 
@@ -1935,11 +1935,11 @@ __metadata:
   linkType: hard
 
 "brace-expansion@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "brace-expansion@npm:2.0.2"
+  version: 2.1.0
+  resolution: "brace-expansion@npm:2.1.0"
   dependencies:
     balanced-match: "npm:^1.0.0"
-  checksum: 10c0/6d117a4c793488af86b83172deb6af143e94c17bc53b0b3cec259733923b4ca84679d506ac261f4ba3c7ed37c46018e2ff442f9ce453af8643ecd64f4a54e6cf
+  checksum: 10c0/439cedf3e23d7993b37919f1d6fdc653ec21a42437ec3e7460bea9ca8b17edf7a24a633273c31d61aa4335877cf29a443f1871814131c87997a1e6223e1f1502
   languageName: node
   linkType: hard
 
@@ -2080,7 +2080,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:7, commander@npm:^7.2.0":
+"commander@npm:7":
   version: 7.2.0
   resolution: "commander@npm:7.2.0"
   checksum: 10c0/8d690ff13b0356df7e0ebbe6c59b4712f754f4b724d4f473d3cc5b3fdcf978e3a5dc3078717858a2ceb50b0f84d0660a7f22a96cdc50fb877d0c9bb31593d23a
@@ -2150,16 +2150,6 @@ __metadata:
   version: 1.4.1
   resolution: "css-selector-parser@npm:1.4.1"
   checksum: 10c0/4a89a7b61072cf0e4d09e8abbb9a77bc661232b6fe6a6fe51ba775757bae0e3fc462b0db4c9a857da55afb89a1c1746a7b2ec1200f639c539556ebdc758b0101
-  languageName: node
-  linkType: hard
-
-"css-tree@npm:^2.3.1":
-  version: 2.3.1
-  resolution: "css-tree@npm:2.3.1"
-  dependencies:
-    mdn-data: "npm:2.0.30"
-    source-map-js: "npm:^1.0.1"
-  checksum: 10c0/6f8c1a11d5e9b14bf02d10717fc0351b66ba12594166f65abfbd8eb8b5b490dd367f5c7721db241a3c792d935fc6751fbc09f7e1598d421477ad9fadc30f4f24
   languageName: node
   linkType: hard
 
@@ -2530,10 +2520,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"devalue@npm:^5.6.3":
-  version: 5.6.3
-  resolution: "devalue@npm:5.6.3"
-  checksum: 10c0/701fbe57b9b8b71cf5f9e706a6c977cffadd5083298e442d460e82f04480b8c5656aa3c6eb36aed33b387f4266aed6abd2143cd91e94f96931302225d14789ba
+"devalue@npm:^5.6.3, devalue@npm:^5.6.4":
+  version: 5.7.1
+  resolution: "devalue@npm:5.7.1"
+  checksum: 10c0/55870801e7bf4b7e8cf7feca1feae4f20bc8c361cf715a1fc5d8f595f099afa65094ce718a3cf3b149b79c78d24a0c92cf9d72125c8a10e563ebb18b23869b8a
   languageName: node
   linkType: hard
 
@@ -3544,9 +3534,9 @@ __metadata:
   linkType: hard
 
 "lodash-es@npm:^4.17.21":
-  version: 4.17.23
-  resolution: "lodash-es@npm:4.17.23"
-  checksum: 10c0/3150fb6660c14c7a6b5f23bd11597d884b140c0e862a17fdb415aaa5ef7741523182904a6b7929f04e5f60a11edb5a79499eb448734381c99ffb3c4734beeddd
+  version: 4.18.1
+  resolution: "lodash-es@npm:4.18.1"
+  checksum: 10c0/35d4dcf87ef07f8d090f409447575800108057e360b445f590d0d25d09e3d1e33a163d2fc100d4d072b0f901d5e2fc533cd7c4bfd8eeb38a06abec693823c8b8
   languageName: node
   linkType: hard
 
@@ -3694,13 +3684,6 @@ __metadata:
   version: 2.0.28
   resolution: "mdn-data@npm:2.0.28"
   checksum: 10c0/20000932bc4cd1cde9cba4e23f08cc4f816398af4c15ec81040ed25421d6bf07b5cf6b17095972577fb498988f40f4cb589e3169b9357bb436a12d8e07e5ea7b
-  languageName: node
-  linkType: hard
-
-"mdn-data@npm:2.0.30":
-  version: 2.0.30
-  resolution: "mdn-data@npm:2.0.30"
-  checksum: 10c0/a2c472ea16cee3911ae742593715aa4c634eb3d4b9f1e6ada0902aa90df13dcbb7285d19435f3ff213ebaa3b2e0c0265c1eb0e3fb278fda7f8919f046a410cd9
   languageName: node
   linkType: hard
 
@@ -4335,20 +4318,13 @@ __metadata:
   linkType: hard
 
 "picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.3.1":
-  version: 2.3.1
-  resolution: "picomatch@npm:2.3.1"
-  checksum: 10c0/26c02b8d06f03206fc2ab8d16f19960f2ff9e81a658f831ecb656d8f17d9edc799e8364b1f4a7873e89d9702dff96204be0fa26fe4181f6843f040f819dac4be
+  version: 2.3.2
+  resolution: "picomatch@npm:2.3.2"
+  checksum: 10c0/a554d1709e59be97d1acb9eaedbbc700a5c03dbd4579807baed95100b00420bc729335440ef15004ae2378984e2487a7c1cebd743cfdb72b6fa9ab69223c0d61
   languageName: node
   linkType: hard
 
-"picomatch@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "picomatch@npm:4.0.2"
-  checksum: 10c0/7c51f3ad2bb42c776f49ebf964c644958158be30d0a510efd5a395e8d49cb5acfed5b82c0c5b365523ce18e6ab85013c9ebe574f60305892ec3fa8eee8304ccc
-  languageName: node
-  linkType: hard
-
-"picomatch@npm:^4.0.3":
+"picomatch@npm:^4.0.2, picomatch@npm:^4.0.3":
   version: 4.0.3
   resolution: "picomatch@npm:4.0.3"
   checksum: 10c0/9582c951e95eebee5434f59e426cddd228a7b97a0161a375aed4be244bd3fe8e3a31b846808ea14ef2c8a2527a6eeab7b3946a67d5979e81694654f939473ae2
@@ -5221,20 +5197,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svgo@npm:3.3.3":
-  version: 3.3.3
-  resolution: "svgo@npm:3.3.3"
+"svgo@npm:4.0.1":
+  version: 4.0.1
+  resolution: "svgo@npm:4.0.1"
   dependencies:
-    commander: "npm:^7.2.0"
+    commander: "npm:^11.1.0"
     css-select: "npm:^5.1.0"
-    css-tree: "npm:^2.3.1"
+    css-tree: "npm:^3.0.1"
     css-what: "npm:^6.1.0"
     csso: "npm:^5.0.5"
-    picocolors: "npm:^1.0.0"
+    picocolors: "npm:^1.1.1"
     sax: "npm:^1.5.0"
   bin:
-    svgo: ./bin/svgo
-  checksum: 10c0/06568c6b0430f96748c557f0b17dc7de79b19fa16d13d7523527ede0ec727fc6d8e6a10e13ff106dc4372d2e6063a1dca7c455c495efb1b83857480425f9b965
+    svgo: ./bin/svgo.js
+  checksum: 10c0/f61f9957b42e0c97593b49a01f3b93cb239b2e818efccb056fcc866d622704d9021c4ef8bd0287264c3e4f33da60e4af14d841b4a624b87ff8888e3b896d13d5
   languageName: node
   linkType: hard
 
@@ -5323,15 +5299,15 @@ __metadata:
   linkType: hard
 
 "tar@npm:^7.4.3":
-  version: 7.5.9
-  resolution: "tar@npm:7.5.9"
+  version: 7.5.13
+  resolution: "tar@npm:7.5.13"
   dependencies:
     "@isaacs/fs-minipass": "npm:^4.0.0"
     chownr: "npm:^3.0.0"
     minipass: "npm:^7.1.2"
     minizlib: "npm:^3.1.0"
     yallist: "npm:^5.0.0"
-  checksum: 10c0/e870beb1b2477135ca2abe86b2d18f7b35d0a4e3a37bbc523d3b8f7adca268dfab543f26528a431d569897f8c53a7cac745cdfbc4411c2f89aeeacc652b81b0a
+  checksum: 10c0/5c65b8084799bde7a791593a1c1a45d3d6ee98182e3700b24c247b7b8f8654df4191642abbdb07ff25043d45dcff35620827c3997b88ae6c12040f64bed5076b
   languageName: node
   linkType: hard
 
@@ -5766,9 +5742,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:7.3.0":
-  version: 7.3.0
-  resolution: "vite@npm:7.3.0"
+"vite@npm:7.3.2":
+  version: 7.3.2
+  resolution: "vite@npm:7.3.2"
   dependencies:
     esbuild: "npm:^0.27.0"
     fdir: "npm:^6.5.0"
@@ -5817,7 +5793,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/0457c196cdd5761ec351c0f353945430fbad330e615b9eeab729c8ae163334f18acdc1d9cd7d9d673dbf111f07f6e4f0b25d4ac32360e65b4a6df9991046f3ff
+  checksum: 10c0/74be36907e208916f18bfec81c8eba18b869f0a170f1ece0a4dcb14874d0f0e7c022fb6c2ad896e3ee6c973fe88f53ac23b4078879ada340d8b263260868b8d4
   languageName: node
   linkType: hard
 
@@ -5968,7 +5944,7 @@ __metadata:
     "@sveltejs/adapter-auto": "npm:7.0.1"
     "@sveltejs/adapter-cloudflare": "npm:7.2.8"
     "@sveltejs/enhanced-img": "npm:0.9.3"
-    "@sveltejs/kit": "npm:2.53.3"
+    "@sveltejs/kit": "npm:2.57.1"
     "@sveltejs/vite-plugin-svelte": "npm:6.2.1"
     "@tailwindcss/typography": "npm:0.5.19"
     "@types/d3-array": "npm:^3"
@@ -5995,12 +5971,12 @@ __metadata:
     svelte-check: "npm:4.3.3"
     svelte-persisted-store: "npm:0.12.0"
     sveltekit-rate-limiter: "npm:0.7.0"
-    svgo: "npm:3.3.3"
+    svgo: "npm:4.0.1"
     tailwind-merge: "npm:3.4.1"
     tailwind-variants: "npm:3.2.2"
     tailwindcss: "npm:3.4.17"
     typescript: "npm:5.9.3"
-    vite: "npm:7.3.0"
+    vite: "npm:7.3.2"
     wrangler: "npm:4.69.0"
     zod: "npm:4.3.6"
   languageName: unknown
@@ -6156,11 +6132,11 @@ __metadata:
   linkType: hard
 
 "yaml@npm:^2.3.4":
-  version: 2.7.0
-  resolution: "yaml@npm:2.7.0"
+  version: 2.8.3
+  resolution: "yaml@npm:2.8.3"
   bin:
     yaml: bin.mjs
-  checksum: 10c0/886a7d2abbd70704b79f1d2d05fe9fb0aa63aefb86e1cb9991837dced65193d300f5554747a872b4b10ae9a12bc5d5327e4d04205f70336e863e35e89d8f4ea9
+  checksum: 10c0/ddff0e11c1b467728d7eb4633db61c5f5de3d8e9373cf84d08fb0cdee03e1f58f02b9f1c51a4a8a865751695addbd465a77f73f1079be91fe5493b29c305fd77
   languageName: node
   linkType: hard
 
