@@ -3517,9 +3517,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"layerchart@npm:1.0.12":
-  version: 1.0.12
-  resolution: "layerchart@npm:1.0.12"
+"layerchart@npm:1.0.13":
+  version: 1.0.13
+  resolution: "layerchart@npm:1.0.13"
   dependencies:
     "@dagrejs/dagre": "npm:^1.1.4"
     "@layerstack/svelte-actions": "npm:^1.0.1"
@@ -3550,7 +3550,7 @@ __metadata:
     lodash-es: "npm:^4.17.21"
   peerDependencies:
     svelte: ^3.56.0 || ^4.0.0 || ^5.0.0
-  checksum: 10c0/e1a5d4dd88b688d01e1e689f890259639098aa6e18786ff35a5ce857f144ba956a313db612bf35684353c951c00013e046912f305a2e97fdbc24491fe50c472b
+  checksum: 10c0/c57186c68f0e9a5d1a7604ffccb1409d874134bec39263405da57d98c14ca1c88a63927f03bdcc91cc3feedf82afe9967360b20c4dd98eec56191a114dc26cab
   languageName: node
   linkType: hard
 
@@ -5967,7 +5967,7 @@ __metadata:
     d3-scale: "npm:4.0.2"
     deepmerge: "npm:4.3.1"
     katex: "npm:0.16.27"
-    layerchart: "npm:1.0.12"
+    layerchart: "npm:1.0.13"
     lucide-svelte: "npm:0.562.0"
     mdsvex: "npm:0.12.5"
     misskey-js: "npm:2025.12.2"
