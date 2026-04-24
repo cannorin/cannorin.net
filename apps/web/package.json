@@ -36,7 +36,7 @@
     "remark-footnotes": "2.0",
     "remark-math": "6",
     "schema-dts": "2.0.0",
-    "svelte": "5.53.5",
+    "svelte": "5.55.4",
     "svelte-check": "4.3.3",
     "svgo": "4.0.1",
     "tailwind-variants": "3.2.2",
