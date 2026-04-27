@@ -1419,9 +1419,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:2.57.1":
-  version: 2.57.1
-  resolution: "@sveltejs/kit@npm:2.57.1"
+"@sveltejs/kit@npm:2.58.0":
+  version: 2.58.0
+  resolution: "@sveltejs/kit@npm:2.58.0"
   dependencies:
     "@standard-schema/spec": "npm:^1.0.0"
     "@sveltejs/acorn-typescript": "npm:^1.0.5"
@@ -1448,7 +1448,7 @@ __metadata:
       optional: true
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 10c0/53a15aa190931f34449f887e1f4ca433788220a15221dafaed82cdb120655fe8826fb6089bad4d3ca48540db4d48147652c97d3a414f7d06ba419c3ea0bdce19
+  checksum: 10c0/b21a38899c287d997b72df40e78039ef1a12f9a1f8ca0e2f8932a671bf4473a8e8a8a5de249d6bbb05e48f7dd442fe09fabf0ea286495da3f04a10ecd6317507
   languageName: node
   linkType: hard
 
@@ -5960,7 +5960,7 @@ __metadata:
     "@sveltejs/adapter-auto": "npm:7.0.1"
     "@sveltejs/adapter-cloudflare": "npm:7.2.8"
     "@sveltejs/enhanced-img": "npm:0.9.3"
-    "@sveltejs/kit": "npm:2.57.1"
+    "@sveltejs/kit": "npm:2.58.0"
     "@sveltejs/vite-plugin-svelte": "npm:6.2.1"
     "@tailwindcss/typography": "npm:0.5.19"
     "@types/d3-array": "npm:^3"
