@@ -79,7 +79,7 @@ import Card from "./card.svelte";
             <a href="https://discord.com/users/497190979216867329" target="_blank" rel="noopener noreferrer">Discord</a>,
             または <a href="mailto:contact@cannorin.net">contact@cannorin.net</a> までお願いします。
           </li>
-          <li>なお、現在特に転職の予定はありません。</li>
+          <li><a href="/blog/2026-06-11-job">2028年4月からを目安に転職先を探しています。</a></li>
         </ul>
       </address>
 
