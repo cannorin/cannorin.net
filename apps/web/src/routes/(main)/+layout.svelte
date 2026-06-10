@@ -48,7 +48,7 @@ let { children } = $props();
 
   <footer class={cn(limitWidth, "mt-auto flex items-center flex-col gap-1 lg:flex-row lg:gap-2 lg:justify-center text-xs")}>
     <p class="flex gap-1 items-end">
-      <LuCopyleft aria-label="Copyleft" size=12 /> 2024 cannorin. Some rights reserved.
+      <LuCopyleft aria-label="Copyleft" class="mb-[1px]" size=12 /> 2024-{new Date().getFullYear()} cannorin. Some rights reserved.
     </p>
     <p>
       The text of this website is licensed under <a class="underline" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.

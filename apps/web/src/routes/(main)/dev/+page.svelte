@@ -30,14 +30,14 @@ import Card from "./card.svelte";
 
       <h4 class="text-primary font-bold">プログラム言語</h4>
       <ul>
-        <li>TypeScript, C#, F#, OCaml</li>
-        <li>いわゆる宣言的プログラミングを得意としています。とはいえ業務で一番書いているのは TypeScript です。</li>
+        <li>TypeScript, C#, F#, OCaml, Java, Go</li>
+        <li>いわゆる OCaml 系の関数型プログラム言語を得意としています。とはいえ業務で一番書いているのは TypeScript です。</li>
         <li>静的型付きの言語ならだいたい全て対応できると思います。</li>
       </ul>
 
       <h4 class="text-primary font-bold">フロントエンド</h4>
       <ul>
-        <li>Next.js, SvelteKit, Vite, Tailwind CSS</li>
+        <li>Next.js, React Router, SvelteKit, Vite, Tailwind CSS</li>
         <li>いわゆる JAMstack アーキテクチャによるウェブサイト構築を得意としています。</li>
         <li>レスポンシブ対応は言わずもがな、Semantic HTML とかアクセシビリティにも結構こだわりがあります。</li>
       </ul>
@@ -53,7 +53,7 @@ import Card from "./card.svelte";
       <ul>
         <li>Docker, Terraform, GitHub Actions, AWS, Cloudflare, Vercel</li>
         <li>DevOps 周りの整備はひととおりできます。</li>
-        <li>最近は Cloudflare にお熱です。</li>
+        <li>普段使い用のマシンはすべて Fedora にしている程度には Linux に習熟しています。</li>
       </ul>
 
       <h3 id="works">つくったもの・関わったもの</h3>
