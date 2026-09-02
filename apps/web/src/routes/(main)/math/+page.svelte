@@ -42,6 +42,13 @@ const isAccepted = (p: Paper) =>
 
 const papers: Paper[] = [
   {
+    type: "preprint",
+    title:
+      "Intuitionistic and Constructive Modal Logics for Classical Modal Logicians",
+    authors: ["Yuta Sato"],
+    arxiv: "2608.29708",
+  },
+  {
     type: "published",
     title:
       "Uniform Lyndon interpolation for the pure logic of necessitation with a modal reduction principle",
@@ -79,6 +86,16 @@ type Talk = {
 };
 
 const talks: Talk[] = [
+  {
+    title: "IML でも CML でもない直観主義様相論理について",
+    talkers: ["Yuta Sato"],
+    conference: {
+      name: "日本数学会 2026年度秋季総合分科会",
+      url: "https://www.mathsoc.jp/activity/meeting/kobe26sept/index.html",
+    },
+    location: "神戸大学",
+    date: new Date(2026, 9 - 1, 4),
+  },
   {
     title: "IML でも CML でもない直観主義様相論理について",
     talkers: ["Yuta Sato"],
