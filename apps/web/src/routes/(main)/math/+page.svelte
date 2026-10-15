@@ -87,6 +87,27 @@ type Talk = {
 
 const talks: Talk[] = [
   {
+    title: "Kripke Game について",
+    talkers: ["Yuta Sato"],
+    conference: {
+      name: "第61回MLG数理論理学研究集会",
+      url: "https://www2.kobe-u.ac.jp/~tk/jp/workshop/MLG2026/",
+    },
+    location: "神戸大学",
+    date: new Date(2026, 10 - 1, 25),
+  },
+  {
+    title: "Kripke Game の紹介",
+    talkers: ["Yuta Sato"],
+    conference: {
+      name: "数学基礎論若手の会 2026",
+      url: "https://sites.google.com/view/wakatenokai2026/",
+    },
+    location: "エスポールみやぎ",
+    date: new Date(2026, 10 - 1, 17),
+    slide: "/math/wakate2026.pdf",
+  },
+  {
     title: "IML でも CML でもない直観主義様相論理について",
     talkers: ["Yuta Sato"],
     conference: {
