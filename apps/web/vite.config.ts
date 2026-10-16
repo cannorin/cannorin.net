@@ -3,6 +3,7 @@ import adapter from "@sveltejs/adapter-auto";
 import { enhancedImages } from "@sveltejs/enhanced-img";
 import { sveltekit } from "@sveltejs/kit/vite";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
+import tailwindcss from "@tailwindcss/vite";
 import { mdsvex } from "mdsvex";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeKatex from "rehype-katex-svelte";
@@ -12,6 +13,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     enhancedImages(),
     sveltekit({
       extensions: [".svelte", ".md"],

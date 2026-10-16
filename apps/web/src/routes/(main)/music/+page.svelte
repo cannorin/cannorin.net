@@ -10,7 +10,7 @@ import Card from "./card.svelte";
   <section class="flex flex-col items-center md:flex-row md:items-start gap-4 lg:gap-8">
     <h2 class="sr-only">自己紹介</h2>
 
-    <Card class="md:!sticky md:top-16" more="back" />
+    <Card class="md:sticky! md:top-16" more="back" />
 
     <section class="px-5 py-5 md:py-0 prose prose-sm prose-light">
       <p>ブレイクビーツと高速四つ打ちを中心に、統一感と説得力のあるマルチジャンルプレイをする DJ です。</p>
@@ -113,6 +113,8 @@ import Card from "./card.svelte";
 </main>
 
 <style lang="postcss">
+  @reference "../../../app.css";
+
   .back {
     @apply flex md:hidden items-center justify-center rounded-full px-3 py-2;
     background: linear-gradient(45deg, rgb(var(--primary) / 50%), rgb(var(--secondary) / 50%));

@@ -93,7 +93,7 @@ const sites: {
 <main class={cn(limitWidth, "flex flex-col items-center gap-6 lg:gap-8")}>
   <h1 class="sr-only">Links</h1>
 
-  <section class="w-full !max-w-[720px] prose prose-sm prose-light">
+  <section class="w-full max-w-[720px]! prose prose-sm prose-light">
     <h2 class="text-xl">コンテンツ</h2>
 
     <p>ブラウザで遊べる自作ゲームと、ブラウザで使える自作ツールを置いています。</p>
@@ -118,7 +118,7 @@ const sites: {
     </nav>
   </section>
 
-  <section class="w-full !max-w-[720px] prose prose-sm prose-light">
+  <section class="w-full max-w-[720px]! prose prose-sm prose-light">
     <h2 class="text-xl">その他のリンク</h2>
 
     <p>他のページで紹介していない各種アカウント・ページを載せています。</p>
@@ -143,7 +143,7 @@ const sites: {
     </nav>
   </section>
 
-  <section class="w-full !max-w-[720px] prose prose-sm prose-light">
+  <section class="w-full max-w-[720px]! prose prose-sm prose-light">
     <h2 class="text-xl">おすすめのサイト</h2>
 
     <p>私の友人のウェブサイトや、個人的に気に入っているウェブサイトを紹介しています。</p>
@@ -178,7 +178,7 @@ const sites: {
     {/each}
   </section>
 
-  <aside class="w-full !max-w-[720px] prose prose-sm">
+  <aside class="w-full max-w-[720px]! prose prose-sm">
     <p>何かありましたら下記までご連絡ください。相互リンクも募集中です！（ウェブサイトとブログのみ受け付けています。SNSのプロフィールページは受け付けていないのであしからず……）</p>
     <nav>
       <ul class="not-prose text-primary underline font-medium flex flex-wrap gap-x-4">

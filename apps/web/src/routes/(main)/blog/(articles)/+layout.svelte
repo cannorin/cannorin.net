@@ -29,7 +29,7 @@ let date = new Date(data.date);
       </div>
     </header>
 
-    <div class="prose prose-sm prose-light !max-w-fit">
+    <div class="prose prose-sm prose-light max-w-fit!">
       {@render children()}
     </div>
   </article>

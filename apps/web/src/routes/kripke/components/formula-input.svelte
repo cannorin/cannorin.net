@@ -51,7 +51,7 @@ $effect(() => {
   </button>
 {/snippet}
 
-<div class="rounded border border-foreground w-full">
+<div class="rounded-sm border border-foreground w-full">
   <div class="border-0 border-b border-muted px-2 py-1 flex justify-between">
     {@render mathKey("\\top", "⊤")}
     {@render mathKey("\\bot", "⊥")}
@@ -67,7 +67,7 @@ $effect(() => {
   <input
     id="formula"
     list="formula-history"
-    class={["ring-0 rounded focus:outline-none p-2 focus:ring-0 w-full", error && "border-primary"]}
+    class={["ring-0 rounded-sm focus:outline-hidden p-2 focus:ring-0 w-full", error && "border-primary"]}
     type="text"
     placeholder="Enter modal formula"
     disabled={disabled}

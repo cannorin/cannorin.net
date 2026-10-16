@@ -13,7 +13,7 @@ import Policy from "./policy.md";
     </a>
   </h1>
 
-  <section class="prose prose-sm !w-full !min-w-full rounded-xl p-6 bg-white">
+  <section class="prose prose-sm w-full! min-w-full! rounded-xl p-6 bg-white">
     <Policy />
   </section>
 </main>

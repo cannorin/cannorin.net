@@ -80,6 +80,8 @@ export const snapshot: Snapshot<SnapshotData> = {
 </main>
 
 <style lang="postcss">
+  @reference "../../app.css";
+
   .followme {
     @apply flex flex-row flex-wrap items-center justify-center gap-4 px-10 py-4 rounded-full;
     background: linear-gradient(45deg, rgb(var(--primary) / 50%), rgb(var(--secondary) / 50%));
