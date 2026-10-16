@@ -1,6 +1,6 @@
 import { sampleMany } from "@cannorin/utils";
 import type { RequestEvent } from "@sveltejs/kit";
-import type { InviteListResponse } from "misskey-js/entities.js";
+import type { AdminInviteListResponse } from "misskey-js/entities.js";
 import { RateLimiter } from "sveltekit-rate-limiter/server";
 import { dev } from "$app/env";
 import { MISSKEY_API_KEY } from "$app/env/private";
@@ -30,7 +30,7 @@ export async function GET(event: RequestEvent) {
     },
   );
   const json = await res.json();
-  const invite = sampleMany(json as InviteListResponse).find(
+  const invite = sampleMany(json as AdminInviteListResponse).find(
     (x) => !x.createdBy && !x.usedAt,
   );
   if (invite) return new Response(invite.code);

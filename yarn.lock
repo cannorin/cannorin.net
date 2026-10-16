@@ -1534,10 +1534,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@simplewebauthn/types@npm:12.0.0":
-  version: 12.0.0
-  resolution: "@simplewebauthn/types@npm:12.0.0"
-  checksum: 10c0/b7ce0ae692ea1e069ad9cb028fc1ccfe3f37e0f197825ba9e468e60194f463e88f5db254ddea296019b470a465ffaffa96fe27bb5e1e5d5d14bfcd068b04abed
+"@simplewebauthn/browser@npm:13.3.0":
+  version: 13.3.0
+  resolution: "@simplewebauthn/browser@npm:13.3.0"
+  checksum: 10c0/23a9c14777c4ef6d15fd6c876a1035e6e597e92f96cd0ffe83b0b869f0e4db7789a591da9a39d1fe2c0529c42ecc291c4a30227fc705f0b7729c255f9ccc7c21
   languageName: node
   linkType: hard
 
@@ -3247,10 +3247,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eventemitter3@npm:5.0.1":
-  version: 5.0.1
-  resolution: "eventemitter3@npm:5.0.1"
-  checksum: 10c0/4ba5c00c506e6c786b4d6262cfbce90ddc14c10d4667e5c83ae993c9de88aa856033994dd2b35b83e8dc1170e224e66a319fa80adc4c32adcd2379bbc75da814
+"eventemitter3@npm:5.0.4":
+  version: 5.0.4
+  resolution: "eventemitter3@npm:5.0.4"
+  checksum: 10c0/575b8cac8d709e1473da46f8f15ef311b57ff7609445a7c71af5cd42598583eee6f098fa7a593e30f27e94b8865642baa0689e8fa97c016f742abdb3b1bf6d9a
   languageName: node
   linkType: hard
 
@@ -4683,14 +4683,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"misskey-js@npm:2025.12.2":
-  version: 2025.12.2
-  resolution: "misskey-js@npm:2025.12.2"
+"misskey-js@npm:2026.10.0":
+  version: 2026.10.0
+  resolution: "misskey-js@npm:2026.10.0"
   dependencies:
-    "@simplewebauthn/types": "npm:12.0.0"
-    eventemitter3: "npm:5.0.1"
+    "@simplewebauthn/browser": "npm:13.3.0"
+    eventemitter3: "npm:5.0.4"
     reconnecting-websocket: "npm:4.4.0"
-  checksum: 10c0/a6b88b14c5a28e2c705f870667284d852c828ce8506a6d55eb4391f9ac0f0c26a72bb617ac523a463716b44a132b0e78754a0e590bfa7f880291aabae60ef12e
+  checksum: 10c0/4c5dccb2d4bbbac53694be1d8514b93eac0389ce4fa27a2d2064a375d20a463c8d34b3db9b0a1cf8be2e02a848ae86bf94854832c218537b4297a13c894f9bdc
   languageName: node
   linkType: hard
 
@@ -6602,7 +6602,7 @@ __metadata:
     layerchart: "npm:1.0.13"
     lucide-svelte: "npm:1.0.1"
     mdsvex: "npm:0.12.8"
-    misskey-js: "npm:2025.12.2"
+    misskey-js: "npm:2026.10.0"
     postcss: "npm:8.5.30"
     prismjs: "npm:1.30.0"
     rehype-external-links: "npm:3.0.0"
