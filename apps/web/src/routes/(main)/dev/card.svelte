@@ -2,9 +2,9 @@
 import SiGithub from "@icons-pack/svelte-simple-icons/icons/SiGithub";
 import SiQiita from "@icons-pack/svelte-simple-icons/icons/SiQiita";
 import SiZenn from "@icons-pack/svelte-simple-icons/icons/SiZenn";
-import IconTapl from "$assets/images/static/icon/tapl.webp?w=1080;800;600;400;300&enhanced";
-import Card, { type CardProps } from "$components/card.svelte";
-import { cn } from "$lib/utils";
+import IconTapl from "#assets/images/static/icon/tapl.webp?w=1080;800;600;400;300&enhanced";
+import Card, { type CardProps } from "#lib/components/card.svelte";
+import { cn } from "#lib/utils.js";
 
 let { more, ...rest }: Pick<CardProps, "more" | "class"> = $props();
 </script>

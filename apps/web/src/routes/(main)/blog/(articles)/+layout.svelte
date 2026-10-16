@@ -2,8 +2,8 @@
 import "prismjs/themes/prism.min.css";
 import "katex/dist/katex.min.css";
 
-import { limitWidth } from "$lib/constants";
-import { cn } from "$lib/utils";
+import { limitWidth } from "#lib/constants.js";
+import { cn } from "#lib/utils.js";
 
 let { children, data } = $props();
 

@@ -4,11 +4,11 @@ import "./webfont.css";
 
 import { sineOut } from "svelte/easing";
 import { fade } from "svelte/transition";
-import { browser } from "$app/environment";
+import Seo, { defaultSeo, mergeSeo } from "#lib/components/seo/index.js";
+import { browser } from "$app/env";
+import { PUBLIC_WEB_DOMAIN } from "$app/env/public";
 import { onNavigate } from "$app/navigation";
 import { page } from "$app/state";
-import Seo, { defaultSeo, mergeSeo } from "$components/seo";
-import { PUBLIC_WEB_DOMAIN } from "$env/static/public";
 
 let viewTransition = !browser || !!document.startViewTransition;
 

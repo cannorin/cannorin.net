@@ -1,7 +1,7 @@
 <script lang="ts">
-import Logo from "$assets/images/static/arubinosky/logo.svg?component";
-import { limitWidth } from "$lib/constants";
-import { cn } from "$lib/utils";
+import Logo from "#assets/images/static/arubinosky/logo.svg?component";
+import { limitWidth } from "#lib/constants.js";
+import { cn } from "#lib/utils.js";
 import Policy from "./policy.md";
 </script>
 

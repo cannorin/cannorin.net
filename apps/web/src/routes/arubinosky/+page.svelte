@@ -1,11 +1,11 @@
 <script lang="ts">
 import Check from "lucide-svelte/icons/check";
 import Copy from "lucide-svelte/icons/copy";
-import Chara from "$assets/images/static/arubinosky/arubinochan.svg?component";
-import CharaSad from "$assets/images/static/arubinosky/arubinochan-scared.svg?component";
-import Logo from "$assets/images/static/arubinosky/logo.svg?component";
-import { limitWidth } from "$lib/constants";
-import { cn } from "$lib/utils";
+import Chara from "#assets/images/static/arubinosky/arubinochan.svg?component";
+import CharaSad from "#assets/images/static/arubinosky/arubinochan-scared.svg?component";
+import Logo from "#assets/images/static/arubinosky/logo.svg?component";
+import { limitWidth } from "#lib/constants.js";
+import { cn } from "#lib/utils.js";
 import Embed from "./embed.svelte";
 import Terms from "./terms.md";
 

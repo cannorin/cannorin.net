@@ -1,7 +1,7 @@
 <script lang="ts">
-import Katex from "$lib/components/katex.svelte";
-import { limitWidth } from "$lib/constants";
-import { cn } from "$lib/utils";
+import Katex from "#lib/components/katex.svelte";
+import { limitWidth } from "#lib/constants.js";
+import { cn } from "#lib/utils.js";
 
 import Card from "./card.svelte";
 
