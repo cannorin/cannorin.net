@@ -104,7 +104,7 @@ function evaluate() {
   </div>
 </main>
 
-{#if status !== "playing"}
+{#if status !== "playing" && dialogOpen}
   {#await getAnswer() then answerId}
   {#await getShareProps(moves, status) then shareProps}
   {@const answerFrame = getFrame(answerId)}
