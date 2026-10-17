@@ -13,8 +13,8 @@ import LuCheck from "lucide-svelte/icons/check";
 import LuHeart from "lucide-svelte/icons/heart";
 import LuHeartCrack from "lucide-svelte/icons/heart-crack";
 import LuX from "lucide-svelte/icons/x";
-import Katex from "$lib/components/katex.svelte";
-import { cn } from "$lib/utils";
+import Katex from "#lib/components/katex.svelte";
+import { cn } from "#lib/utils.js";
 import { formulaHistory } from "../lib/store";
 import FormulaInput from "./formula-input.svelte";
 import FrameInput from "./frame-input.svelte";
@@ -129,7 +129,7 @@ const colors: Record<number, string> = {
   </div>
 
   <div class="flex flex-col items-center gap-2">
-    <div class="w-[300px] h-[300px] flex flex-col items-center justify-between border rounded border-border">
+    <div class="w-[300px] h-[300px] flex flex-col items-center justify-between border rounded-sm border-border">
       <span class="text-xs text-muted self-start px-2 py-1">id: {frameId} (≈ {isomorphic[frameId]})</span>
       <FrameInput bind:frame disabled={status !== "playing"} />
       <span class="text-sm px-2 py-1 self-end flex items-center">
@@ -141,7 +141,7 @@ const colors: Record<number, string> = {
       onclick={guess}
       disabled={!canGuess}
       class={[
-        "rounded w-full p-1 text-background font-bold flex items-center justify-center gap-2",
+        "rounded-sm w-full p-1 text-background font-bold flex items-center justify-center gap-2",
         canGuess ? "bg-primary" : "bg-muted cursor-not-allowed"
       ]}>
       Guess! <span class="flex items-center font-normal">(<LuHeart size=14 class="mt-1 mr-[1px]"/> 1)</span>
@@ -156,7 +156,7 @@ const colors: Record<number, string> = {
       type="submit"
       disabled={!canCheck}
       class={[
-        "rounded w-full p-1 text-background font-bold flex items-center justify-center gap-2",
+        "rounded-sm w-full p-1 text-background font-bold flex items-center justify-center gap-2",
         canCheck ? "bg-primary" : "bg-muted cursor-not-allowed"
       ]}>
       {#if life <= 1}
@@ -173,7 +173,7 @@ const colors: Record<number, string> = {
         {#if move.type === "guess"}
           <li class="flex justify-between items-center animate-fade-in">
             <FrameInput disabled width={125} height={125} frame={getFrame(move.frameId)} />
-            <span class={["rounded w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6 text-background flex items-center justify-center", move.correct ? "bg-green-700" : "bg-muted"]}>
+            <span class={["rounded-sm w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6 text-background flex items-center justify-center", move.correct ? "bg-green-700" : "bg-muted"]}>
               {#if move.correct}
                 <LuCheck size=24 />
               {:else}
@@ -185,20 +185,20 @@ const colors: Record<number, string> = {
         {#if move.type === "check"}
           <li class="flex justify-between items-center animate-fade-in">
             <Katex math={move.formulaStr} />
-            <span class={["rounded w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6 text-background font-bold flex items-center justify-center pb-[2px]", colors[move.valid]]}>{move.valid}</span>
+            <span class={["rounded-sm w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6 text-background font-bold flex items-center justify-center pb-[2px]", colors[move.valid]]}>{move.valid}</span>
           </li>
         {/if}
       {/each}
       {#if formulaStr}
         <li class="flex justify-between items-center animate-fade-in">
           <Katex math={formulaStr} />
-          <span class={["rounded w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6 text-background font-bold flex items-center justify-center pb-[2px] bg-muted"]}>?</span>
+          <span class={["rounded-sm w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6 text-background font-bold flex items-center justify-center pb-[2px] bg-muted"]}>?</span>
         </li>
       {/if}
       {#if status === "win"}
         <li>
           <button
-            class="flex flex-col items-center gap-2 rounded bg-green-700 text-background p-5 animate-fade-in w-full"
+            class="flex flex-col items-center gap-2 rounded-sm bg-green-700 text-background p-5 animate-fade-in w-full"
             onclick={() => onShare?.()}>
             <p class="text-xl font-bold">YOU WIN!</p>
             <p class="sr-only">Open result screen</p>
@@ -208,13 +208,13 @@ const colors: Record<number, string> = {
         {#await getAnswer() then answerId}
           <li>
             <button
-              class="flex flex-col gap-2 rounded bg-foreground text-background p-5 animate-fade-in w-full"
+              class="flex flex-col gap-2 rounded-sm bg-foreground text-background p-5 animate-fade-in w-full"
               onclick={() => onShare?.()}>
               <div>
                 <p class="text-xl font-bold">YOU LOSE!</p>
                 <p class="text-sm">The answer was:</p>
               </div>
-              <div class="flex flex-col items-center rounded bg-background w-full">
+              <div class="flex flex-col items-center rounded-sm bg-background w-full">
                 <span class="text-xs text-muted self-start px-2 py-1">id: {answerId}</span>
                 <FrameInput class="pb-6" disabled width={250} height={250} frame={getFrame(answerId)} />
               </div>

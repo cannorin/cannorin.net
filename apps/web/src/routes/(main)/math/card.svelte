@@ -2,9 +2,9 @@
 import SiOrcid from "@icons-pack/svelte-simple-icons/icons/SiOrcid";
 import SiResearchgate from "@icons-pack/svelte-simple-icons/icons/SiResearchgate";
 
-import IconLogic from "$assets/images/static/icon/logic-chang.webp?w=1080;800;600;400;300&enhanced";
-import Card, { type CardProps } from "$components/card.svelte";
-import { cn } from "$lib/utils";
+import IconLogic from "#assets/images/static/icon/logic-chang.webp?w=1080;800;600;400;300&enhanced";
+import Card, { type CardProps } from "#lib/components/card.svelte";
+import { cn } from "#lib/utils.js";
 
 let { more, ...rest }: Pick<CardProps, "more" | "class"> = $props();
 </script>

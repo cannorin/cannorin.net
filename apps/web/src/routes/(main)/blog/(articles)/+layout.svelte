@@ -2,8 +2,8 @@
 import "prismjs/themes/prism.min.css";
 import "katex/dist/katex.min.css";
 
-import { limitWidth } from "$lib/constants";
-import { cn } from "$lib/utils";
+import { limitWidth } from "#lib/constants.js";
+import { cn } from "#lib/utils.js";
 
 let { children, data } = $props();
 
@@ -29,7 +29,7 @@ let date = new Date(data.date);
       </div>
     </header>
 
-    <div class="prose prose-sm prose-light !max-w-fit">
+    <div class="prose prose-sm prose-light max-w-fit!">
       {@render children()}
     </div>
   </article>

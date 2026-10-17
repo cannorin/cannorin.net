@@ -27,8 +27,7 @@ const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
   ]}
   seriesLayout="overlap"
   yScale={scaleLog()}
-  yDomain={[1, 1000]}
-  renderContext="svg">
+  yDomain={[1, 1000]}>
   <Svg>
     <Axis
       placement="left"
@@ -39,9 +38,11 @@ const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
     <Axis
       placement="bottom"
       tickLength={10}
+      ticks={[0,1,2,3,4,5,6,7,8,9,10]}
       class="fill-foreground" />
 
     <Area
+      y0={() => 1}
       y1={(d) => d.player}
       fill={"rgb(var(--primary))"}
       fillOpacity={0.3}
@@ -57,7 +58,7 @@ const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
       placement="center"
       offset={-1.1}
       format={(x) => x}
-      class="text-[10px] fill-background font-bold"
+      class="text-[10px] fill-background"
     />
   </Svg>
 </AreaChart>

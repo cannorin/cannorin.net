@@ -1,4 +1,4 @@
-import type { SeoProps } from "$components/seo";
+import type { SeoProps } from "#lib/components/seo/index.js";
 import { dailySeed } from "./lib/system";
 
 export async function load() {

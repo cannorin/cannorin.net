@@ -1,5 +1,5 @@
 import { error } from "@sveltejs/kit";
-import type { SeoProps } from "$components/seo";
+import type { SeoProps } from "#lib/components/seo/index.js";
 
 export async function load({ params }) {
   const seedStr = params.seed;

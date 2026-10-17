@@ -1,7 +1,7 @@
 <script lang="ts">
+import { limitWidth } from "#lib/constants.js";
+import { cn } from "#lib/utils.js";
 import { page } from "$app/state";
-import { limitWidth } from "$lib/constants";
-import { cn } from "$lib/utils";
 
 const codeNames: Record<number, string> = {
   400: "Bad Request",

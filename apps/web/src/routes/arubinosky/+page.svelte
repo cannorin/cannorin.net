@@ -1,11 +1,11 @@
 <script lang="ts">
 import Check from "lucide-svelte/icons/check";
 import Copy from "lucide-svelte/icons/copy";
-import Chara from "$assets/images/static/arubinosky/arubinochan.svg?component";
-import CharaSad from "$assets/images/static/arubinosky/arubinochan-scared.svg?component";
-import Logo from "$assets/images/static/arubinosky/logo.svg?component";
-import { limitWidth } from "$lib/constants";
-import { cn } from "$lib/utils";
+import Chara from "#assets/images/static/arubinosky/arubinochan.svg?component";
+import CharaSad from "#assets/images/static/arubinosky/arubinochan-scared.svg?component";
+import Logo from "#assets/images/static/arubinosky/logo.svg?component";
+import { limitWidth } from "#lib/constants.js";
+import { cn } from "#lib/utils.js";
 import Embed from "./embed.svelte";
 import Terms from "./terms.md";
 
@@ -34,7 +34,7 @@ let copied = $state(false);
     </a>
   </h1>
 
-  <section id="about" class="prose !w-full !min-w-full sect">
+  <section id="about" class="prose w-full! min-w-full! sect">
     <h2>あるびのすきーとは？</h2>
     <p>
       あるびのすきーは「シンプル」と「かわいい」をテーマにした <a href="https://misskey-hub.net/ja/" target="_blank" rel="noopener noreferrer">Misskey</a> インスタンスです。
@@ -51,7 +51,7 @@ let copied = $state(false);
     ↓登録は利用規約を読んでから！↓
   </section>
 
-  <section id="terms" class="prose !w-full !min-w-full sect">
+  <section id="terms" class="prose w-full! min-w-full! sect">
     <Terms />
   </section>
 
@@ -61,7 +61,7 @@ let copied = $state(false);
 
       {#if !invite}
         <button
-          class="border-2 rounded px-8 py-2 w-fit"
+          class="border-2 rounded-sm px-8 py-2 w-fit"
           onclick={async () => { invite = await getInviteCode() }}>
           今すぐ取得！
         </button>
@@ -69,7 +69,7 @@ let copied = $state(false);
         {@const code = invite.code}
         <div class="flex flex-col items-center gap-4">
           あなたの招待コードは
-          <div class="flex flex-nowrap items-center justify-between h-8 gap-2 border-2 rounded px-2">
+          <div class="flex flex-nowrap items-center justify-between h-8 gap-2 border-2 rounded-sm px-2">
             <code>{code}</code>
             <button title="コピー" onclick={() => { navigator.clipboard.writeText(code); copied = true; }} class="text-xs">
               {#if copied}
@@ -81,7 +81,7 @@ let copied = $state(false);
           </div>
         </div>
 
-        <a href="https://misskey.cannorin.net/" target="_blank" class="border-2 rounded px-8 py-2 w-fit">
+        <a href="https://misskey.cannorin.net/" target="_blank" class="border-2 rounded-sm px-8 py-2 w-fit">
           今すぐ登録！
         </a>
       {:else if invite.type === "rate-limited"}
@@ -108,6 +108,8 @@ let copied = $state(false);
 </main>
 
 <style lang="postcss">
+  @reference "../../app.css";
+
   .sect {
     @apply w-full rounded-xl p-6;
     background-color: white;

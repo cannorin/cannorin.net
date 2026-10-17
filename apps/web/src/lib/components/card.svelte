@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { Snippet } from "svelte";
 import type { Picture } from "vite-imagetools";
-import { cn } from "$lib/utils";
+import { cn } from "#lib/utils.js";
 
 export interface CardProps {
   class?: string | undefined;
@@ -49,8 +49,10 @@ let { image, title, description, links, more, ...rest }: CardProps = $props();
 </section>
 
 <style lang="postcss">
+  @reference "../../app.css";
+
   .card {
-    @apply relative max-w-[400px] md:w-[240px] xl:w-[360px] rounded-2xl flex flex-col items-center shadow overflow-clip;
+    @apply relative max-w-[400px] md:w-[240px] xl:w-[360px] rounded-2xl flex flex-col items-center shadow-sm overflow-clip;
 
     &::before {
       @apply absolute top-0 left-0 right-0 bottom-0 rounded-2xl border border-transparent;

@@ -1,4 +1,4 @@
-import type { SeoProps } from "$lib/components/seo";
+import type { SeoProps } from "#lib/components/seo/index.js";
 import { data } from "./data";
 
 export async function load({ url }) {

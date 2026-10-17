@@ -5,7 +5,7 @@ import {
 } from "bits-ui";
 import X from "lucide-svelte/icons/x";
 import type { Snippet } from "svelte";
-import { cn } from "$lib/utils.js";
+import { cn } from "#lib/utils.js";
 import * as Dialog from "./index.js";
 
 let {
@@ -32,7 +32,7 @@ let {
 	>
 		{@render children?.()}
 		<DialogPrimitive.Close
-			class="ring-offset-background focus:ring-ring data-[state=open]:bg-muted data-[state=open]:text-muted-foreground absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none"
+			class="ring-offset-background focus:ring-ring data-[state=open]:bg-muted data-[state=open]:text-muted-foreground absolute right-4 top-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:outline-hidden focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none"
 		>
 			<X class="size-4" />
 			<span class="sr-only">Close</span>

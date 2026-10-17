@@ -5,8 +5,8 @@ import SiMisskey from "@icons-pack/svelte-simple-icons/icons/SiMisskey";
 import SiSteam from "@icons-pack/svelte-simple-icons/icons/SiSteam";
 import SiTwitch from "@icons-pack/svelte-simple-icons/icons/SiTwitch";
 import SiX from "@icons-pack/svelte-simple-icons/icons/SiX";
-import { limitWidth } from "$lib/constants";
-import { cn } from "$lib/utils";
+import { limitWidth } from "#lib/constants.js";
+import { cn } from "#lib/utils.js";
 import type { Snapshot } from "../$types";
 import CardDev from "./dev/card.svelte";
 import CardMath from "./math/card.svelte";
@@ -80,6 +80,8 @@ export const snapshot: Snapshot<SnapshotData> = {
 </main>
 
 <style lang="postcss">
+  @reference "../../app.css";
+
   .followme {
     @apply flex flex-row flex-wrap items-center justify-center gap-4 px-10 py-4 rounded-full;
     background: linear-gradient(45deg, rgb(var(--primary) / 50%), rgb(var(--secondary) / 50%));

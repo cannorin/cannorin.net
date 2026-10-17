@@ -1,9 +1,9 @@
 import { sampleMany } from "@cannorin/utils";
-import { type RequestEvent, text } from "@sveltejs/kit";
-import type { InviteListResponse } from "misskey-js/entities.js";
+import type { RequestEvent } from "@sveltejs/kit";
+import type { AdminInviteListResponse } from "misskey-js/entities.js";
 import { RateLimiter } from "sveltekit-rate-limiter/server";
-import { dev } from "$app/environment";
-import { MISSKEY_API_KEY } from "$env/static/private";
+import { dev } from "$app/env";
+import { MISSKEY_API_KEY } from "$app/env/private";
 
 const limiter = new RateLimiter({
   IP: [10, "d"], // IP address limiter
@@ -30,9 +30,9 @@ export async function GET(event: RequestEvent) {
     },
   );
   const json = await res.json();
-  const invite = sampleMany(json as InviteListResponse).find(
+  const invite = sampleMany(json as AdminInviteListResponse).find(
     (x) => !x.createdBy && !x.usedAt,
   );
-  if (invite) return text(invite.code);
+  if (invite) return new Response(invite.code);
   return new Response("Not found", { status: 404 });
 }
