@@ -27,8 +27,7 @@ const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => ({
   ]}
   seriesLayout="overlap"
   yScale={scaleLog()}
-  yDomain={[1, 1000]}
-  renderContext="svg">
+  yDomain={[1, 1000]}>
   <Svg>
     <Axis
       placement="left"

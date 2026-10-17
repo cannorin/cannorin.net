@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
-@source "../../../node_modules/layerchart";
 
 @utility container {
   margin-inline: auto;
