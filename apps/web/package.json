@@ -60,6 +60,7 @@
     "@icons-pack/svelte-simple-icons": "7.2.0",
     "@tailwindcss/typography": "0.5.20",
     "d3-scale": "4.0.2",
+    "d3-shape": "3.2.0",
     "deepmerge": "4.3.1",
     "layerchart": "2.8.0",
     "lucide-svelte": "1.0.1",
