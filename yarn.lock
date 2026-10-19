@@ -1528,11 +1528,11 @@ __metadata:
   linkType: hard
 
 "@types/d3-shape@npm:^3":
-  version: 3.1.8
-  resolution: "@types/d3-shape@npm:3.1.8"
+  version: 3.2.0
+  resolution: "@types/d3-shape@npm:3.2.0"
   dependencies:
     "@types/d3-path": "npm:*"
-  checksum: 10c0/49ec2172b9eb66fc1d036e2a23966216bb972e9af51ddbed134df24bd71aedf207bb1ef81903a119eb4e1f5e927cf44beacaf64c9af86474e5548594b102b574
+  checksum: 10c0/bffd3795875532747706ffd9978d7078672ca2cfc30f2fd047c5ecab6dac739656f6ca0e7b934c6229a635dd83e7c564e6b3becd347304e620211acca2c1a5a9
   languageName: node
   linkType: hard
 
