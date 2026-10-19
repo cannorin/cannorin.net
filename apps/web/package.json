@@ -48,7 +48,7 @@
     "svgo": "4.1.0",
     "tailwind-variants": "3.3.1",
     "tailwindcss": "4.3.3",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "vite": "8.3.4",
     "wrangler": "4.151.0"
   },
