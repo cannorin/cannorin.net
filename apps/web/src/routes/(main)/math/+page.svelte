@@ -95,6 +95,7 @@ const talks: Talk[] = [
     },
     location: "神戸大学",
     date: new Date(2026, 10 - 1, 25),
+    slide: "/math/mlg61.pdf",
   },
   {
     title: "Kripke Game の紹介",
