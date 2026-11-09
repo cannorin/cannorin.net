@@ -49,7 +49,7 @@
     "tailwind-variants": "4.0.1",
     "tailwindcss": "4.3.3",
     "typescript": "6.0.3",
-    "vite": "8.3.5",
+    "vite": "8.3.6",
     "wrangler": "4.156.0"
   },
   "dependencies": {
